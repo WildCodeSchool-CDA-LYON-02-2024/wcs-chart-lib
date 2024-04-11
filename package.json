@@ -1,0 +1,22 @@
+{
+  "name": "wcs-chart-lib",
+  "version": "1.0.0",
+  "description": "Chart creation with canvas api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "wcs-chart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib/issues"
+  },
+  "homepage": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib#readme"
+}
