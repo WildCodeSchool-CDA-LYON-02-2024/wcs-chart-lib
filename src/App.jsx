@@ -1,9 +1,10 @@
 import './App.css';
+import Canvas from './components/Canvas';
 
 function App() {
   return (
     <>
-      <div>WCS CHART</div>
+      <Canvas />
     </>
   );
 }
