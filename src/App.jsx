@@ -1,11 +1,10 @@
-import "./App.css";
-import Rectangle from "./components/Rectangle";
+import './App.css';
+import Canvas from './components/Canvas';
 
 function App() {
   return (
     <>
-      <h1>WCS CHART</h1>
-      <Rectangle />
+      <Canvas />
     </>
   );
 }
