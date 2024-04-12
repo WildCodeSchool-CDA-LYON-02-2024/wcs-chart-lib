@@ -57,7 +57,6 @@ function Rectangle() {
       context.fillStyle = color;
       context.fill();
       console.log(radius);
-
     };
     // dssiner le titre
     drawTitle(context, canvas.width / 2, 30, "Titre du graphe");
@@ -74,9 +73,12 @@ function Rectangle() {
 
   return (
     <div id="container-canvas-wcs">
-      <canvas id="canvas-wcs" ref={canvasRef} width={200} height={200} />
+      <canvas id="canvas-wcs" ref={canvasRef} />
     </div>
   );
 }
+
+//capter evenement si taille écran change => redraw
+
 
 export default Rectangle;
