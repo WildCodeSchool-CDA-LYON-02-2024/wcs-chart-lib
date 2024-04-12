@@ -1,9 +1,11 @@
-import './App.css';
+import "./App.css";
+import Rectangle from "./components/Rectangle";
 
 function App() {
   return (
     <>
-      <div>WCS CHART</div>
+      <h1>WCS CHART</h1>
+      <Rectangle />
     </>
   );
 }
