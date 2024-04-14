@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react';
 import Point from '../services/Point';
 import CanvasConfig from '../services/Canvas';
 
-const Canvas = (props) => {
+const Canvas = ({ type }) => {
   const canvasRef = useRef(null);
+  console.log('type :', type);
 
   useEffect(() => {
     //Init canvasCfg
@@ -25,7 +26,7 @@ const Canvas = (props) => {
     twoPoint.drawLine(canvasCfg.context, 0, 0, 0, canvasCfg.canvas.height);
   }, []);
 
-  return <canvas ref={canvasRef} {...props} />;
+  return <canvas ref={canvasRef} />;
 };
 
 export default Canvas;
