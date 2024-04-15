@@ -3,6 +3,9 @@ class ChartPoint {
   constructor(
     context,
     spacing,
+    radius = 2,
+    fillColor = 'black',
+    strokeColor = 'black',
     height = innerHeight / 2 - spacing,
     width = innerWidth - spacing
   ) {
@@ -11,6 +14,9 @@ class ChartPoint {
     this.spacing = spacing;
     this.height = height;
     this.width = width;
+    this.radius = radius;
+    this.fillColor = fillColor;
+    this.strokeColor = strokeColor;
     // ratio for => the largest value in the array = the height of the canvas
     this.scaleH = (this.height - this.spacing) / Math.max(...this.pointArray);
     this.ratioH = (this.height - this.spacing) / this.pointArray.length;
@@ -29,9 +35,40 @@ class ChartPoint {
 
   drawPointArray() {
     // const twoPoint = new Point();
-    for (let i = 0; i < this.pointArray.length; i++) {
-      this.drawXgrid();
 
+    this.drawGrid();
+    this.initValue();
+
+    this.drawArc();
+  }
+
+  drawGrid() {
+    for (let i = 0; i < this.pointArray.length; i++) {
+      // draw X grid
+      this.twoPoint.drawLine(
+        this.context,
+        this.columnPoint,
+        this.height,
+        this.columnPoint,
+        this.spacing,
+        'grey'
+      );
+      // draw Y grid
+      this.twoPoint.drawLine(
+        this.context,
+        this.spacing, // start x
+        this.rowPoint - this.ratioH, // start y
+        this.width, // end x
+        this.rowPoint - this.ratioH, // end y
+        'grey'
+      );
+      this.columnPoint += this.ratioW;
+      this.rowPoint += this.ratioH;
+    }
+  }
+
+  drawArc() {
+    for (let i = 0; i < this.pointArray.length; i++) {
       this.context.beginPath();
       this.context.arc(
         // x position
@@ -39,14 +76,19 @@ class ChartPoint {
         // y position
         this.height - this.pointArray[i] * this.scaleH,
         // rayon
-        2,
+        this.radius,
         // start to angle 0
         0,
         // finish at 360°
-        Math.PI * 2
+        Math.PI * 2,
+        this.color
       );
+      this.context.fillStyle = this.fillColor;
 
+      this.context.strokeStyle = this.strokeColor;
       this.context.fill();
+
+      this.context.stroke();
 
       this.columnPoint += this.ratioW;
       this.rowPoint += this.ratioH;
@@ -54,24 +96,9 @@ class ChartPoint {
     }
   }
 
-  drawXgrid() {
-    this.twoPoint.drawLine(
-      this.context,
-      this.columnPoint,
-      this.height,
-      this.columnPoint,
-      this.spacing,
-      'grey'
-    );
-    console.log('column', this.columnPoint);
-    this.twoPoint.drawLine(
-      this.context,
-      this.spacing, // start x
-      this.rowPoint - this.ratioH, // start y
-      this.width, // end x
-      this.rowPoint - this.ratioH, // end y
-      'grey'
-    );
+  initValue() {
+    this.columnPoint = this.spacing + this.ratioW;
+    this.rowPoint = this.spacing + this.ratioH;
   }
 }
 
