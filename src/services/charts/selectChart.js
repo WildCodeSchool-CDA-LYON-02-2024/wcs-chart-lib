@@ -1,10 +1,11 @@
+import ChartLine from './ChartLine.js';
 import ChartPoint from './ChartPoint.js';
 
 const selectChart = (config, canvasCfg) => {
-  let chartPoint;
+  let chart;
   switch (config.type) {
     case 'point':
-      chartPoint = new ChartPoint(
+      chart = new ChartPoint(
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -13,16 +14,24 @@ const selectChart = (config, canvasCfg) => {
         config.height,
         config.width
       );
-      chartPoint.drawPointArray();
+      chart.drawPointArray();
       break;
     case 'line':
       //TO DO
+      chart = new ChartLine(
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.height,
+        config.width
+      );
+
+      chart.drawGrid();
       break;
     case 'bar':
       // TO DO
       break;
     default:
-      chartPoint = new ChartPoint(
+      chart = new ChartPoint(
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -31,7 +40,7 @@ const selectChart = (config, canvasCfg) => {
         config.height,
         config.width
       );
-      chartPoint.drawPointArray();
+      chart.drawPointArray();
   }
 };
 

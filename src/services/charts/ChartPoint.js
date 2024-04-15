@@ -7,9 +7,10 @@ class ChartPoint {
     fillColor = 'black',
     strokeColor = 'black',
     height = innerHeight / 2,
-    width = innerWidth
+    width = innerWidth,
+    data = [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0, 300]
   ) {
-    this.pointArray = [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0];
+    this.data = data;
     this.context = context;
     this.spacing = spacing;
     this.height = height - this.spacing;
@@ -18,11 +19,11 @@ class ChartPoint {
     this.fillColor = fillColor;
     this.strokeColor = strokeColor;
     // sclae for => the largest value in the array = the height of the canvas
-    this.scaleH = (this.height - this.spacing) / Math.max(...this.pointArray);
+    this.scaleH = (this.height - this.spacing) / Math.max(...this.data);
     // to create a column number based on the number of values
-    this.ratioH = (this.height - this.spacing) / this.pointArray.length;
+    this.ratioH = (this.height - this.spacing) / this.data.length;
     // to create a column number based on the number of values
-    this.ratioW = (this.width - this.spacing) / this.pointArray.length;
+    this.ratioW = (this.width - this.spacing) / this.data.length;
     // position x of the point
     this.columnPoint = this.spacing + this.ratioW;
     this.rowPoint = this.spacing + this.ratioH;
@@ -35,8 +36,8 @@ class ChartPoint {
     this.drawArc();
   }
 
-  drawGrid() {
-    for (let i = 0; i < this.pointArray.length; i++) {
+  drawGrid(data = this.data) {
+    for (let i = 0; i < data.length; i++) {
       // draw X grid
       this.twoPoint.drawLine(
         this.context,
@@ -59,14 +60,14 @@ class ChartPoint {
     }
   }
 
-  drawArc() {
-    for (let i = 0; i < this.pointArray.length; i++) {
+  drawArc(data = this.data) {
+    for (let i = 0; i < data.length; i++) {
       this.context.beginPath();
       this.context.arc(
         // x position
         this.columnPoint,
         // y position
-        this.height - this.pointArray[i] * this.scaleH,
+        this.height - data[i] * this.scaleH,
         // rayon
         this.radius,
         // start to angle 0
