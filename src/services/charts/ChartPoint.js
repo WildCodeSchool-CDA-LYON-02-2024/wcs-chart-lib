@@ -28,10 +28,13 @@ class ChartPoint {
     this.columnPoint = this.spacing + this.ratioW;
     this.rowPoint = this.spacing + this.ratioH;
     this.twoPoint = new Point();
+    this.line = new Point();
   }
 
   drawPointArray() {
     this.drawGrid();
+    this.initValue();
+    this.drawLoopLine();
     this.initValue();
     this.drawArc();
   }
@@ -58,6 +61,18 @@ class ChartPoint {
       );
       this.nextColumnAndRow();
     }
+  }
+
+  drawLoopLine(data = this.data) {
+    this.line.drawLoop(
+      data,
+      this.context,
+      this.spacing,
+      this.height,
+      this.columnPoint,
+      this.ratioW,
+      this.scaleH
+    );
   }
 
   drawArc(data = this.data) {

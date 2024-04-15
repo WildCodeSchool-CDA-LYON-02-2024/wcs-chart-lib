@@ -25,7 +25,8 @@ const selectChart = (config, canvasCfg) => {
         config.width
       );
 
-      chart.drawGrid();
+      chart.drawLineArray();
+
       break;
     case 'bar':
       // TO DO

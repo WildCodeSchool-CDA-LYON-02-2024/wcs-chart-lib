@@ -24,6 +24,34 @@ class Point {
     // Draw line
     context.stroke();
   }
+
+  drawLoop(
+    data,
+    context,
+    startX,
+    startY,
+    columnPoint,
+    ratioW,
+    scaleH,
+    color = 'black'
+  ) {
+    // Color line
+    context.strokeStyle = color;
+
+    // Start path
+    context.beginPath();
+
+    // Coordinate x and y of first point
+    context.moveTo(startX, startY);
+    //Loop for next point
+    for (let i = 0; i < data.length; i++) {
+      // Coordinate x and y of next
+      context.lineTo(columnPoint, startY - data[i] * scaleH);
+      columnPoint += ratioW;
+    }
+    // Draw line
+    context.stroke();
+  }
 }
 
 export default Point;

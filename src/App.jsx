@@ -8,8 +8,8 @@ function App() {
     radius: 5,
     fillColor: 'blue',
     strokeColor: 'red',
-    height: 500,
-    width: 700,
+    // height: 800,
+    // width: 400,
   };
 
   return (
