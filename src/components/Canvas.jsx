@@ -6,10 +6,9 @@ import initCanvas from '../services/initCanvas';
 
 const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
-  console.log('type', config.type);
 
   useEffect(() => {
-    const canvasCfg = new CanvasConfig(canvasRef);
+    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
     initCanvas(canvasCfg, config);
     selectChart(config, canvasCfg);
   }, []);

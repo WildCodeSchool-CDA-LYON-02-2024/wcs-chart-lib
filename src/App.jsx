@@ -6,11 +6,12 @@ function App() {
   const config = {
     type: 'point',
     radius: 5,
-    fillColor: 'black',
-    strokeColor: 'black',
+    fillColor: 'blue',
+    strokeColor: 'red',
     height: 500,
     width: 500,
   };
+
   return (
     <>
       <Canvas config={config} />
