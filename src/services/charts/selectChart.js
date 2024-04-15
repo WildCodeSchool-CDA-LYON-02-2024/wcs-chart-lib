@@ -22,7 +22,16 @@ const selectChart = (config, canvasCfg) => {
       // TO DO
       break;
     default:
-      console.error('You have to select the type of the chart');
+      chartPoint = new ChartPoint(
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.radius,
+        config.fillColor,
+        config.strokeColor,
+        config.height,
+        config.width
+      );
+      chartPoint.drawPointArray();
   }
 };
 

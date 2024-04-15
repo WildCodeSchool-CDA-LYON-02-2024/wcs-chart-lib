@@ -17,8 +17,9 @@ class ChartPoint {
     this.radius = radius;
     this.fillColor = fillColor;
     this.strokeColor = strokeColor;
-    // ratio for => the largest value in the array = the height of the canvas
+    // sclae for => the largest value in the array = the height of the canvas
     this.scaleH = (this.height - this.spacing) / Math.max(...this.pointArray);
+    // to create a column number based on the number of values
     this.ratioH = (this.height - this.spacing) / this.pointArray.length;
     // to create a column number based on the number of values
     this.ratioW = (this.width - this.spacing) / this.pointArray.length;
@@ -26,19 +27,11 @@ class ChartPoint {
     this.columnPoint = this.spacing + this.ratioW;
     this.rowPoint = this.spacing + this.ratioH;
     this.twoPoint = new Point();
-
-    console.log('this W', this.width);
-    console.log('innerW', innerWidth);
-    console.log('spacing', spacing);
-    console.log('ratio W', this.ratioH);
   }
 
   drawPointArray() {
-    // const twoPoint = new Point();
-
     this.drawGrid();
     this.initValue();
-
     this.drawArc();
   }
 
@@ -62,8 +55,7 @@ class ChartPoint {
         this.rowPoint - this.ratioH, // end y
         'grey'
       );
-      this.columnPoint += this.ratioW;
-      this.rowPoint += this.ratioH;
+      this.nextColumnAndRow();
     }
   }
 
@@ -83,19 +75,25 @@ class ChartPoint {
         Math.PI * 2,
         this.color
       );
+      // apply color
       this.context.fillStyle = this.fillColor;
-
       this.context.strokeStyle = this.strokeColor;
-      this.context.fill();
 
+      // draw fill and stroke
+      this.context.fill();
       this.context.stroke();
 
-      this.columnPoint += this.ratioW;
-      this.rowPoint += this.ratioH;
-      console.log('row', this.rowPoint);
+      this.nextColumnAndRow();
     }
   }
 
+  // increment for next column or row
+  nextColumnAndRow() {
+    this.columnPoint += this.ratioW;
+    this.rowPoint += this.ratioH;
+  }
+
+  // Init column and row start
   initValue() {
     this.columnPoint = this.spacing + this.ratioW;
     this.rowPoint = this.spacing + this.ratioH;

@@ -9,7 +9,7 @@ function App() {
     fillColor: 'blue',
     strokeColor: 'red',
     height: 500,
-    width: 500,
+    width: 700,
   };
 
   return (
