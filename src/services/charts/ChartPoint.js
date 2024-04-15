@@ -6,14 +6,14 @@ class ChartPoint {
     radius = 2,
     fillColor = 'black',
     strokeColor = 'black',
-    height = innerHeight / 2 - spacing,
-    width = innerWidth - spacing
+    height = innerHeight / 2,
+    width = innerWidth
   ) {
     this.pointArray = [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0];
     this.context = context;
     this.spacing = spacing;
-    this.height = height;
-    this.width = width;
+    this.height = height - this.spacing;
+    this.width = width - this.spacing;
     this.radius = radius;
     this.fillColor = fillColor;
     this.strokeColor = strokeColor;

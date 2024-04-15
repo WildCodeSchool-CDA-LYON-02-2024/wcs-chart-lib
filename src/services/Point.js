@@ -1,6 +1,7 @@
 class Point {
   constructor(x, y) {
-    (this.x = x), (this.y = y);
+    this.x = x;
+    this.y = y;
   }
 
   // function who draw a line with two points

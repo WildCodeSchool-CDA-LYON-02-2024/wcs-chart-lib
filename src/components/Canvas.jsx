@@ -1,16 +1,20 @@
 import { useEffect, useRef } from 'react';
 import Point from '../services/Point';
 import CanvasConfig from '../services/Canvas';
-// import ChartPoint from '../services/charts/ChartPoint';
-import selectChart from '../services/selectChart.js';
+import selectChart from '../services/charts/selectChart';
 
-const Canvas = ({ type }) => {
+const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
-  console.log('type :', type);
+  console.log('type', config.type);
 
   useEffect(() => {
     //Init canvasCfg
+    const height = config.height ? config.height : canvasCfg.canvas.height;
+    const width = config.width ? config.width : canvasCfg.canvas.width;
     const canvasCfg = new CanvasConfig(canvasRef);
+
+    const loadedAxies = false;
+    console.log('loaded axies :', loadedAxies);
 
     //Init point
     const twoPoint = new Point();
@@ -19,9 +23,9 @@ const Canvas = ({ type }) => {
     twoPoint.drawLine(
       canvasCfg.context,
       canvasCfg.spacing,
-      canvasCfg.canvas.height - canvasCfg.spacing,
-      canvasCfg.canvas.width - canvasCfg.spacing,
-      canvasCfg.canvas.height - canvasCfg.spacing
+      height - canvasCfg.spacing,
+      width - canvasCfg.spacing,
+      height - canvasCfg.spacing
     );
 
     // Init y line
@@ -30,10 +34,10 @@ const Canvas = ({ type }) => {
       canvasCfg.spacing,
       canvasCfg.spacing,
       canvasCfg.spacing,
-      canvasCfg.canvas.height - canvasCfg.spacing
+      height - canvasCfg.spacing
     );
 
-    selectChart(type, canvasCfg);
+    selectChart(config, canvasCfg);
   }, []);
 
   return <canvas ref={canvasRef} />;
