@@ -1,31 +1,27 @@
 import { useEffect, useRef } from 'react';
-import Point from '../services/Point';
-import CanvasConfig from '../services/Canvas';
+import PropTypes from 'prop-types';
 
-const Canvas = (props) => {
+import CanvasConfig from '../services/Canvas';
+import selectChart from '../services/charts/selectChart';
+import initAxies from '../services/initAxies';
+
+const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    //Init canvasCfg
-    const canvasCfg = new CanvasConfig(canvasRef);
+    // create a new Class for setup the canvas
+    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
+    // init the canvas using configuration of the class and props
+    initAxies(canvasCfg, config);
+    // select the chart for the canvas
+    selectChart(config, canvasCfg);
+  }, [config]);
 
-    //Init point
-    const twoPoint = new Point();
+  return <canvas ref={canvasRef} />;
+};
 
-    // init x line
-    twoPoint.drawLine(
-      canvasCfg.context,
-      0,
-      canvasCfg.canvas.height,
-      canvasCfg.canvas.width,
-      canvasCfg.canvas.height
-    );
-
-    // Init y line
-    twoPoint.drawLine(canvasCfg.context, 0, 0, 0, canvasCfg.canvas.height);
-  }, []);
-
-  return <canvas ref={canvasRef} {...props} />;
+Canvas.propTypes = {
+  config: PropTypes.object,
 };
 
 export default Canvas;
