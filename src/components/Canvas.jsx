@@ -1,31 +1,59 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Point from '../services/Point';
 import CanvasConfig from '../services/Canvas';
 
-const Canvas = (props) => {
+
+// eslint-disable-next-line react/prop-types
+const Canvas = ({ lineColor, textType, lineType, width, height,backround }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    //Init canvasCfg
     const canvasCfg = new CanvasConfig(canvasRef);
-
-    //Init point
     const twoPoint = new Point();
 
-    // init x line
+   
+    canvasCfg.canvas.width = width || 300;
+    canvasCfg.canvas.height = height || 150;
+
+
+   
+    
+  
+
+    // Clear canvas
+    canvasCfg.context.clearRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height); 
+    canvasCfg.context.fillStyle = backround
+    canvasCfg.context.fillRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height);
+    console.log(backround);
+   
+
+    // Draw lines
     twoPoint.drawLine(
       canvasCfg.context,
       0,
       canvasCfg.canvas.height,
       canvasCfg.canvas.width,
-      canvasCfg.canvas.height
+      canvasCfg.canvas.height,
+      lineColor || 'yellow'
     );
 
-    // Init y line
-    twoPoint.drawLine(canvasCfg.context, 0, 0, 0, canvasCfg.canvas.height);
-  }, []);
+    twoPoint.drawLine(
+      canvasCfg.context,
+      0,
+      0,
+      0,
+      canvasCfg.canvas.height,
+      lineColor || 'red'
+    );
 
-  return <canvas ref={canvasRef} {...props} />;
+    // Set font
+    canvasCfg.context.font = textType || 'normal 16px Arial';
+
+    // Add more drawing operations as needed
+
+  }, [lineColor, textType, lineType, width, height]);
+
+  return <canvas ref={canvasRef} />;
 };
 
 export default Canvas;

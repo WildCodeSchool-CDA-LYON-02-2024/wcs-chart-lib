@@ -4,7 +4,13 @@ import Canvas from './components/Canvas';
 function App() {
   return (
     <>
-      <Canvas />
+      <Canvas
+       
+        lineColor='red'
+        width={300}
+        height={200} 
+        backround= 'rgba(255, 0, 0, 0.2)'
+         /> 
     </>
   );
 }
