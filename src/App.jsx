@@ -2,15 +2,21 @@ import './App.css';
 import Canvas from './components/Canvas';
 
 function App() {
+  //Exemple for config chart
+  const config = {
+    type: 'point',
+    toLine: true,
+    grid: true,
+    radius: 5,
+    fillColor: 'red',
+    // strokeColor: 'red',
+    // // height: 500,
+    // width: 500,
+  };
+
   return (
     <>
-      <Canvas
-       
-        lineColor='red'
-        width={300}
-        height={200} 
-        backround= 'rgba(255, 0, 0, 0.2)'
-         /> 
+      <Canvas config={config} />
     </>
   );
 }

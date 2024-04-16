@@ -1,59 +1,27 @@
-import React, { useEffect, useRef } from 'react';
-import Point from '../services/Point';
+import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
 import CanvasConfig from '../services/Canvas';
+import selectChart from '../services/charts/selectChart';
+import initAxies from '../services/initAxies';
 
-
-// eslint-disable-next-line react/prop-types
-const Canvas = ({ lineColor, textType, lineType, width, height,backround }) => {
+const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvasCfg = new CanvasConfig(canvasRef);
-    const twoPoint = new Point();
-
-   
-    canvasCfg.canvas.width = width || 300;
-    canvasCfg.canvas.height = height || 150;
-
-
-   
-    
-  
-
-    // Clear canvas
-    canvasCfg.context.clearRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height); 
-    canvasCfg.context.fillStyle = backround
-    canvasCfg.context.fillRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height);
-    console.log(backround);
-   
-
-    // Draw lines
-    twoPoint.drawLine(
-      canvasCfg.context,
-      0,
-      canvasCfg.canvas.height,
-      canvasCfg.canvas.width,
-      canvasCfg.canvas.height,
-      lineColor || 'yellow'
-    );
-
-    twoPoint.drawLine(
-      canvasCfg.context,
-      0,
-      0,
-      0,
-      canvasCfg.canvas.height,
-      lineColor || 'red'
-    );
-
-    // Set font
-    canvasCfg.context.font = textType || 'normal 16px Arial';
-
-    // Add more drawing operations as needed
-
-  }, [lineColor, textType, lineType, width, height]);
+    // create a new Class for setup the canvas
+    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
+    // init the canvas using configuration of the class and props
+    initAxies(canvasCfg, config);
+    // select the chart for the canvas
+    selectChart(config, canvasCfg);
+  }, [config]);
 
   return <canvas ref={canvasRef} />;
+};
+
+Canvas.propTypes = {
+  config: PropTypes.object,
 };
 
 export default Canvas;
