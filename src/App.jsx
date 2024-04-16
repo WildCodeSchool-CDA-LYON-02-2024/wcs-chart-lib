@@ -19,9 +19,7 @@ function App() {
       tag: 'test',
       data: {
         labels: ['poires', 'pommes', 'banane'],
-        values: [
-          150, 8500, 100, 100, 200, 100, 100, 100, 200, 150, 100, 100, 100,
-        ],
+        values: [15, 25, 35, 45, 55],
       },
     },
   ];

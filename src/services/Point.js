@@ -33,7 +33,7 @@ class Point {
     columnPoint,
     ratioW,
     scaleH,
-    minValue,
+    limitMinValue,
     color = 'black'
   ) {
     // Color line
@@ -47,11 +47,17 @@ class Point {
     //Loop for next point
     for (let i = 0; i < data.length; i++) {
       // Coordinate x and y of next
-      context.lineTo(columnPoint, startY - (data[i] - minValue) * scaleH);
+      context.lineTo(columnPoint, startY - (data[i] - limitMinValue) * scaleH);
       columnPoint += ratioW;
     }
     // Draw line
     context.stroke();
+  }
+
+  drawText(context, value, x, y) {
+    context.font = '15px serif';
+
+    context.fillText(value, x, y);
   }
 }
 
