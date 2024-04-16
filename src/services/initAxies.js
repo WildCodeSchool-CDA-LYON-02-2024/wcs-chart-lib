@@ -1,12 +1,12 @@
 import Point from './Point';
 
-//Init canvasCfg
-const initCanvas = (canvasCfg, config) => {
+//Init height and width axies
+const initAxies = (canvasCfg, config) => {
   // Init height and witdh if there is config from the client or not
   const height = config.height ? config.height : canvasCfg.canvas.height;
   const width = config.width ? config.width : canvasCfg.canvas.width;
 
-  //Init point
+  //affected a new point class
   const twoPoint = new Point();
 
   // Init x line
@@ -28,4 +28,4 @@ const initCanvas = (canvasCfg, config) => {
   );
 };
 
-export default initCanvas;
+export default initAxies;

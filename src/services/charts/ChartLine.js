@@ -8,7 +8,7 @@ class ChartLine extends ChartPoint {
     // draw grid
     this.drawGrid();
     // init value of row and column for draw again
-    this.initValue();
+    this.initStartForClmnAndRow();
     // draw line with an array and a loop : start to next point => to next point
     this.drawLoopLine();
   }
