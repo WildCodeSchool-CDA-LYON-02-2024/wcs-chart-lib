@@ -56,8 +56,7 @@ class ChartPoint {
   drawGrid(data = this.data) {
     for (let i = 0; i < data.length; i++) {
       // draw X grid
-      console.log('this.startColumn', this.startColumn);
-      console.log('this.startRow', this.startRow);
+
       this.twoPoint.drawLine(
         this.context,
         this.startColumn,
