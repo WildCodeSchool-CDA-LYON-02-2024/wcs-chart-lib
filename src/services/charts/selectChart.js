@@ -1,7 +1,7 @@
 import ChartLine from './ChartLine.js';
 import ChartPoint from './ChartPoint.js';
 
-const selectChart = (config, canvasCfg, data) => {
+const selectChart = (config, canvasCfg, dataset) => {
   let chart;
   switch (config.type) {
     case 'point':
@@ -13,10 +13,9 @@ const selectChart = (config, canvasCfg, data) => {
         config.strokeColor,
         config.height,
         config.width,
-        data,
         config.toLine,
         config.grid,
-        config
+        dataset
       );
       chart.drawPointArray();
       break;
@@ -44,7 +43,7 @@ const selectChart = (config, canvasCfg, data) => {
         config.strokeColor,
         config.height,
         config.width,
-        data,
+        dataset,
         config.toLine
       );
       chart.drawPointArray();

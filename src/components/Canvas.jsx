@@ -5,7 +5,7 @@ import CanvasConfig from '../services/Canvas';
 import selectChart from '../services/charts/selectChart';
 import initAxies from '../services/initAxies';
 
-const Canvas = ({ config }) => {
+const Canvas = ({ config, dataset }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Canvas = ({ config }) => {
     // init the canvas using configuration of the class and props
     initAxies(canvasCfg, config);
     // select the chart for the canvas
-    selectChart(config, canvasCfg);
+    selectChart(config, canvasCfg, dataset);
   }, [config]);
 
   return <canvas ref={canvasRef} />;
@@ -22,6 +22,7 @@ const Canvas = ({ config }) => {
 
 Canvas.propTypes = {
   config: PropTypes.object,
+  dataset: PropTypes.object,
 };
 
 export default Canvas;
