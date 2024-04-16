@@ -14,9 +14,19 @@ function App() {
     // width: 500,
   };
 
+  const dataset = [
+    {
+      tag: 'test',
+      data: {
+        labels: ['poires', 'pommes', 'banane'],
+        values: [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0, 300],
+      },
+    },
+  ];
+
   return (
     <>
-      <Canvas config={config} />
+      <Canvas config={config} dataset={dataset} />
     </>
   );
 }
