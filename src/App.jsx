@@ -18,8 +18,21 @@ function App() {
     {
       tag: 'test',
       data: {
-        labels: ['poires', 'pommes', 'banane'],
-        values: [15, 25, 35, 45, 55],
+        labels: [
+          'Janvier',
+          'Fevrier',
+          'Mars',
+          'Avril',
+          'Mai',
+          'Juin',
+          'Juillet',
+          'Aout',
+          'Septemnre',
+          'Octobre',
+          'Novembre',
+          'Decembre',
+        ],
+        values: [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
       },
     },
   ];

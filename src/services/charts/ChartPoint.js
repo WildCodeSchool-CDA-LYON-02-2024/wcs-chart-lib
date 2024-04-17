@@ -24,6 +24,8 @@ class ChartPoint {
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
 
+    this.margin = 20;
+
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
 
@@ -62,7 +64,8 @@ class ChartPoint {
       this.minValueOfData,
       this.mostSignificantDigitMin,
       this.nbOfZeroOfMin,
-      this.lowerSignificantDigit
+      this.lowerSignificantDigit,
+      this.maxValueOfData
     );
     //I store the result in another variable
     this.limitMinValue = this.calcMinValue;
@@ -94,14 +97,16 @@ class ChartPoint {
     if (this.cfgToline === true) {
       this.drawLoopLine();
     }
-    this.drawNumber();
+    this.initStartForClmnAndRow();
+    this.drawLabels();
 
+    this.drawNumber();
     this.initStartForClmnAndRow();
     this.drawArc();
     this.axieYNumber();
   }
 
-  //Generate a new array of values for y-axie
+  // Generate a new array of values for y-axie
   axieYNumber() {
     let yArray = [];
     let incrValue =
@@ -114,15 +119,31 @@ class ChartPoint {
     return yArray;
   }
 
+  // Draw numbers on y axie
   drawNumber(data = this.data) {
     for (let j = 0; j < data.length + 1; j++) {
       this.twoPoint.drawText(
         this.context,
         this.axieYNumber()[j],
-        20,
+        this.margin,
         this.height
       );
       this.height -= this.ratioH;
+    }
+  }
+
+  // Draw labels
+  drawLabels(label = this.labels) {
+    let nexPositionX = this.spacing;
+    for (let i = 0; i < label.length; i++) {
+      this.twoPoint.drawText(
+        this.context,
+        label[i],
+
+        nexPositionX - this.context.measureText(label[i]).width / 2,
+        this.height + this.margin * 2
+      );
+      nexPositionX += this.ratioW;
     }
   }
 
