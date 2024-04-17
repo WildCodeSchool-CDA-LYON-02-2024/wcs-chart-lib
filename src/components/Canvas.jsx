@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Point from '../services/Point';
 import CanvasConfig from '../services/Canvas';
 
 
 // eslint-disable-next-line react/prop-types
-const Canvas = ({ lineColor, textType, lineType, width, height,backround }) => {
+const Canvas = ({ lineColor, textType, lineType, width, height,background }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -22,9 +22,9 @@ const Canvas = ({ lineColor, textType, lineType, width, height,backround }) => {
 
     // Clear canvas
     canvasCfg.context.clearRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height); 
-    canvasCfg.context.fillStyle = backround
+    canvasCfg.context.fillStyle = background;
     canvasCfg.context.fillRect(0, 0, canvasCfg.canvas.width, canvasCfg.canvas.height);
-    console.log(backround);
+    console.log(background);
    
 
     // Draw lines
@@ -51,7 +51,7 @@ const Canvas = ({ lineColor, textType, lineType, width, height,backround }) => {
 
     // Add more drawing operations as needed
 
-  }, [lineColor, textType, lineType, width, height]);
+  }, [lineColor, textType, lineType, width, height, background]);
 
   return <canvas ref={canvasRef} />;
 };

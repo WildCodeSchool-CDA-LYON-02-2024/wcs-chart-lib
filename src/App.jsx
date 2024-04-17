@@ -1,16 +1,10 @@
-import './App.css';
-import Canvas from './components/Canvas';
+import "./App.css";
+import Canvas from "./components/Canvas";
 
 function App() {
   return (
     <>
-      <Canvas
-       
-        lineColor='red'
-        width={300}
-        height={200} 
-        backround= 'rgba(255, 0, 0, 0.2)'
-         /> 
+      <Canvas lineColor="green" width={900} height={700} background="green" />
     </>
   );
 }
