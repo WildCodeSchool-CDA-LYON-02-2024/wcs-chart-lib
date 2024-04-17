@@ -1,10 +1,10 @@
-import './App.css';
-import Canvas from './components/Canvas';
+import "./App.css";
+import TestCanvas from "./components/TestCanvas";
 
 function App() {
   return (
     <>
-      <Canvas />
+      <TestCanvas />
     </>
   );
 }
