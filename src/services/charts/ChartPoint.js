@@ -2,6 +2,7 @@ import Point from '../Point';
 import { limitMinValue, limitMaxValue } from '../caclFunction.js';
 class ChartPoint {
   constructor(
+    data,
     context,
     spacing,
     radius = 2,
@@ -10,8 +11,7 @@ class ChartPoint {
     height = innerHeight / 2,
     width = innerWidth,
     cfgToLine = false,
-    cfgGrid = false,
-    data
+    cfgGrid = false
   ) {
     this.context = context;
     // -----------------CONFIG CHART VALUES --------------------//
@@ -26,6 +26,7 @@ class ChartPoint {
 
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
+
     this.tag = data[0].tag;
     this.labels = data[0].data.labels;
     this.data = data[0].data.values;

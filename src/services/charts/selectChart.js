@@ -6,6 +6,7 @@ const selectChart = (config, canvasCfg, dataset) => {
   switch (config.type) {
     case 'point':
       chart = new ChartPoint(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -14,14 +15,14 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.height,
         config.width,
         config.toLine,
-        config.grid,
-        dataset
+        config.grid
       );
       chart.drawPointArray();
       break;
     case 'line':
       //TO DO
       chart = new ChartLine(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,

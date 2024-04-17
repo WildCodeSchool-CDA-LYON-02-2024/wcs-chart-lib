@@ -4,7 +4,7 @@ import Canvas from './components/Canvas';
 function App() {
   //Exemple for config chart
   const config = {
-    type: 'point',
+    type: 'line',
     toLine: true,
     grid: true,
     radius: 5,
