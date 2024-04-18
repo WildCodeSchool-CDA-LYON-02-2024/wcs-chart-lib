@@ -1,6 +1,8 @@
 import Point from '../Point';
+import { limitMinValue, limitMaxValue } from '../caclFunction.js';
 class ChartPoint {
   constructor(
+    data,
     context,
     spacing,
     radius = 2,
@@ -8,7 +10,6 @@ class ChartPoint {
     strokeColor = 'black',
     height = innerHeight / 2,
     width = innerWidth,
-    data = [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0, 300],
     cfgToLine = false,
     cfgGrid = false
   ) {
@@ -18,14 +19,60 @@ class ChartPoint {
     this.radius = radius;
     this.fillColor = fillColor;
     this.strokeColor = strokeColor;
-    this.height = height - this.spacing;
-    this.width = width - this.spacing;
-    this.data = data;
+    this.heightParams = height - this.spacing;
+    this.height = this.heightParams;
+    this.widthParams = width - this.spacing;
+    this.width = this.widthParams;
+
+    this.margin = 20;
+
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
 
-    // sclae for => the largest value in the array = the height of the canvas
-    this.scaleH = (this.height - this.spacing) / Math.max(...this.data);
+    this.tag = data[0].tag;
+    this.labels = data[0].data.labels;
+    this.data = data[0].data.values;
+
+    //-----------------------------------------------------------------------------
+    /* I use these variables to calculate a larger number 
+    (from the largest number in the table) 
+    to define a rounded up value, for example, for 610 => 700;
+    for 8601 => 9000 */
+    this.minValueOfData = Math.min(...this.data);
+    this.maxValueOfData = Math.max(...this.data);
+    this.mostSignificantDigitMax = [this.maxValueOfData.toString()[0]];
+    this.mostSignificantDigitMin = [this.minValueOfData.toString()[0]];
+    this.nbOfZeroOfMax = this.maxValueOfData.toString().length - 1;
+    this.nbOfZeroOfMin = this.minValueOfData.toString().length - 1;
+
+    this.higherSignificantDigit = parseInt(this.mostSignificantDigitMax) + 1;
+    this.lowerSignificantDigit = parseInt(this.mostSignificantDigitMin) - 1;
+
+    // ---------------------------------------------------------------------------
+
+    //  return a value from the highest value in the array
+    this.calcMaxValue = limitMaxValue(
+      this.higherSignificantDigit.toString(),
+      this.nbOfZeroOfMax
+    );
+
+    // I store the result in another variable
+    this.limitMaxValue = this.calcMaxValue;
+
+    //  return a value from the smallest value in the array
+    this.calcMinValue = limitMinValue(
+      this.minValueOfData,
+      this.mostSignificantDigitMin,
+      this.nbOfZeroOfMin,
+      this.lowerSignificantDigit,
+      this.maxValueOfData
+    );
+    //I store the result in another variable
+    this.limitMinValue = this.calcMinValue;
+
+    // sclae for => the largest value in the array = the height of the chart
+    this.scaleH =
+      (this.height - this.spacing) / (this.limitMaxValue - this.limitMinValue);
     // to create a column number based on the number of values
     this.ratioH = (this.height - this.spacing) / this.data.length;
     // to create a column number based on the number of values
@@ -40,6 +87,8 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
+    console.log('max', this.limitMaxValue);
+    console.log('min', this.limitMinValue);
     if (this.cfgGrid === true) {
       this.drawGrid();
     }
@@ -48,9 +97,54 @@ class ChartPoint {
     if (this.cfgToline === true) {
       this.drawLoopLine();
     }
+    this.initStartForClmnAndRow();
+    this.drawLabels();
 
+    this.drawNumber();
     this.initStartForClmnAndRow();
     this.drawArc();
+    this.axieYNumber();
+  }
+
+  // Generate a new array of values for y-axie
+  axieYNumber() {
+    let yArray = [];
+    let incrValue =
+      (this.limitMaxValue - parseInt(this.limitMinValue)) / this.data.length;
+    let value = parseInt(this.limitMinValue);
+    for (let i = 0; i < this.data.length + 1; i++) {
+      yArray.push(Math.round(value).toString());
+      value += incrValue;
+    }
+    return yArray;
+  }
+
+  // Draw numbers on y axie
+  drawNumber(data = this.data) {
+    for (let j = 0; j < data.length + 1; j++) {
+      this.twoPoint.drawText(
+        this.context,
+        this.axieYNumber()[j],
+        this.margin,
+        this.height
+      );
+      this.height -= this.ratioH;
+    }
+  }
+
+  // Draw labels
+  drawLabels(label = this.labels) {
+    let nexPositionX = this.spacing;
+    for (let i = 0; i < label.length; i++) {
+      this.twoPoint.drawText(
+        this.context,
+        label[i],
+
+        nexPositionX - this.context.measureText(label[i]).width / 2,
+        this.height + this.margin * 2
+      );
+      nexPositionX += this.ratioW;
+    }
   }
 
   drawGrid(data = this.data) {
@@ -87,7 +181,8 @@ class ChartPoint {
       this.height,
       this.startColumn,
       this.ratioW,
-      this.scaleH
+      this.scaleH,
+      this.limitMinValue
     );
   }
 
@@ -99,7 +194,7 @@ class ChartPoint {
         // x position
         this.startColumn,
         // y position
-        this.height - data[i] * this.scaleH,
+        this.height - (data[i] - this.limitMinValue) * this.scaleH,
         // rayon
         this.radius,
         // start to angle 0
@@ -115,7 +210,6 @@ class ChartPoint {
       // draw fill and stroke
       this.context.fill();
       this.context.stroke();
-
       this.nextColumnAndRow();
     }
   }
@@ -130,6 +224,7 @@ class ChartPoint {
   initStartForClmnAndRow() {
     this.startColumn = this.spacing;
     this.startRow = this.spacing;
+    this.height = this.heightParams;
   }
 }
 
