@@ -1,4 +1,5 @@
 import './App.css';
+import TestCanvas from './components/TestCanvas';
 import Canvas from './components/Canvas';
 
 function App() {
@@ -14,9 +15,33 @@ function App() {
     // width: 500,
   };
 
+  const dataset = [
+    {
+      tag: 'test',
+      data: {
+        labels: [
+          'Janvier',
+          'Fevrier',
+          'Mars',
+          'Avril',
+          'Mai',
+          'Juin',
+          'Juillet',
+          'Aout',
+          'Septemnre',
+          'Octobre',
+          'Novembre',
+          'Decembre',
+        ],
+        values: [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+      },
+    },
+  ];
+
   return (
     <>
-      <Canvas config={config} />
+      <TestCanvas config={config} dataset={dataset} />
+      <Canvas config={config} dataset={dataset} />
     </>
   );
 }

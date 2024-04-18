@@ -2,11 +2,12 @@ import ChartLine from './ChartLine.js';
 import ChartPoint from './ChartPoint.js';
 import ChartBar from './ChartBar.js';
 
-const selectChart = (config, canvasCfg, data) => {
+const selectChart = (config, canvasCfg, dataset) => {
   let chart;
   switch (config.type) {
     case 'point':
       chart = new ChartPoint(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -14,16 +15,15 @@ const selectChart = (config, canvasCfg, data) => {
         config.strokeColor,
         config.height,
         config.width,
-        data,
         config.toLine,
-        config.grid,
-        config
+        config.grid
       );
       chart.drawPointArray();
       break;
     case 'line':
       //TO DO
       chart = new ChartLine(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,
@@ -50,6 +50,7 @@ const selectChart = (config, canvasCfg, data) => {
       break;
     default:
       chart = new ChartPoint(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -57,7 +58,6 @@ const selectChart = (config, canvasCfg, data) => {
         config.strokeColor,
         config.height,
         config.width,
-        data,
         config.toLine
       );
       chart.drawPointArray();
