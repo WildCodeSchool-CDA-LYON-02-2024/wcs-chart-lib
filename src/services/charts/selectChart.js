@@ -37,6 +37,7 @@ const selectChart = (config, canvasCfg, dataset) => {
       break;
     default:
       chart = new ChartPoint(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -44,7 +45,6 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.strokeColor,
         config.height,
         config.width,
-        dataset,
         config.toLine
       );
       chart.drawPointArray();
