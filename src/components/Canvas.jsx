@@ -1,22 +1,39 @@
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-
 import CanvasConfig from "../services/Canvas";
+import Legend from "../services/Legend";
 import selectChart from "../services/charts/selectChart";
 import initAxies from "../services/initAxies";
 
-const Canvas = ({ config }) => {
+const Canvas = ({ config, legend }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
-    initAxies(canvasCfg, config);
-    selectChart(config, canvasCfg);
+    const legendService = new Legend();
 
+    const handleResize = () => {
+      const canvasCfg = new CanvasConfig(
+        canvasRef,
+        config.height,
+        config.width
+      );
+
+      const drawContent = () => {
+        if (legend) {
+          legendService.drawLegend(
+            canvasCfg.context,
+            legend,
+            canvasCfg.canvas,
+            canvasCfg.spacing
+          );
+        }
+      };
+
+      drawContent();
+      initAxies(canvasCfg, config);
+      selectChart(config, canvasCfg);
     };
 
-    
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -24,13 +41,14 @@ const Canvas = ({ config }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [config]);
+  }, [config, legend]);
 
   return <canvas ref={canvasRef} />;
 };
 
 Canvas.propTypes = {
-  config: PropTypes.object,
+  config: PropTypes.object.isRequired,
+  legend: PropTypes.oneOf(["inline", "blockLeft", "blockRight", "none"]),
 };
 
 export default Canvas;

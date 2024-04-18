@@ -1,14 +1,15 @@
-import './App.css';
-import Canvas from './components/Canvas';
+import "./App.css";
+import TestCanvas from "./components/TestCanvas";
+import Canvas from "./components/Canvas";
 
 function App() {
   //Exemple for config chart
   const config = {
-    type: 'point',
+    type: "point",
     toLine: true,
     grid: true,
     radius: 5,
-    fillColor: 'red',
+    fillColor: "red",
     // strokeColor: 'red',
     // // height: 500,
     // width: 500,
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <TestCanvas config={config}/>
       <Canvas config={config} />
     </>
   );
