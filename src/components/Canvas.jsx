@@ -1,20 +1,29 @@
-import { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
-import CanvasConfig from '../services/Canvas';
-import selectChart from '../services/charts/selectChart';
-import initAxies from '../services/initAxies';
+import CanvasConfig from "../services/Canvas";
+import selectChart from "../services/charts/selectChart";
+import initAxies from "../services/initAxies";
 
 const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // create a new Class for setup the canvas
-    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
-    // init the canvas using configuration of the class and props
+    const handleResize = () => {
+      const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
     initAxies(canvasCfg, config);
-    // select the chart for the canvas
     selectChart(config, canvasCfg);
+
+    };
+
+    
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [config]);
 
   return <canvas ref={canvasRef} />;
