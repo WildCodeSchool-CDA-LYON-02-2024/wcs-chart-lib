@@ -9,24 +9,15 @@ const Canvas = ({ config }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
+    const handleResize = () => {
+      const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
     initAxies(canvasCfg, config);
     selectChart(config, canvasCfg);
-  }, [config]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const { current: canvas } = canvasRef;
-      const canvasCfg = new CanvasConfig(
-        canvasRef,
-        window.innerHeight / 2,
-        window.innerWidth
-      );
-      canvas.width = canvasCfg.canvas.width;
-      canvas.height = canvasCfg.canvas.height;
-      initAxies(canvasCfg, config);
-      selectChart(config, canvasCfg);
     };
+
+    
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
