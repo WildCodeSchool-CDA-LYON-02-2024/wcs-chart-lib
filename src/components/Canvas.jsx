@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 import CanvasConfig from "../services/Canvas";
 import Point from "../services/Point";
 import Legend from "../services/Legend";
+import selectChart from "../services/charts/selectChart";
+import initAxies from "../services/initAxies";
 
-const Canvas = ({ legend, ...props }) => {
+const Canvas = ({ config, legend }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvasCfg = new CanvasConfig(canvasRef);
+    const canvasCfg = new CanvasConfig(canvasRef, config.height, config.width);
     const legendService = new Legend();
 
     const drawContent = () => {
@@ -25,13 +27,28 @@ const Canvas = ({ legend, ...props }) => {
       }
     };
 
-    drawContent();
-  }, [legend]);
+    const handleResize = () => {
+      const { current: canvas } = canvasRef;
+      canvasCfg.updateCanvas(canvas, config.height, config.width);
+      initAxies(canvasCfg, config);
+      selectChart(config, canvasCfg);
+    };
 
-  return <canvas ref={canvasRef} {...props} />;
+    drawContent();
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [config, legend]);
+
+  return <canvas ref={canvasRef} />;
 };
 
 Canvas.propTypes = {
+  config: PropTypes.object.isRequired,
   legend: PropTypes.oneOf(["inline", "blockLeft", "blockRight", "none"]),
 };
 
