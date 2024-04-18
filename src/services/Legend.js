@@ -3,6 +3,9 @@ class Legend {
 
   drawLegend(context, layout, canvas, spacing) {
     switch (layout) {
+      case "onTop":
+        this.drawLegendOnTheTop(context, canvas, spacing);
+        break;
       case "inline":
         this.drawInlineLegend(context, canvas, spacing);
         break;
@@ -17,9 +20,23 @@ class Legend {
     }
   }
 
+  drawLegendOnTheTop(context, canvas, spacing) {
+    const legendHeight = spacing;
+    const legendWidth = canvas.width;
+    const legendX = 0;
+    const legendY = 0;
+
+    context.fillStyle = "#dddddd";
+    context.fillRect(legendX, legendY, legendWidth, legendHeight);
+
+    context.fillStyle = "black";
+    context.font = "bold 24px Roboto";
+    context.textAlign = "center";
+    context.fillText("Légende", canvas.width / 2, 25);
+  }
+
   drawInlineLegend(context, canvas, spacing) {
     const legendHeight = spacing;
-    console.log(spacing);
     const legendWidth = canvas.width;
     const legendX = 0;
     const legendY = canvas.height - legendHeight;
@@ -30,7 +47,7 @@ class Legend {
     context.fillStyle = "black";
     context.font = "bold 24px Roboto";
     context.textAlign = "center";
-    context.fillText("Légende", canvas.width / 2, legendY + 100);
+    context.fillText("Légende", canvas.width / 2, legendY + 90);
   }
 
   drawBlockLeftLegend(context, canvas, spacing) {

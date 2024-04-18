@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 function TestCanvas({ config, dataset }) {
   return (
     <div>
+      <h2>Canvas avec légende en haut :</h2>
+      <Canvas
+        config={config}
+        dataset={dataset}
+        legend='onTop'
+        style={{ border: '1px solid black', marginBottom: '20px' }}
+      />
       <h2>Canvas avec légende en ligne :</h2>
       <Canvas
         config={config}
