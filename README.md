@@ -2,7 +2,7 @@
 ## Installation
 
 
-Clone this repository  (Eventually you can download the library with npm install chart-wcs)
+Clone this repository  (you will be able to download the library with npm install chart-wcs)
 
 ```bash
   git clone git@github.com:WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib.git
@@ -11,7 +11,7 @@ Clone this repository  (Eventually you can download the library with npm install
     
 # Wild Chart School
 
-The WildChartSchool component allows to display a graph by passing different props (dataset,
+The WildChartSchool component allows to display a Chart by passing different props (dataset,
 config, theme).
 
 Implementation exemple code 
@@ -30,7 +30,7 @@ function App() {
 export default App;
 ```
 
-- config is written as follows:
+- config Example :
 ```js  
  const config = {
     type: 'pie',
@@ -47,7 +47,7 @@ The config object is currently necessary for the operation of the component, eve
 If nothing is specified in the object, it defaults to a “point” type,
 See the storybook for all possible settings.
 
-- dataset is written as follows : 
+- dataset Example : 
 ```js
   const dataset = [
     {
@@ -72,7 +72,7 @@ See the storybook for all possible settings.
     },
   ];
 ```
-- It is a painting, with an object:
+ It is a painting, with an object:
     - tag: the title of the graph
     - data: another object with:
         - labels: represents the labels associated with values (for example, “January” will be displayed below the value “10”
@@ -87,11 +87,11 @@ The component uses the canvas API to draw the graph, is responsive and resizes a
 
 
 ## Screenshots
+[![chart-Line-PNG.png](https://i.postimg.cc/4xKbd5Mg/chart-Line-PNG.png)](https://postimg.cc/qNTCD84b)
 
-![Chart Line](https://ibb.co/BchyXhn)
-![Chart Point](https://ibb.co/6WPTnGz)
-![Chart Point-Line](https://ibb.co/yyJVwqz)
-![Chart Pie](https://ibb.co/gR7mrxm)
+[![chart-Point.png](https://i.postimg.cc/fyN0v4Mc/chart-Point.png)](https://postimg.cc/CBc1FQB5)
 
+[![chart-Point-Line.png](https://i.postimg.cc/2ySCYTGp/chart-Point-Line.png)](https://postimg.cc/TLFzqVBQ)
 
+[![chartPie.png](https://i.postimg.cc/YCcTfbFp/chartPie.png)](https://postimg.cc/8jHyTdw3)
 
