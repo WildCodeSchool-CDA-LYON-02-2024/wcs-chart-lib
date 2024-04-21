@@ -5,7 +5,7 @@ class CanvasConfig {
     this.context = this.canvas.getContext('2d');
     this.canvas.height = height;
     this.canvas.width = width;
-    this.spacing = 100;
+    this.spacing = 500;
   }
 }
 

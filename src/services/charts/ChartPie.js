@@ -1,13 +1,14 @@
 import ChartPoint from './ChartPoint';
-import Point from '../Point';
 
 class ChartPie extends ChartPoint {
   constructor(
     data,
     context,
     spacing,
-    startX = innerWidth / 2,
-    startY = innerHeight / 4,
+    width = innerWidth,
+    height = innerHeight / 2,
+    radius = (width - spacing) / 2,
+
     colist = [
       'cornflowerblue',
       'salmon',
@@ -31,51 +32,26 @@ class ChartPie extends ChartPoint {
       'lightyellow',
     ]
   ) {
-    super(data, context, spacing);
-    this.data = data[0].data.values;
-    this.context = context;
-    this.startX = startX;
-    this.startY = startY;
+    super(data, context, spacing, radius, null, null, width, height);
+
+    this.startX = width / 2;
+    this.startY = height / 2;
     this.colorList = colist;
   }
 
-  drawPie(radius = 200) {
-    console.log('this.TwoPoint', this.twoPoint);
-
-    let total = 0;
-    let lastEnd = 0;
-    let offset = Math.PI / 2;
-    for (let j = 0; j < this.data.length; j++) {
-      total += this.data[j];
-    }
-    for (let i = 0; i < this.data.length; i++) {
-      this.context.fillStyle = this.colorList[i];
-      let value = this.data[i];
-      let arcSector = Math.PI * ((2 * value) / total);
-      this.context.beginPath();
-      this.context.moveTo(this.startX, this.startY);
-      this.context.arc(
-        this.startX,
-        this.startY,
-        radius,
-        lastEnd - offset,
-        lastEnd + arcSector - offset
-      );
-      this.context.fill();
-      this.context.stroke();
-      lastEnd += arcSector;
-    }
+  draw() {
+    this.pieChart();
   }
 
-  drawPieChart() {
+  pieChart() {
     this.twoPoint.drawPie(
       this.data,
       this.context,
       this.colorList,
       this.startX,
-      this.startY
+      this.startY,
+      this.radius
     );
-    console.log('twoPoint', this.twoPoint.drawPie);
   }
 }
 

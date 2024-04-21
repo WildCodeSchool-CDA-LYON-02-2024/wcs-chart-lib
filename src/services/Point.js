@@ -60,12 +60,7 @@ class Point {
     context.fillText(value, x, y);
   }
 
-  drawPie(data, context, colorList, startX, startY, radius = 200) {
-    console.log('context', context);
-    console.log('colorList', colorList);
-    console.log('starX', startX);
-    console.log('Stary', startY);
-    console.log('data :', data);
+  drawPie(data, context, colorList, startX, startY, radius) {
     let total = 0;
     let lastEnd = 0;
     let offset = Math.PI / 2;
@@ -76,8 +71,9 @@ class Point {
       context.fillStyle = colorList[i];
       let value = data[i];
       let arcSector = Math.PI * ((2 * value) / total);
+
       context.beginPath();
-      context.moveTo(this.startX, this.startY);
+      context.moveTo(startX, startY);
       context.arc(
         startX,
         startY,
@@ -86,10 +82,9 @@ class Point {
         lastEnd + arcSector - offset
       );
       context.fill();
-      context.stroke();
       context.closePath();
+
       lastEnd += arcSector;
-      console.log('lastEnd ', lastEnd);
     }
   }
 }

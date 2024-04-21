@@ -8,8 +8,8 @@ class ChartPoint {
     radius = 2,
     fillColor = 'black',
     strokeColor = 'black',
-    height = innerHeight / 2,
     width = innerWidth,
+    height = innerHeight / 2,
     cfgToLine = false,
     cfgGrid = false
   ) {

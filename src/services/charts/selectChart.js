@@ -22,7 +22,13 @@ const selectChart = (config, canvasCfg, dataset) => {
       break;
     case 'line':
       //TO DO
-      chart = new ChartLine(dataset, canvasCfg.context, canvasCfg.spacing);
+      chart = new ChartLine(
+        dataset,
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.width,
+        config.height
+      );
 
       chart.drawLineArray();
 
@@ -35,10 +41,11 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        canvasCfg.width,
-        canvasCfg.height
+        config.width,
+        config.height,
+        config.radius
       );
-      chart.drawPie();
+      chart.draw();
       break;
     default:
       chart = new ChartPoint(
