@@ -87,8 +87,6 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    console.log('max', this.limitMaxValue);
-    console.log('min', this.limitMinValue);
     if (this.cfgGrid === true) {
       this.drawGrid();
     }

@@ -38,8 +38,7 @@ const limitMinValue = (
 ) => {
   let newStr = '';
   let result = '';
-  console.log('1', lowerSignificantDigit);
-  console.log('2', mostSignificantDigitMin);
+
   // If my lenght value is equal to 1, I return 0 (exemple : 9 => 0)
   // je veux retun 0 aussi quand, je suis inferieur a 100, et que le plus grand nombre
   // est superieur a 100
