@@ -16,7 +16,8 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.height,
         config.width,
         config.toLine,
-        config.grid
+        config.grid,
+        config.multipleData
       );
       chart.drawPointArray();
       break;

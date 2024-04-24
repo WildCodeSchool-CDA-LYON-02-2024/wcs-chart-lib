@@ -1,5 +1,6 @@
 import Point from '../Point';
 import { limitMinValue, limitMaxValue } from '../caclFunction.js';
+import { findMinValue, findMaxValue } from '../adaptiveData.js';
 class ChartPoint {
   constructor(
     data,
@@ -29,6 +30,9 @@ class ChartPoint {
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
 
+    //-------------one or multiple data---------------
+    // this.wichData = adaptiveData(cfgData, data);
+
     this.tag = data[0].tag;
     this.labels = data[0].data.labels;
     this.data = data[0].data.values;
@@ -38,8 +42,8 @@ class ChartPoint {
     (from the largest number in the table) 
     to define a rounded up value, for example, for 610 => 700;
     for 8601 => 9000 */
-    this.minValueOfData = Math.min(...this.data);
-    this.maxValueOfData = Math.max(...this.data);
+    this.minValueOfData = findMinValue(this.data);
+    this.maxValueOfData = findMaxValue(this.data);
     this.mostSignificantDigitMax = [this.maxValueOfData.toString()[0]];
     this.mostSignificantDigitMin = [this.minValueOfData.toString()[0]];
     this.nbOfZeroOfMax = this.maxValueOfData.toString().length - 1;
@@ -87,8 +91,8 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    console.log('max', this.limitMaxValue);
-    console.log('min', this.limitMinValue);
+    console.log('minVal :', this.minValueOfData);
+    console.log('maxVal :', this.maxValueOfData);
     if (this.cfgGrid === true) {
       this.drawGrid();
     }
@@ -188,29 +192,42 @@ class ChartPoint {
 
   // draw arc for the points
   drawArc(data = this.data) {
-    for (let i = 0; i < data.length; i++) {
-      this.context.beginPath();
-      this.context.arc(
-        // x position
-        this.startColumn,
-        // y position
-        this.height - (data[i] - this.limitMinValue) * this.scaleH,
-        // rayon
-        this.radius,
-        // start to angle 0
-        0,
-        // finish at 360°
-        Math.PI * 2,
-        this.color
-      );
-      // apply color
-      this.context.fillStyle = this.fillColor;
-      this.context.strokeStyle = this.strokeColor;
+    for (let j = 0; j < data.length; j++) {
+      let value = data[j];
 
-      // draw fill and stroke
-      this.context.fill();
-      this.context.stroke();
-      this.nextColumnAndRow();
+      for (let i = 0; i < value.length; i++) {
+        console.log('height :', this.height);
+        console.log('value.i :', value[i]);
+        console.log('limitMinValue', this.limitMaxValue);
+        console.log('scale :', this.scaleH);
+        console.log(
+          'full ',
+          this.height - (value[i] - this.limitMinValue) * this.scaleH
+        );
+        this.context.beginPath();
+        this.context.arc(
+          // x position
+          this.startColumn,
+          // y position
+          this.height - (value[i] - this.limitMinValue) * this.scaleH,
+          // rayon
+          this.radius,
+          // start to angle 0
+          0,
+          // finish at 360°
+          Math.PI * 2,
+          this.color
+        );
+        // apply color
+        this.context.fillStyle = this.fillColor;
+        this.context.strokeStyle = this.strokeColor;
+
+        // draw fill and stroke
+        this.context.fill();
+        this.context.stroke();
+        this.nextColumnAndRow();
+      }
+      this.initStartForClmnAndRow();
     }
   }
 
