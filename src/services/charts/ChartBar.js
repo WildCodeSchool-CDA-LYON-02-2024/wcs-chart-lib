@@ -40,6 +40,7 @@ class ChartBar extends ChartPoint {
     for (let i = 0; i < data.length; i++) {
       this.context.fillStyle = this.fillColor;
       this.context.fillRect(
+        /// we did / 2 to put everything ob place in good pos in the chart 
         this.startColumn + this.ratioW / 2 - this.barWidth / 2,
         this.height - data[i] * this.scaleH,
         this.barWidth,
