@@ -10,7 +10,7 @@ const Canvas = ({ config, legend, dataset }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const legendService = new Legend();
+    const legendService = new Legend(dataset);
 
     const handleResize = () => {
       const canvasCfg = new CanvasConfig(
@@ -42,7 +42,7 @@ const Canvas = ({ config, legend, dataset }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [config, legend]);
+  }, [config, dataset, legend]);
 
   return <canvas ref={canvasRef} />;
 };
