@@ -118,7 +118,7 @@ class Legend {
 
       context.fillStyle = "black";
       context.font = "14px Roboto";
-      context.fillText(this.labels[i], legendX, yPosition + 40);
+      context.fillText(this.labels[i], legendX + 20, yPosition + 40);
 
       yPosition += labelSpacing;
     }
