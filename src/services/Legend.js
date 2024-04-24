@@ -6,16 +6,16 @@ class Legend {
 
   drawLegend(context, layout, canvas, spacing) {
     switch (layout) {
-      case "onTop":
+      case "onTop": // ? changer le nom en top ?
         this.drawLegendOnTheTop(context, canvas, spacing);
         break;
-      case "inline":
+      case "inline": // ? changer le nom en bottom ?
         this.drawInlineLegend(context, canvas, spacing);
         break;
-      case "blockLeft":
+      case "blockLeft": // ? changer le nom en left ?
         this.drawBlockLeftLegend(context, canvas, spacing);
         break;
-      case "blockRight":
+      case "blockRight": // ? changer le nom en right ?
         this.drawBlockRightLegend(context, canvas, spacing);
         break;
       default:
@@ -61,20 +61,39 @@ class Legend {
     const legendHeight = spacing;
     const legendWidth = canvas.width;
     const legendX = 0;
-    const legendY = canvas.height - legendHeight;
+    const legendY = canvas.height - spacing;
 
-    context.fillStyle = "#dddddd";
+    context.fillStyle = "transparent";
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = "black";
     context.font = "bold 24px Roboto";
     context.textAlign = "center";
-    context.fillText("Légende", canvas.width / 2, legendY + 90);
+    context.fillText("Légende", canvas.width / 2, 400);
+
+    const labelSpacing = 120;
+    let totalLabelsWidth = this.labels.length * labelSpacing - 10;
+    let startX = (canvas.width - totalLabelsWidth) / 2;
+
+    for (let i = 0; i < this.labels.length; i++) {
+      const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+        Math.random() * 256
+      )}, ${Math.floor(Math.random() * 256)})`;
+
+      context.fillStyle = randomColor;
+      context.fillRect(startX, 420, 10, 10);
+
+      context.fillStyle = "black";
+      context.font = "14px Roboto";
+      context.fillText(this.labels[i], startX + 50, 430);
+
+      startX += labelSpacing;
+    }
   }
 
   drawBlockLeftLegend(context, canvas, spacing) {
     const legendHeight = canvas.height;
-    const legendWidth = canvas.width;
+    const legendWidth = spacing;
     const legendX = 0;
     const legendY = 0;
 
