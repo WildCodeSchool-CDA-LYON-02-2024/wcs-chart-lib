@@ -35,6 +35,7 @@ const selectChart = (config, canvasCfg, dataset) => {
       break;
     case 'bar':
       chart = new ChartBar(
+        dataset,
         canvasCfg.context,
         canvasCfg.spacing,
         config.radius,
@@ -42,7 +43,6 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.strokeColor,
         config.height,
         config.width,
-        data,
         config.toline
       );
       chart.drawBarArray();

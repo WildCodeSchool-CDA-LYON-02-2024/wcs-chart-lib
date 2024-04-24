@@ -1,38 +1,18 @@
-import Point from '../Point';
+import ChartPoint from './ChartPoint';
 
-class ChartBar {
-  constructor(
-    context,
-    spacing,
-    barWidth = 20,
-    fillColor = 'black',
-    strokeColor = 'black',
-    height = innerHeight / 2,
-    width = innerWidth,
-    data = [0, 250, 50, 100, 200, 30, 10, 60, 200, 150, 6, 0, 300],
-    cfgGrid = false
-  ) {
-    this.context = context;
-    this.spacing = spacing;
+class ChartBar extends ChartPoint {
+  constructor(data,context, spacing,barWidth = 200, fillColor = 'black', strokeColor = 'black',height = innerHeight / 2,width = innerWidth,cfgGrid = false) {
+    super( data,context,spacing,2,fillColor,strokeColor,height,width,false,cfgGrid);
     this.barWidth = barWidth;
-    this.fillColor = fillColor;
-    this.strokeColor = strokeColor;
-    this.height = height - this.spacing;
-    this.width = width - this.spacing;
-    this.data = data;
-    this.cfgGrid = cfgGrid;
-
-    this.scaleH = (this.height - this.spacing) / Math.max(...this.data);
-    this.ratioW = (this.width - this.spacing) / this.data.length;
     this.startX = this.spacing;
-    this.startY = this.height;
-    this.twoPoint = new Point();
   }
 
   drawBarArray() {
-    if (this.cfgGrid === true) {
-      this.drawGrid();
-    }
+    // if (this.cfgGrid === true) {
+    //   this.drawGrid();
+    // }// init value of row and column for draw again
+this.initStartForClmnAndRow();
+this.drawGrid();
 
     this.initStartX();
     this.drawBars();
@@ -57,7 +37,7 @@ class ChartBar {
       this.context.fillStyle = this.fillColor;
       this.context.fillRect(
         this.startX,
-        this.startY - data[i] * this.scaleH,
+        this.height - data[i] * this.scaleH,
         this.barWidth,
         data[i] * this.scaleH
       );
