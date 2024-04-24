@@ -7,7 +7,7 @@ class ChartPie extends ChartPoint {
     spacing,
     width = innerWidth,
     height = innerHeight / 2,
-    radius = (width - spacing) / 2,
+    radius = width - spacing / 2,
 
     colist = [
       'cornflowerblue',
