@@ -22,7 +22,6 @@ class Legend {
         break;
     }
   }
-  // TODO : changer légende en fonction du style de graphique (actuellement adapté au camembert, mais quand une ligne il ne faut qu'un titre, dans les barres il faut les couleurs avec les labels)
   drawLegendOnTheTop(context, canvas, spacing) {
     const legendHeight = spacing;
     const legendWidth = canvas.width;
@@ -37,23 +36,33 @@ class Legend {
     context.textAlign = "center";
     context.fillText("Légende", canvas.width / 2, 20);
 
-    const labelSpacing = 120;
-    let totalLabelsWidth = this.labels.length * labelSpacing - 10;
-    let startX = (canvas.width - totalLabelsWidth) / 2;
+    let startX = 50;
+    let startY = 40;
+    const spaceBetweenSquareAndLabel = 50;
 
     for (let i = 0; i < this.labels.length; i++) {
+      const label = this.labels[i];
+
+      // Calcul :  largeur du label + carré + espacement
+      const labelWidth =
+        context.measureText(label).width + spaceBetweenSquareAndLabel;
+
+      if (startX + labelWidth > legendWidth - 10) {
+        startX = 50;
+        startY += 20;
+      }
+
       const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`;
-
       context.fillStyle = randomColor;
-      context.fillRect(startX, 40, 10, 10);
+      context.fillRect(startX - 30, startY - 10, 10, 10);
 
       context.fillStyle = "black";
       context.font = "14px Roboto";
-      context.fillText(this.labels[i], startX + 50, 50);
+      context.fillText(label, startX + 20, startY);
 
-      startX += labelSpacing;
+      startX += labelWidth;
     }
   }
 
@@ -69,25 +78,34 @@ class Legend {
     context.fillStyle = "black";
     context.font = "bold 24px Roboto";
     context.textAlign = "center";
-    context.fillText("Légende", canvas.width / 2, 400);
+    context.fillText("Légende", canvas.width / 2, canvas.height - 50);
 
-    const labelSpacing = 120;
-    let totalLabelsWidth = this.labels.length * labelSpacing - 10;
-    let startX = (canvas.width - totalLabelsWidth) / 2;
+    let startX = 10;
+    let startY = canvas.height - 40;
+    const spaceBetweenSquareAndLabel = 50;
 
     for (let i = 0; i < this.labels.length; i++) {
+      const label = this.labels[i];
+      const labelWidth =
+        context.measureText(label).width + spaceBetweenSquareAndLabel;
+
+      // Vérifier si label > largeur du canevas
+      if (startX + labelWidth > legendWidth - 10) {
+        // Passer à la ligne suivante
+        startX = 10;
+        startY += 20;
+      }
+
       const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`;
 
       context.fillStyle = randomColor;
-      context.fillRect(startX, 420, 10, 10);
-
+      context.fillRect(startX, startY, 10, 10);
       context.fillStyle = "black";
       context.font = "14px Roboto";
-      context.fillText(this.labels[i], startX + 50, 430);
-
-      startX += labelSpacing;
+      context.fillText(label, startX + 50, startY + 10);
+      startX += labelWidth;
     }
   }
 
