@@ -1,16 +1,13 @@
 import './App.css';
 
 import Canvas from './components/Canvas';
+import TestCanvas from './components/TestCanvas';
 
 function App() {
   //Exemple for config chart
 
   const config = {
-<<<<<<< HEAD
     type: 'line',
-=======
-    type: 'bar',
->>>>>>> dev
     toLine: true,
     grid: true,
     radius: 25,
@@ -46,6 +43,7 @@ function App() {
   return (
     <>
       <Canvas config={config} dataset={dataset} />
+      <TestCanvas config={config} dataset={dataset} />
     </>
   );
 }
