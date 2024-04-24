@@ -6,7 +6,6 @@ import selectChart from '../services/charts/selectChart';
 import initAxies from '../services/initAxies';
 
 const Canvas = ({ config, legend, dataset }) => {
-  console.log('dataset', dataset);
   const canvasRef = useRef(null);
 
   useEffect(() => {

@@ -12,10 +12,10 @@ class Legend {
       case "inline":
         this.drawInlineLegend(context, canvas, spacing);
         break;
-      case "blockLeft":
+      case 'blockLeft':
         this.drawBlockLeftLegend(context, canvas, spacing);
         break;
-      case "blockRight":
+      case 'blockRight':
         this.drawBlockRightLegend(context, canvas, spacing);
         break;
       default:
@@ -63,7 +63,7 @@ class Legend {
     const legendX = 0;
     const legendY = canvas.height - legendHeight;
 
-    context.fillStyle = "#dddddd";
+    context.fillStyle = '#dddddd';
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = "black";

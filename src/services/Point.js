@@ -59,6 +59,34 @@ class Point {
 
     context.fillText(value, x, y);
   }
+
+  drawPie(data, context, colorList, startX, startY, radius) {
+    let total = 0;
+    let lastEnd = 0;
+    let offset = Math.PI / 2;
+    for (let j = 0; j < data.length; j++) {
+      total += data[j];
+    }
+    for (let i = 0; i < data.length; i++) {
+      context.fillStyle = colorList[i];
+      let value = data[i];
+      let arcSector = Math.PI * ((2 * value) / total);
+
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.arc(
+        startX,
+        startY,
+        radius,
+        lastEnd - offset,
+        lastEnd + arcSector - offset
+      );
+      context.fill();
+      context.closePath();
+
+      lastEnd += arcSector;
+    }
+  }
 }
 
 export default Point;

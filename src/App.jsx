@@ -1,15 +1,17 @@
 import './App.css';
-import TestCanvas from './components/TestCanvas';
+
 import Canvas from './components/Canvas';
+import TestCanvas from './components/TestCanvas';
 
 function App() {
   //Exemple for config chart
+
   const config = {
-    type: 'point',
+    type: 'line',
     toLine: true,
     grid: true,
-    radius: 5,
-    fillColor: 'red',
+    radius: 25,
+    fillColor: 'blue',
     // strokeColor: 'red',
     // // height: 500,
     // width: 500,
@@ -17,7 +19,7 @@ function App() {
 
   const dataset = [
     {
-      tag: 'test',
+      tag: 'Titre',
       data: {
         labels: [
           'Janvier',
@@ -33,15 +35,15 @@ function App() {
           'Novembre',
           'Decembre',
         ],
-        values: [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
       },
     },
   ];
 
   return (
     <>
-      <TestCanvas config={config} dataset={dataset} />
       <Canvas config={config} dataset={dataset} />
+      <TestCanvas config={config} dataset={dataset} />
     </>
   );
 }

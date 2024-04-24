@@ -1,5 +1,7 @@
 import ChartLine from './ChartLine.js';
+import ChartPie from './ChartPie.js';
 import ChartPoint from './ChartPoint.js';
+import ChartBar from './ChartBar.js';
 
 const selectChart = (config, canvasCfg, dataset) => {
   let chart;
@@ -25,15 +27,38 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width
+        config.width,
+        config.height
       );
 
       chart.drawLineArray();
 
       break;
     case 'bar':
+      chart = new ChartBar(
+        dataset,
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.radius,
+        config.fillColor,
+        config.strokeColor,
+        config.height,
+        config.width,
+        config.toline
+      );
+      chart.drawBarArray();
       // TO DO
+      break;
+    case 'pie':
+      chart = new ChartPie(
+        dataset,
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.width,
+        config.height,
+        config.radius
+      );
+      chart.draw();
       break;
     default:
       chart = new ChartPoint(
