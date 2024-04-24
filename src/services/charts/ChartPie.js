@@ -1,4 +1,4 @@
-import ChartPoint from './ChartPoint';
+import ChartPoint from "./ChartPoint";
 
 class ChartPie extends ChartPoint {
   constructor(
@@ -7,29 +7,29 @@ class ChartPie extends ChartPoint {
     spacing,
     width = innerWidth,
     height = innerHeight / 2,
-    radius = width / 4,
+    radius = height - spacing,
 
     colist = [
-      'cornflowerblue',
-      'salmon',
-      'gold',
-      'mediumseagreen',
-      'mediumpurple',
-      'tomato',
-      'lightskyblue',
-      'lightcoral',
-      'khaki',
-      'lightgreen',
-      'skyblue',
-      'lightpink',
-      'lightsteelblue',
-      'palegreen',
-      'orchid',
-      'palegoldenrod',
-      'lightseagreen',
-      'lightblue',
-      'thistle',
-      'lightyellow',
+      "cornflowerblue",
+      "salmon",
+      "gold",
+      "mediumseagreen",
+      "mediumpurple",
+      "tomato",
+      "lightskyblue",
+      "lightcoral",
+      "khaki",
+      "lightgreen",
+      "skyblue",
+      "lightpink",
+      "lightsteelblue",
+      "palegreen",
+      "orchid",
+      "palegoldenrod",
+      "lightseagreen",
+      "lightblue",
+      "thistle",
+      "lightyellow",
     ]
   ) {
     super(data, context, spacing, radius, null, null, width, height);

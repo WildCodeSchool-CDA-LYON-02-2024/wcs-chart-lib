@@ -1,13 +1,13 @@
-import Point from '../Point';
-import { limitMinValue, limitMaxValue } from '../caclFunction.js';
+import Point from "../Point";
+import { limitMinValue, limitMaxValue } from "../caclFunction.js";
 class ChartPoint {
   constructor(
     data,
     context,
     spacing,
     radius = 2,
-    fillColor = 'black',
-    strokeColor = 'black',
+    fillColor = "black",
+    strokeColor = "black",
     height = innerHeight / 2,
     width = innerWidth,
     cfgToLine = false,
@@ -24,7 +24,7 @@ class ChartPoint {
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
 
-    this.margin = 20;
+    this.margin = 25;
 
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
@@ -87,8 +87,8 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    console.log('max', this.limitMaxValue);
-    console.log('min', this.limitMinValue);
+    console.log("max", this.limitMaxValue);
+    console.log("min", this.limitMinValue);
     if (this.cfgGrid === true) {
       this.drawGrid();
     }
@@ -141,7 +141,7 @@ class ChartPoint {
         label[i],
 
         nexPositionX - this.context.measureText(label[i]).width / 2,
-        this.height + this.margin * 2
+        this.height + this.margin
       );
       nexPositionX += this.ratioW;
     }
@@ -157,7 +157,7 @@ class ChartPoint {
         this.height,
         this.startColumn,
         this.spacing,
-        'grey'
+        "grey"
       );
       // draw Y grid
       this.twoPoint.drawLine(
@@ -166,7 +166,7 @@ class ChartPoint {
         this.startRow, // start y
         this.width, // end x
         this.startRow, // end y
-        'grey'
+        "grey"
       );
       this.nextColumnAndRow();
     }
