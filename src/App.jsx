@@ -7,10 +7,10 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'line',
-    toLine: true,
-    grid: true,
-    radius: 25,
+    type: 'kiviat',
+    toLine: false,
+    grid: false,
+    radius: 1,
     fillColor: 'blue',
     // strokeColor: 'red',
     // // height: 500,

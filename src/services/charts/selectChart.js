@@ -1,12 +1,13 @@
-import ChartLine from './ChartLine.js';
-import ChartPie from './ChartPie.js';
-import ChartPoint from './ChartPoint.js';
-import ChartBar from './ChartBar.js';
+import ChartLine from "./ChartLine.js";
+import ChartPie from "./ChartPie.js";
+import ChartPoint from "./ChartPoint.js";
+import ChartBar from "./ChartBar.js";
+import KiviatChart from "./Kiviat.js";
 
 const selectChart = (config, canvasCfg, dataset) => {
   let chart;
   switch (config.type) {
-    case 'point':
+    case "point":
       chart = new ChartPoint(
         dataset,
         canvasCfg.context,
@@ -21,8 +22,7 @@ const selectChart = (config, canvasCfg, dataset) => {
       );
       chart.drawPointArray();
       break;
-    case 'line':
-      //TO DO
+    case "line":
       chart = new ChartLine(
         dataset,
         canvasCfg.context,
@@ -30,11 +30,9 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.width,
         config.height
       );
-
       chart.drawLineArray();
-
       break;
-    case 'bar':
+    case "bar":
       chart = new ChartBar(
         dataset,
         canvasCfg.context,
@@ -47,9 +45,8 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.toline
       );
       chart.drawBarArray();
-      // TO DO
       break;
-    case 'pie':
+    case "pie":
       chart = new ChartPie(
         dataset,
         canvasCfg.context,
@@ -59,6 +56,21 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.radius
       );
       chart.draw();
+      break;
+    case "kiviat":
+      chart = new KiviatChart(
+        dataset,
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.radius,
+        config.fillColor,
+        config.strokeColor,
+        config.height,
+        config.width,
+        config.toLine,
+        config.grid
+      );
+      chart.drawPointArray();
       break;
     default:
       chart = new ChartPoint(

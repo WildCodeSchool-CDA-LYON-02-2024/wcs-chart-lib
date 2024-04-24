@@ -41,7 +41,7 @@ const Canvas = ({ config, legend, dataset }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [config, legend]);
+  }, [config, legend, dataset]);
 
   return <canvas ref={canvasRef} />;
 };
