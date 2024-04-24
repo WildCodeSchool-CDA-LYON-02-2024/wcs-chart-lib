@@ -8,8 +8,8 @@ class ChartPoint {
     radius = 2,
     fillColor = 'black',
     strokeColor = 'black',
-    width = innerWidth,
     height = innerHeight / 2,
+    width = innerWidth,
     cfgToLine = false,
     cfgGrid = false
   ) {
@@ -87,6 +87,8 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
+    console.log('max', this.limitMaxValue);
+    console.log('min', this.limitMinValue);
     if (this.cfgGrid === true) {
       this.drawGrid();
     }

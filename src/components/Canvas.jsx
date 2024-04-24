@@ -30,7 +30,7 @@ const Canvas = ({ config, legend, dataset }) => {
       };
 
       drawContent();
-      // initAxies(canvasCfg, config);
+      initAxies(canvasCfg, config);
       selectChart(config, canvasCfg, dataset);
     };
 

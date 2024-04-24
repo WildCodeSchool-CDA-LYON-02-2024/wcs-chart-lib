@@ -6,14 +6,14 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'pie',
+    type: 'line',
     toLine: true,
     grid: true,
-    radius: 200,
-    fillColor: 'blue',
-    strokeColor: 'blue',
-    // width: 800,
-    // height: 800,
+    radius: 5,
+    fillColor: 'red',
+    // strokeColor: 'red',
+    // // height: 500,
+    // width: 500,
   };
 
   const dataset = [
