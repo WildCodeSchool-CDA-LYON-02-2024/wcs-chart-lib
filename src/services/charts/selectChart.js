@@ -1,4 +1,5 @@
 import ChartLine from './ChartLine.js';
+import ChartPie from './ChartPie.js';
 import ChartPoint from './ChartPoint.js';
 import ChartBar from './ChartBar.js';
 
@@ -26,8 +27,8 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width
+        config.width,
+        config.height
       );
 
       chart.drawLineArray();
@@ -47,6 +48,17 @@ const selectChart = (config, canvasCfg, dataset) => {
       );
       chart.drawBarArray();
       // TO DO
+      break;
+    case 'pie':
+      chart = new ChartPie(
+        dataset,
+        canvasCfg.context,
+        canvasCfg.spacing,
+        config.width,
+        config.height,
+        config.radius
+      );
+      chart.draw();
       break;
     default:
       chart = new ChartPoint(
