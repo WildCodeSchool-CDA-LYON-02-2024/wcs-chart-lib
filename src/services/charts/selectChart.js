@@ -19,7 +19,8 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         config.height,
         config.width,
         config.toLine,
-        config.grid
+        config.grid,
+        themeObj?.lineColor
       );
       chart.drawPointArray();
       break;

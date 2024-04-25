@@ -34,7 +34,7 @@ class Point {
     ratioW,
     scaleH,
     limitMinValue,
-    color = 'black'
+    color = 'red'
   ) {
     // Color line
     context.strokeStyle = color;
