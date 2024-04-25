@@ -7,11 +7,11 @@ function App() {
 
   const config = {
     type: 'point',
-    toLine: false,
+    toLine: true,
     grid: true,
     radius: 5,
     fillColor: 'red',
-    multipleData: true,
+
     // strokeColor: 'red',
     // // height: 500,
     // width: 500,

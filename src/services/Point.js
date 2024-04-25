@@ -52,6 +52,7 @@ class Point {
     }
     // Draw line
     context.stroke();
+    context.closePath();
   }
 
   drawText(context, value, x, y) {
