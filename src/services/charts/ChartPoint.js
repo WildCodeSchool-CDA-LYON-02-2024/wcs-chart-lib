@@ -25,7 +25,7 @@ class ChartPoint {
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
 
-    this.margin = 20;
+    this.margin = 25;
 
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
@@ -160,7 +160,7 @@ class ChartPoint {
         label[i],
 
         nexPositionX - this.context.measureText(label[i]).width / 2,
-        this.height + this.margin * 2
+        this.height + this.margin
       );
       nexPositionX += this.ratioW;
     }

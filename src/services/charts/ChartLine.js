@@ -14,8 +14,7 @@ class ChartLine extends ChartPoint {
     this.drawLabels();
     // draw line with an array and a loop : start to next point => to next point
     this.drawLoopLine();
-    // Return array of number !== data, for y axie
-    this.axieYNumber();
+
     // I draw those numbers
     this.drawNumber();
   }
