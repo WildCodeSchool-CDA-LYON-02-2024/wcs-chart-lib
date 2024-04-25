@@ -1,5 +1,5 @@
 import Point from '../Point';
-import { limitMinValue, limitMaxValue } from '../caclFunction.js';
+import { limitMinValue, limitMaxValue, axieYNumber } from '../caclFunction.js';
 import { findMinValue, findMaxValue } from '../adaptiveData.js';
 class ChartPoint {
   constructor(
@@ -77,7 +77,12 @@ class ChartPoint {
     );
     //I store the result in another variable
     this.limitMinValue = this.calcMinValue;
-
+    this.axieYNumberArrayFunction = axieYNumber(
+      this.limitMaxValue,
+      this.limitMinValue,
+      this.referenceData
+    );
+    this.axieYNumberArray = this.axieYNumberArrayFunction;
     // sclae for => the largest value in the array = the height of the chart
     this.scaleH =
       (this.height - this.spacing) / (this.limitMaxValue - this.limitMinValue);
@@ -91,6 +96,7 @@ class ChartPoint {
     this.startRow = this.spacing;
     // affected a new Point class
     this.twoPoint = new Point();
+    this.counter = 0;
   }
 
   // main function
@@ -109,31 +115,35 @@ class ChartPoint {
     this.drawNumber();
     this.initStartForClmnAndRow();
     this.drawArc();
-    this.axieYNumber();
+    // this.axieYNumber();
   }
 
   // Generate a new array of values for y-axie
-  axieYNumber() {
-    let yArray = [];
-    let incrValue =
-      (this.limitMaxValue - parseInt(this.limitMinValue)) /
-      this.referenceData.length;
-    console.log('incrValue :', incrValue);
-    let value = parseInt(this.limitMinValue);
-    for (let i = 0; i < this.referenceData.length + 1; i++) {
-      yArray.push(Math.round(value).toString());
-      value += incrValue;
-      console.log('value : ', value);
-    }
-    return yArray;
-  }
+  // axieYNumber() {
+  //   let yArray = [];
+
+  //   let incrValue =
+  //     (this.limitMaxValue - parseInt(this.limitMinValue)) /
+  //     this.referenceData.length;
+  //   console.log('referenceD :', this.referenceData.length);
+  //   let value = parseInt(this.limitMinValue);
+  //   for (let i = 0; i < this.referenceData.length + 1; i++) {
+  //     console.log('refData, ', this.referenceData.length);
+  //     yArray.push(Math.round(value).toString());
+  //     value += incrValue;
+  //   }
+  //   return yArray;
+  // }
 
   // Draw numbers on y axie
   drawNumber(data = this.referenceData) {
     for (let j = 0; j < data.length + 1; j++) {
+      console.log('dataL ', data.length);
+      this.counter += 1;
+      console.log('counter :', this.counter);
       this.twoPoint.drawText(
         this.context,
-        this.axieYNumber()[j],
+        this.axieYNumberArray[j],
         this.margin,
         this.height
       );
