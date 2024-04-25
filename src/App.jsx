@@ -11,7 +11,7 @@ function App() {
     toLine: true,
     grid: true,
     radius: 10,
-    fillColor: 'blue',
+    fillColor: 'black',
     // strokeColor: 'red',
     // // height: 500,
     // width: 500,
@@ -37,7 +37,7 @@ function App() {
         ],
         values: [
           [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
-          [1, 3, 78, 26, 23, 25, 12, 58, 500],
+          [30, 20, 15, 102, 136, 120, 321],
         ],
       },
     },

@@ -118,29 +118,9 @@ class ChartPoint {
     // this.axieYNumber();
   }
 
-  // Generate a new array of values for y-axie
-  // axieYNumber() {
-  //   let yArray = [];
-
-  //   let incrValue =
-  //     (this.limitMaxValue - parseInt(this.limitMinValue)) /
-  //     this.referenceData.length;
-  //   console.log('referenceD :', this.referenceData.length);
-  //   let value = parseInt(this.limitMinValue);
-  //   for (let i = 0; i < this.referenceData.length + 1; i++) {
-  //     console.log('refData, ', this.referenceData.length);
-  //     yArray.push(Math.round(value).toString());
-  //     value += incrValue;
-  //   }
-  //   return yArray;
-  // }
-
   // Draw numbers on y axie
   drawNumber(data = this.referenceData) {
     for (let j = 0; j < data.length + 1; j++) {
-      console.log('dataL ', data.length);
-      this.counter += 1;
-      console.log('counter :', this.counter);
       this.twoPoint.drawText(
         this.context,
         this.axieYNumberArray[j],

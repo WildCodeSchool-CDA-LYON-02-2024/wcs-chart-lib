@@ -46,19 +46,15 @@ const limitMaxValue = (higherSignDigit, nbOfZeroOfMax) => {
 };
 
 const axieYNumber = (limitMaxValue, limitMinValue, referenceData) => {
-  let counter = 0;
   let yArray = [];
 
   let incrValue =
     (limitMaxValue - parseInt(limitMinValue)) / referenceData.length;
-  console.log('referenceD :', referenceData.length);
+
   let value = parseInt(limitMinValue);
   for (let i = 0; i < referenceData.length + 1; i++) {
-    console.log('refData, ', referenceData.length);
     yArray.push(Math.round(value).toString());
     value += incrValue;
-    counter += 1;
-    console.log('counter : ', counter);
   }
 
   return yArray;
