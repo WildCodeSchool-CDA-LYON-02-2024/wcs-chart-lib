@@ -25,6 +25,7 @@ class ChartBar extends ChartPoint {
       cfgGrid
     );
     this.barWidth = barWidth;
+    //for determinate spacing between two chart bar (if multiple array of data)
     this.multipleBarSpacing = this.ratioW / 4;
   }
 
