@@ -11,14 +11,13 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.radius,
-        config.fillColor,
-        config.strokeColor,
         config.height,
         config.width,
-        config.toLine,
         config.grid,
-        config.multipleData
+        config.toLine,
+        config.fillColor,
+        config.strokeColor,
+        config.radius
       );
       chart.drawPointArray();
       break;
@@ -40,12 +39,13 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.radius,
-        config.fillColor,
-        config.strokeColor,
         config.height,
         config.width,
-        config.toline
+        config.fillColor,
+        config.strokeColor,
+        config.grid,
+        config.toLine,
+        config.radius
       );
       chart.drawBarArray();
       // TO DO
@@ -55,8 +55,8 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.width,
         config.height,
+        config.width,
         config.radius
       );
       chart.draw();

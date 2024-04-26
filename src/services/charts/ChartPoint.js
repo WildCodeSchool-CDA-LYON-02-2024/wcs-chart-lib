@@ -6,13 +6,13 @@ class ChartPoint {
     data,
     context,
     spacing,
-    radius = 2,
-    fillColor = 'black',
-    strokeColor = 'black',
     height = innerHeight / 2,
     width = innerWidth,
+    cfgGrid = false,
     cfgToLine = false,
-    cfgGrid = false
+    fillColor = 'black',
+    strokeColor = 'black',
+    radius = 2
   ) {
     this.context = context;
     // -----------------CONFIG CHART VALUES --------------------//

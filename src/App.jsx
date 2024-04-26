@@ -1,7 +1,6 @@
 import './App.css';
 
 import WCS from './components/WCS';
-import TestCanvas from './components/TestCanvas';
 
 function App() {
   //Exemple for config chart
@@ -11,7 +10,7 @@ function App() {
     toLine: true,
     grid: true,
     radius: 100,
-    fillColor: 'blue',
+    fillColor: 'red',
   };
 
   const dataset = [

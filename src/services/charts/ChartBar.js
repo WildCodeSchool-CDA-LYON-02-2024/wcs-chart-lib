@@ -5,24 +5,25 @@ class ChartBar extends ChartPoint {
     data,
     context,
     spacing,
-    barWidth = 200,
-    fillColor = 'black',
-    strokeColor = 'black',
     height = innerHeight / 2,
     width = innerWidth,
-    cfgGrid = false
+    cfgGrid = false,
+    cfgToLine = false,
+    fillColor = 'black',
+    strokeColor = 'black',
+    barWidth = 200
   ) {
     super(
       data,
       context,
       spacing,
-      2,
-      fillColor,
-      strokeColor,
       height,
       width,
-      false,
-      cfgGrid
+      cfgGrid,
+      cfgToLine,
+      fillColor,
+      strokeColor,
+      barWidth
     );
     this.barWidth = barWidth;
     //for determinate spacing between two chart bar (if multiple array of data)

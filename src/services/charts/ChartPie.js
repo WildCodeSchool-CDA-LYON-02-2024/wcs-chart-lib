@@ -32,7 +32,18 @@ class ChartPie extends ChartPoint {
       'lightyellow',
     ]
   ) {
-    super(data, context, spacing, radius, null, null, width, height);
+    super(
+      data,
+      context,
+      spacing,
+      height,
+      width,
+      null,
+      null,
+      null,
+      null,
+      radius
+    );
 
     this.startX = width / 2;
     this.startY = height / 2;
