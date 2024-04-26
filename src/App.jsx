@@ -1,20 +1,17 @@
 import './App.css';
 
-import Canvas from './components/Canvas';
+import WCS from './components/WCS';
 import TestCanvas from './components/TestCanvas';
 
 function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'bar',
+    type: 'pie',
     toLine: true,
     grid: true,
-    radius: 10,
-    fillColor: 'black',
-    // strokeColor: 'red',
-    // // height: 500,
-    // width: 500,
+    radius: 100,
+    fillColor: 'blue',
   };
 
   const dataset = [
@@ -35,18 +32,14 @@ function App() {
           'Novembre',
           'Decembre',
         ],
-        values: [
-          [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
-          [30, 20, 15, 102, 136, 120, 321],
-        ],
+        values: [[10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 
   return (
     <>
-      <Canvas config={config} dataset={dataset} />
-      <TestCanvas config={config} dataset={dataset} />
+      <WCS config={config} dataset={dataset} legend='onTop' />
     </>
   );
 }

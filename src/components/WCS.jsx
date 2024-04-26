@@ -5,7 +5,7 @@ import Legend from "../services/Legend";
 import selectChart from "../services/charts/selectChart";
 import initAxies from "../services/initAxies";
 
-const Canvas = ({ config, legend, dataset }) => {
+const WCS = ({ config, legend, dataset }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -49,10 +49,10 @@ const Canvas = ({ config, legend, dataset }) => {
   return <canvas ref={canvasRef} />;
 };
 
-Canvas.propTypes = {
+WCS.propTypes = {
   dataset: PropTypes.object,
   config: PropTypes.object.isRequired,
   legend: PropTypes.oneOf(["inline", "blockLeft", "blockRight", "none"]),
 };
 
-export default Canvas;
+export default WCS;
