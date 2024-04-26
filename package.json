@@ -2,6 +2,7 @@
   "name": "wcs-chart-lib",
   "private": true,
   "version": "0.0.0",
+  "licence": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
