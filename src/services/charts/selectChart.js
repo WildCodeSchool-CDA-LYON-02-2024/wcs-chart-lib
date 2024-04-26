@@ -27,8 +27,9 @@ const selectChart = (config, canvasCfg, dataset) => {
         dataset,
         canvasCfg.context,
         canvasCfg.spacing,
+        config.height,
         config.width,
-        config.height
+        config.grid
       );
 
       chart.drawLineArray();
@@ -41,11 +42,11 @@ const selectChart = (config, canvasCfg, dataset) => {
         canvasCfg.spacing,
         config.height,
         config.width,
+        config.grid,
+
         config.fillColor,
         config.strokeColor,
-        config.grid,
-        config.toLine,
-        config.radius
+        config.barWidth
       );
       chart.drawBarArray();
       // TO DO

@@ -8,7 +8,7 @@ class ChartPoint {
     spacing,
     height = innerHeight / 2,
     width = innerWidth,
-    cfgGrid = false,
+    cfgGrid = true,
     cfgToLine = false,
     fillColor = 'black',
     strokeColor = 'black',
@@ -101,11 +101,10 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    if (this.cfgGrid === true) {
-      this.drawGrid();
-    }
+    this.drawGrid();
 
     this.initStartForClmnAndRow();
+
     if (this.cfgToline === true) {
       this.drawLoopLine();
     }
@@ -147,27 +146,29 @@ class ChartPoint {
   }
 
   drawGrid(data = this.referenceData) {
-    for (let i = 0; i < data.length; i++) {
-      // draw X grid
+    if (this.cfgGrid === true) {
+      for (let i = 0; i < data.length; i++) {
+        // draw X grid
 
-      this.twoPoint.drawLine(
-        this.context,
-        this.startColumn,
-        this.height,
-        this.startColumn,
-        this.spacing,
-        'grey'
-      );
-      // draw Y grid
-      this.twoPoint.drawLine(
-        this.context,
-        this.spacing, // start x
-        this.startRow, // start y
-        this.width, // end x
-        this.startRow, // end y
-        'grey'
-      );
-      this.nextColumnAndRow();
+        this.twoPoint.drawLine(
+          this.context,
+          this.startColumn,
+          this.height,
+          this.startColumn,
+          this.spacing,
+          'grey'
+        );
+        // draw Y grid
+        this.twoPoint.drawLine(
+          this.context,
+          this.spacing, // start x
+          this.startRow, // start y
+          this.width, // end x
+          this.startRow, // end y
+          'grey'
+        );
+        this.nextColumnAndRow();
+      }
     }
   }
 

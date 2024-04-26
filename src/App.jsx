@@ -6,11 +6,12 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'pie',
-    toLine: true,
+    type: 'bar',
+    height: 1000,
+    width: 2000,
+    radius: 10,
     grid: true,
-    radius: 100,
-    fillColor: 'red',
+    barWidth: 10,
   };
 
   const dataset = [

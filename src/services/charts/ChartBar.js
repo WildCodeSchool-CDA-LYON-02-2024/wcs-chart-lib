@@ -7,11 +7,11 @@ class ChartBar extends ChartPoint {
     spacing,
     height = innerHeight / 2,
     width = innerWidth,
-    cfgGrid = false,
-    cfgToLine = false,
+    cfgGrid,
+
     fillColor = 'black',
     strokeColor = 'black',
-    barWidth = 200
+    barWidth
   ) {
     super(
       data,
@@ -20,10 +20,10 @@ class ChartBar extends ChartPoint {
       height,
       width,
       cfgGrid,
-      cfgToLine,
+
       fillColor,
       strokeColor,
-      barWidth
+      null
     );
     this.barWidth = barWidth;
     //for determinate spacing between two chart bar (if multiple array of data)
@@ -31,6 +31,7 @@ class ChartBar extends ChartPoint {
   }
 
   drawBarArray() {
+    console.log(this.barWidth);
     //Init grid
     this.drawGrid();
     // Init column and row after grid

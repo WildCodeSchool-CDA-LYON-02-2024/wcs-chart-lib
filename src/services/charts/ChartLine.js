@@ -1,11 +1,12 @@
 import ChartPoint from './ChartPoint';
 
 class ChartLine extends ChartPoint {
-  constructor(data, context, spacing, fillColor, width, height) {
-    super(data, context, spacing, null, fillColor, null, width, height);
+  constructor(data, context, spacing, height, width, cfgGrid, fillColor) {
+    super(data, context, spacing, height, width, cfgGrid, fillColor);
   }
 
   drawLineArray() {
+    console.log(this.cfgGrid);
     // draw grid
     this.drawGrid();
     // init value of row and column for draw again
