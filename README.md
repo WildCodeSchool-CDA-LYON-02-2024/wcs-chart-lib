@@ -1,5 +1,19 @@
+# Wild Chart School
 
-## Installation
+## Welcome to your free open source library for data visualization.
+
+Wild Chart School is a project maintained by the community, contributions are welcome!
+
+Visualize your data in 4 different ways (4 chart types currently: bars, lines, points and pie charts).
+
+The graph is responsive and resizes automatically with the window.
+
+It can be used as soon as it is installed with test data or by replacing it with its own, while retaining the structure given below.
+
+
+## Getting started with WildChartSchool
+
+### Installation
 
 
 Clone this repository  (you will be able to download the library with npm install chart-wcs)
@@ -9,89 +23,151 @@ Clone this repository  (you will be able to download the library with npm instal
 
 ```
     
-# Wild Chart School
+### Usage
 
-The WildChartSchool component allows to display a Chart by passing different props (dataset,
+The WCS component allows to display a Chart by passing different props (dataset,
 config, theme).
 
 Implementation exemple code 
-```js import './App.css';
-
-import Canvas from './components/Canvas';
-
-function App() {
-  return (
-    <>
-      <Canvas config={config} dataset={dataset} theme={theme} />
-    </>
-  );
-}
-
-export default App;
+``` js
+ <WCS config={config} dataset={dataset} />
 ```
+ Example of the dataset object, the structure does not change depending on the chart type :
 
-- config Example :
-```js  
- const config = {
-    type: 'pie',
-    toLine: true,
-    grid: true,
-    radius: 5,
-    fillColor: 'red',
-    strokeColor: 'red',
-    height: 500,
-    width: 500,
-  } 
-  ```
-The config object is currently necessary for the operation of the component, even if it is empty.
-If nothing is specified in the object, it defaults to a “point” type,
-See the storybook for all possible settings.
-
-- dataset Example : 
-```js
-  const dataset = [
+```
+const dataset = [
     {
-      tag: 'test',
+      tag: "Titre",
       data: {
         labels: [
-          'Janvier',
-          'Fevrier',
-          'Mars',
-          'Avril',
-          'Mai',
-          'Juin',
-          'Juillet',
-          'Aout',
-          'Septemnre',
-          'Octobre',
-          'Novembre',
-          'Decembre',
+          "Janvier",
+          "Février",
+          "Mars",
+          "Avril",
+          "Mai",
+          "Juin",
+          "Juillet",
+          "Août",
+          "Septembre",
+          "Octobre",
+          "Novembre",
+          "Décembre",
         ],
-        values: [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
       },
     },
   ];
 ```
- It is a painting, with an object:
-    - tag: the title of the graph
-    - data: another object with:
-        - labels: represents the labels associated with values (for example, “January” will be displayed below the value “10”
-        - values: represents the values to display in the chart (this is an INT type value table)
 
-The theme object is not necessary for the proper functioning of the component because it takes a default theme.
-The theme object will be used to customize the graphic colors, font size, fonts, stroke thickness, etc…
-See all possibilities on storybook
-N B: For now the theme is not functional, and the color or size parameters are in the config object
-
-The component uses the canvas API to draw the graph, is responsive and resizes automatically relative to the size of the browser window
+This is an array, with an object:
+- **tag** (type: string): The title of the chart
+- **data**: Another object with:
+- **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, thus label[i]=values[i]);
+- **values**: Represents the values to display in the chart (this is a value table of type number int)
 
 
-## Screenshots
-[![chart-Line-PNG.png](https://i.postimg.cc/4xKbd5Mg/chart-Line-PNG.png)](https://postimg.cc/qNTCD84b)
+**The different chart types: bar, line, point, pie...** 
 
-[![chart-Point.png](https://i.postimg.cc/fyN0v4Mc/chart-Point.png)](https://postimg.cc/CBc1FQB5)
 
-[![chart-Point-Line.png](https://i.postimg.cc/2ySCYTGp/chart-Point-Line.png)](https://postimg.cc/TLFzqVBQ)
+The chart type is defined in the config object and is mandatory for the component to function, even if it is empty.
+The chart type is defined with type (type string): if no value is supplied, it will default to **“point”**.
+Possible values: **“bar”**, “point”, “line”, “pie”.
 
-[![chartPie.png](https://i.postimg.cc/YCcTfbFp/chartPie.png)](https://postimg.cc/8jHyTdw3)
 
+The configuration examples config explain the properties specific to each type of graphic. If a property is present for one type of graphic and absent for another, it's simply not functional.
+type, height and width properties are common to all graphics.
+
+**Example for the line chart :** 
+``` js
+  const config = {
+    type: 'line',
+    height: 1000,
+    width: 1000,
+  };
+```
+- type (string type): if no value is provided, it will default to “point”.
+- (type number int): if no value is provided, height will be equal to the size of the browser window (innerHeight) divided by two
+- width (type number int), if no value provided, width will be equal to 100% of the browser window width (innerWidth)
+
+
+![Line Screenshot](https://via.placeholder.com/468x300?text=Line+Screenshot)
+
+**Example for the line chart :** 
+``` js
+  const config = {
+    type: 'line',
+    height: 1000,
+    width: 1000,
+  };
+  ```
+
+
+**Example for the point chart :**
+  ``` js
+  const config = {
+    type: 'point',
+    toLine: false,
+    grid: true,
+    radius: 5,
+    fillColor: 'red',
+    strokeColor: 'blue',
+  };
+```
+- **toLine** (Boolean), defaulted to false, this option connects the points together.
+- **grid** (Boolean), defaults to true, this option allows you to display or not the grid on the graph, this grid is drawn from the number of values provided in the values table in dataset.
+- **radius** (type number, accepts one digit after the decimal point), this option defines the size of the point on the graph. By default, radius = 2.
+- **fillColor** (type string): this option lets you change the color of the dot. Default fillColor = “black”.
+- **strokeColor** (type string): this option changes the color of the point outline. Default strokeColor = “black
+
+![Point Screenshot](https://via.placeholder.com/468x300?text=Point+Screenshot)
+
+**Example for the bar chart :** 
+ ``` js
+ const config = {
+    type: 'bar',
+    radius: 30,
+    fillColor: 'blue',
+  };
+```
+- **radius** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, radius = 10.
+- **fillColor** (type string): this option lets you change the color of the bars. Default fillColor = “black”.
+![BarChart Screenshot](https://via.placeholder.com/468x300?text=Barchart+Screenshot)
+
+**Example of a pie chart :** 
+ ``` js
+ const config = {
+    type: 'pie',
+    radius: 100,
+  };
+  ```
+- **radius** (type number, accepts one digit after the decimal point), this option defines the radius of the pie chart. By default, radius = height - spacing, spacing is not modifiable for the moment and is equal to 100px.
+
+![PieChart Screenshot](https://via.placeholder.com/468x300?text=Piechart+Screenshot)
+
+
+
+The **theme object** is not required for the component to function correctly, as it takes a default theme.
+The theme object will be used to customize graphic colors, font size, fonts, line thickness, etc...
+See all the possibilities on storybook
+N B : For the moment, the theme is not functional, and the color and size parameters are in the config object.
+
+**Example of legend display :**
+```js
+<WCS config={config} dataset={dataset} legend='onTop' />
+```
+
+**Legend takes 4 possible parameters (in string):**
+- **"none"** : Legend is not displayed,
+- **"onTop"**: The legend is displayed at the top (note that if the pie chart has a radius greater than 150, it may overflow onto the legend),
+- **"inline"**: The legend is displayed at the bottom (note that if the pie chart has a radius greater than 150, it may overlap the legend),
+- **"blockLeft"**: The legend is displayed on the left (do not use in charts other than pie chart, otherwise the axis labels will overlap),
+- **"blockRight"**: Legend is displayed on the right.
+
+
+For greater clarity, we'll show you examples with the pie chart.
+For other charts, only the "onTop" parameter is relevant.
+
+![LEGEND 1 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+1+Screenshot)
+![LEGEND 2 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+2+Screenshot)
+![LEGEND 3 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+3+Screenshot)
+![LEGEND 4 Screenshot](https://via.placeholder.com/468x300?text=LEGEND4+Screenshot)

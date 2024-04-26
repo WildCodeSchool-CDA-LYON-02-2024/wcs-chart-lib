@@ -1,4 +1,4 @@
-import Canvas from "./Canvas";
+import WCS from "./WCS";
 import PropTypes from "prop-types";
 
 function TestCanvas({ config, dataset }) {
@@ -6,14 +6,14 @@ function TestCanvas({ config, dataset }) {
   return (
     <div>
       <h2>Canvas avec légende en haut :</h2>
-      <Canvas
+      <WCS
         config={config}
         dataset={dataset}
         legend="onTop"
         style={{ border: "1px solid black", marginBottom: "20px" }}
       />
       <h2>Canvas avec légende en ligne :</h2>
-      <Canvas
+      <WCS
         config={config}
         dataset={dataset}
         legend="inline"
@@ -21,15 +21,14 @@ function TestCanvas({ config, dataset }) {
       />
 
       <h2>Canvas avec légende à gauche :</h2>
-      <Canvas
-        config={config}
+      <WCS        config={config}
         dataset={dataset}
         legend="blockLeft"
         style={{ border: "1px solid black", marginBottom: "20px" }}
       />
 
       <h2>Canvas avec légende à droite :</h2>
-      <Canvas
+      <WCS
         dataset={dataset}
         config={config}
         legend="blockRight"
@@ -37,7 +36,7 @@ function TestCanvas({ config, dataset }) {
       />
 
       <h2>Canvas sans légende :</h2>
-      <Canvas
+      <WCS
         config={config}
         dataset={dataset}
         legend="none"

@@ -1,6 +1,6 @@
 import "./App.css";
 
-import Canvas from "./components/Canvas";
+import WCS from "./components/WCS";
 import TestCanvas from "./components/TestCanvas";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <Canvas config={config} dataset={dataset} />
+      <WCS config={config} dataset={dataset} />
       <TestCanvas config={config} dataset={dataset} />
     </>
   );
