@@ -131,6 +131,7 @@ type, height and width properties are common to all graphics.
 ```
 - **radius** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, radius = 10.
 - **fillColor** (type string): this option lets you change the color of the bars. Default fillColor = “black”.
+
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
 **Example of a pie chart :** 
@@ -168,12 +169,21 @@ For greater clarity, we'll show you examples with the pie chart.
 For other charts, only the "onTop" parameter is relevant.
 
 *Without legend :*
+
 ![LEGEND 3 Screenshot](./DOCUMENTATION/src/img/legend-none-point.png)
+
 *Legend at left:*
+
 ![LEGEND 1 Screenshot](./DOCUMENTATION/src/img/legend-left-pie.png)
+
 *Legend at right :*
+
 ![LEGEND 2 Screenshot](./DOCUMENTATION/src/img/legend-right-pie.png)
+
 *Legend on top:*
+
 ![LEGEND 4 Screenshot](./DOCUMENTATION/src/img/legendPieOnTop.PNG)
+
 *Legend on bottom :*
+
 ![LEGEND 5 Screenshot](./DOCUMENTATION/src/img/legendPieInline.PNG)
