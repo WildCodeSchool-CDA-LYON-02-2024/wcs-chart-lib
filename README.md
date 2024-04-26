@@ -90,7 +90,7 @@ type, height and width properties are common to all graphics.
 - width (type number int), if no value provided, width will be equal to 100% of the browser window width (innerWidth)
 
 
-![Line Screenshot](https://via.placeholder.com/468x300?text=Line+Screenshot)
+![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
 
 **Example for the line chart :** 
 ``` js
@@ -119,7 +119,7 @@ type, height and width properties are common to all graphics.
 - **fillColor** (type string): this option lets you change the color of the dot. Default fillColor = “black”.
 - **strokeColor** (type string): this option changes the color of the point outline. Default strokeColor = “black
 
-![Point Screenshot](https://via.placeholder.com/468x300?text=Point+Screenshot)
+![Point Screenshot](./DOCUMENTATION/src/img/chartPointv2.PNG)
 
 **Example for the bar chart :** 
  ``` js
@@ -131,7 +131,7 @@ type, height and width properties are common to all graphics.
 ```
 - **radius** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, radius = 10.
 - **fillColor** (type string): this option lets you change the color of the bars. Default fillColor = “black”.
-![BarChart Screenshot](https://via.placeholder.com/468x300?text=Barchart+Screenshot)
+![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
 **Example of a pie chart :** 
  ``` js
@@ -142,7 +142,7 @@ type, height and width properties are common to all graphics.
   ```
 - **radius** (type number, accepts one digit after the decimal point), this option defines the radius of the pie chart. By default, radius = height - spacing, spacing is not modifiable for the moment and is equal to 100px.
 
-![PieChart Screenshot](https://via.placeholder.com/468x300?text=Piechart+Screenshot)
+![PieChart Screenshot](./DOCUMENTATION/src/img/chartPiev2.PNG)
 
 
 
@@ -167,7 +167,13 @@ N B : For the moment, the theme is not functional, and the color and size parame
 For greater clarity, we'll show you examples with the pie chart.
 For other charts, only the "onTop" parameter is relevant.
 
-![LEGEND 1 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+1+Screenshot)
-![LEGEND 2 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+2+Screenshot)
-![LEGEND 3 Screenshot](https://via.placeholder.com/468x300?text=LEGEND+3+Screenshot)
-![LEGEND 4 Screenshot](https://via.placeholder.com/468x300?text=LEGEND4+Screenshot)
+*Without legend :*
+![LEGEND 3 Screenshot](./DOCUMENTATION/src/img/legend-none-point.png)
+*Legend at left:*
+![LEGEND 1 Screenshot](./DOCUMENTATION/src/img/legend-left-pie.png)
+*Legend at right :*
+![LEGEND 2 Screenshot](./DOCUMENTATION/src/img/legend-right-pie.png)
+*Legend on top:*
+![LEGEND 4 Screenshot](./DOCUMENTATION/src/img/legendPieOnTop.PNG)
+*Legend on bottom :*
+![LEGEND 5 Screenshot](./DOCUMENTATION/src/img/legendPieInline.PNG)
