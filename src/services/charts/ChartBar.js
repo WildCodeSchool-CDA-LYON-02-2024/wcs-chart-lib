@@ -20,20 +20,24 @@ class ChartBar extends ChartPoint {
       height,
       width,
       cfgGrid,
-
+      null,
       fillColor,
       strokeColor,
-      null
+      null,
+      'bar'
     );
     this.barWidth = barWidth;
+
     //for determinate spacing between two chart bar (if multiple array of data)
     this.multipleBarSpacing = this.ratioW / 4;
   }
 
   drawBarArray() {
-    console.log(this.barWidth);
+    console.log('type', this.chartType);
     //Init grid
     this.drawGrid();
+    // draw labels
+    this.drawLabels();
     // Init column and row after grid
     this.initStartForClmnAndRow();
     // Draw graph Bar

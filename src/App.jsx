@@ -7,8 +7,8 @@ function App() {
 
   const config = {
     type: 'bar',
-    height: 1000,
-    width: 2000,
+    // height: 500,
+    // width: 1000,
     radius: 10,
     grid: true,
     barWidth: 10,
@@ -27,7 +27,7 @@ function App() {
           'Juin',
           'Juillet',
           'Aout',
-          'Septemnre',
+          'Septembre',
           'Octobre',
           'Novembre',
           'Decembre',

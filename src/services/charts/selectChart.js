@@ -17,7 +17,8 @@ const selectChart = (config, canvasCfg, dataset) => {
         config.toLine,
         config.fillColor,
         config.strokeColor,
-        config.radius
+        config.radius,
+        config.type
       );
       chart.drawPointArray();
       break;

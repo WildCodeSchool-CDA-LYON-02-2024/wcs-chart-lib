@@ -12,7 +12,8 @@ class ChartPoint {
     cfgToLine = false,
     fillColor = 'black',
     strokeColor = 'black',
-    radius = 2
+    radius = 2,
+    chartType
   ) {
     this.context = context;
     // -----------------CONFIG CHART VALUES --------------------//
@@ -24,6 +25,7 @@ class ChartPoint {
     this.height = this.heightParams;
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
+    this.chartType = chartType;
 
     this.margin = 25;
 
@@ -101,6 +103,7 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
+    console.log('type', this.chartType);
     this.drawGrid();
 
     this.initStartForClmnAndRow();
@@ -131,14 +134,15 @@ class ChartPoint {
   }
 
   // Draw labels
-  drawLabels(label = this.labels) {
+  drawLabels(label = this.labels, chartType = this.chartType) {
     let nexPositionX = this.spacing;
     for (let i = 0; i < label.length; i++) {
       this.twoPoint.drawText(
         this.context,
         label[i],
 
-        nexPositionX - this.context.measureText(label[i]).width / 2,
+        chartType === 'bar' ? nexPositionX + this.ratioW / 2 : nexPositionX,
+
         this.height + this.margin
       );
       nexPositionX += this.ratioW;
