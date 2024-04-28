@@ -6,7 +6,7 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'bar',
+    type: 'line',
     // height: 500,
     // width: 1000,
     radius: 10,

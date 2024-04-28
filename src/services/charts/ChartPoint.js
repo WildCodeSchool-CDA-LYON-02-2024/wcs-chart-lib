@@ -136,10 +136,18 @@ class ChartPoint {
   // Draw labels
   drawLabels(label = this.labels, chartType = this.chartType) {
     let nexPositionX = this.spacing;
+    let labelsWidth = null;
+    // calcul total labels width
+    for (let i = 0; i < label.length; i++) {
+      labelsWidth += this.context.measureText(label[i]).width;
+    }
+
     for (let i = 0; i < label.length; i++) {
       this.twoPoint.drawText(
         this.context,
-        label[i],
+
+        // if labels width is to big, we take the only the first letter
+        this.width / 2 < labelsWidth ? label[i][0] + '.' : label[i],
 
         chartType === 'bar' ? nexPositionX + this.ratioW / 2 : nexPositionX,
 

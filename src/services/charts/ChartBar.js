@@ -33,7 +33,6 @@ class ChartBar extends ChartPoint {
   }
 
   drawBarArray() {
-    console.log('type', this.chartType);
     //Init grid
     this.drawGrid();
     // draw labels

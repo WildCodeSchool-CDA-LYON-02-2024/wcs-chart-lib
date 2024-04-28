@@ -45,6 +45,7 @@ const limitMaxValue = (higherSignDigit, nbOfZeroOfMax) => {
   return (higherSignDigit += newStr);
 };
 
+// return an array of value for Y axie from limitMaxValue, limitMinValue, referenceData
 const axieYNumber = (limitMaxValue, limitMinValue, referenceData) => {
   let yArray = [];
 
