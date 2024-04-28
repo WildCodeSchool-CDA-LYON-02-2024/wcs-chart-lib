@@ -3,7 +3,7 @@ import ChartPie from './ChartPie.js';
 import ChartPoint from './ChartPoint.js';
 import ChartBar from './ChartBar.js';
 
-const selectChart = (config, canvasCfg, dataset) => {
+const selectChart = (config, canvasCfg, dataset, themeObj) => {
   let chart;
   switch (config.type) {
     case 'point':

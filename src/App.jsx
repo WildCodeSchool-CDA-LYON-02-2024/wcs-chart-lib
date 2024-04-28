@@ -14,6 +14,12 @@ function App() {
     barWidth: 10,
   };
 
+  // const theme = {
+  //   backgroundColor: 'red',
+  //   fillColor: 'white',
+  //   strokeColor: 'red',
+  // };
+
   const dataset = [
     {
       tag: ['Titre1', 'Titre2'],
@@ -42,7 +48,7 @@ function App() {
 
   return (
     <>
-      <WCS config={config} dataset={dataset} legend='top' />
+      <WCS config={config} dataset={dataset} legend='top' theme='aqua' />
     </>
   );
 }

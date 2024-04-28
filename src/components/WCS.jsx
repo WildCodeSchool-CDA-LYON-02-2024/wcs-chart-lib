@@ -4,18 +4,23 @@ import CanvasConfig from '../services/Canvas';
 import Legend from '../services/Legend';
 import selectChart from '../services/charts/selectChart';
 import initAxies from '../services/initAxies';
+import Theme from '../services/Theme';
 
-const WCS = ({ config, legend, dataset }) => {
+const WCS = ({ config, legend, dataset, theme }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    console.log('theme 2:', theme);
     const legendService = new Legend(dataset);
+    const themeObj = new Theme(theme);
+    themeObj.selectedTheme(theme);
 
     const handleResize = () => {
       const canvasCfg = new CanvasConfig(
         canvasRef,
         config.height,
-        config.width
+        config.width,
+        themeObj.backGroundColor
       );
 
       const drawContent = () => {
@@ -35,7 +40,7 @@ const WCS = ({ config, legend, dataset }) => {
         initAxies(canvasCfg, config);
       }
 
-      selectChart(config, canvasCfg, dataset);
+      selectChart(config, canvasCfg, dataset, themeObj);
     };
 
     handleResize();
@@ -53,6 +58,7 @@ const WCS = ({ config, legend, dataset }) => {
 WCS.propTypes = {
   dataset: PropTypes.array,
   config: PropTypes.object.isRequired,
+  theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   legend: PropTypes.oneOf(['bottom', 'left', 'right', 'none', 'top']),
 };
 
