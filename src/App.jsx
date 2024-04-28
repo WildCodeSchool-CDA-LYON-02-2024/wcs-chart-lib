@@ -48,8 +48,8 @@ function App() {
 
   return (
     <>
-      <Canvas config={config} dataset={dataset} theme={'nature'} />
-      <TestCanvas config={config} dataset={dataset} theme={'aqua'} />
+      <Canvas config={config} dataset={dataset} theme={'first'} />
+      <TestCanvas config={config} dataset={dataset} theme={'sun'} />
     </>
   );
 }

@@ -5,19 +5,32 @@ class Theme {
     this.fillColor = theme?.fillColor;
     this.strokeColor = theme?.strokeColor;
     this.lineColor = theme?.lineColor;
+    this.bordcolor = theme?.bordcolor;
   }
 
   selectedTheme = (theme) => {
     switch (theme) {
-      case 'aqua':
-        this.backGroundColor = 'rgba(154, 160, 119, 0.8)';
-        this.fillColor = 'blue';
+      case 'first':
+        this.backGroundColor = 'rgb(245, 245, 220)';
+        this.fillColor = 'black';
+        this.strokeColor = 'yellow';
+        this.lineColor = 'green'
         break;
-      case 'nature':
-        this.backGroundColor = 'green';
-        this.fillColor = 'white';
-        this.lineColor = 'white';
+      case 'wild':
+        this.backGroundColor = 'white';
+        this.fillColor = '#FF1493';
+        this.strokeColor = 'yellow';
+        this.lineColor = '#FF1493';
+        break;
+        case 'sun':
+          this.backGroundColor = 'rgb(240,230,140)git';
+          this.fillColor = '	red';
+          this.strokeColor = 'brown';
+          this.lineColor = '	black';
+          this.bordcolor = 'black';
     }
+    
+
   };
 }
 

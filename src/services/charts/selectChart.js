@@ -15,12 +15,13 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         // config.fillColor,
         themeObj?.fillColor,
 
-        config.strokeColor,
+        themeObj?.strokeColor,
         config.height,
         config.width,
         config.toLine,
         config.grid,
-        themeObj?.lineColor
+        themeObj?.lineColor,
+        themeObj?.bordcolor
       );
       chart.drawPointArray();
       break;

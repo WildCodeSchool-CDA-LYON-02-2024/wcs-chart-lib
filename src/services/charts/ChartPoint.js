@@ -1,5 +1,7 @@
 import Point from '../Point';
 import { limitMinValue, limitMaxValue } from '../caclFunction.js';
+
+
 class ChartPoint {
   constructor(
     data,
@@ -12,21 +14,23 @@ class ChartPoint {
     width = innerWidth,
     cfgToLine = false,
     cfgGrid = false,
-    lineColor = 'red'
+    lineColor = 'red',
+    borderColor
+
   ) {
     this.context = context;
     // -----------------CONFIG CHART VALUES --------------------//
     this.spacing = spacing;
     this.radius = radius;
     this.fillColor = fillColor;
-    this.strokeColor = strokeColor;
+   this.strokeColor = strokeColor;
     this.heightParams = height - this.spacing;
     this.height = this.heightParams;
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
     this.lineColor = lineColor;
     this.margin = 25;
-
+    this.borderColor = borderColor
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
 
@@ -167,7 +171,7 @@ class ChartPoint {
         this.startRow, // start y
         this.width, // end x
         this.startRow, // end y
-        'grey'
+        this.borderColor,
       );
       this.nextColumnAndRow();
     }
