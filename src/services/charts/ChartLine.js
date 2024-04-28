@@ -1,8 +1,17 @@
 import ChartPoint from './ChartPoint';
 
 class ChartLine extends ChartPoint {
-  constructor(data, context, spacing, height, width, cfgGrid, fillColor) {
-    super(data, context, spacing, height, width, cfgGrid, fillColor);
+  constructor(
+    data,
+    themeObj,
+    context,
+    spacing,
+    height,
+    width,
+    cfgGrid,
+    fillColor
+  ) {
+    super(data, themeObj, context, spacing, height, width, cfgGrid, fillColor);
   }
 
   drawLineArray() {

@@ -37,7 +37,7 @@ const WCS = ({ config, legend, dataset, theme }) => {
 
       drawContent();
       if (config.type !== 'pie') {
-        initAxies(canvasCfg, config);
+        initAxies(canvasCfg, config, themeObj);
       }
 
       selectChart(config, canvasCfg, dataset, themeObj);

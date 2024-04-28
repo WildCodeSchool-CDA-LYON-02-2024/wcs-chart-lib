@@ -4,14 +4,14 @@ import { findMinValue, findMaxValue } from '../adaptiveData.js';
 class ChartPoint {
   constructor(
     data,
+    themeObj,
     context,
     spacing,
     height = innerHeight / 2,
     width = innerWidth,
     cfgGrid = true,
     cfgToLine = false,
-    fillColor = 'black',
-    strokeColor = 'black',
+
     radius = 2,
     chartType
   ) {
@@ -19,8 +19,7 @@ class ChartPoint {
     // -----------------CONFIG CHART VALUES --------------------//
     this.spacing = spacing;
     this.radius = radius;
-    this.fillColor = fillColor;
-    this.strokeColor = strokeColor;
+
     this.heightParams = height - this.spacing;
     this.height = this.heightParams;
     this.widthParams = width - this.spacing;
@@ -32,8 +31,13 @@ class ChartPoint {
     this.cfgToline = cfgToLine;
     this.cfgGrid = cfgGrid;
 
-    //-------------one or multiple data---------------
-    // this.wichData = adaptiveData(cfgData, data);
+    // ----------------- THEME --------------------//
+    this.fillColor = themeObj?.fillColor;
+    this.strokeColor = themeObj?.strokeColor;
+    this.lineColor = themeObj?.lineColor;
+    this.gridColor = themeObj?.gridColor;
+
+    // ----------------- DATA --------------------//
 
     this.tag = data[0].tag;
     this.labels = data[0].data.labels;
@@ -158,6 +162,7 @@ class ChartPoint {
 
   drawGrid(data = this.referenceData) {
     if (this.cfgGrid === true) {
+      this.startColumn += this.ratioW;
       for (let i = 0; i < data.length; i++) {
         // draw X grid
 
@@ -167,7 +172,7 @@ class ChartPoint {
           this.height,
           this.startColumn,
           this.spacing,
-          'grey'
+          this.gridColor
         );
         // draw Y grid
         this.twoPoint.drawLine(
@@ -176,7 +181,7 @@ class ChartPoint {
           this.startRow, // start y
           this.width, // end x
           this.startRow, // end y
-          'grey'
+          this.gridColor
         );
         this.nextColumnAndRow();
       }
@@ -196,7 +201,8 @@ class ChartPoint {
           this.startColumn,
           this.ratioW,
           this.scaleH,
-          this.limitMinValue
+          this.limitMinValue,
+          this.lineColor
         );
       }
     }

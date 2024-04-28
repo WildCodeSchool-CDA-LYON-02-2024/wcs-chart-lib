@@ -3,6 +3,7 @@ import ChartPoint from './ChartPoint';
 class ChartBar extends ChartPoint {
   constructor(
     data,
+    themeObj,
     context,
     spacing,
     height = innerHeight / 2,
@@ -15,6 +16,7 @@ class ChartBar extends ChartPoint {
   ) {
     super(
       data,
+      themeObj,
       context,
       spacing,
       height,

@@ -9,14 +9,13 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
     case 'point':
       chart = new ChartPoint(
         dataset,
+        themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,
         config.width,
         config.grid,
         config.toLine,
-        config.fillColor,
-        config.strokeColor,
         config.radius,
         config.type
       );
@@ -26,6 +25,7 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
       //TO DO
       chart = new ChartLine(
         dataset,
+        themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,
@@ -39,6 +39,7 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
     case 'bar':
       chart = new ChartBar(
         dataset,
+        themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,
