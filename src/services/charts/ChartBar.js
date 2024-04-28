@@ -58,9 +58,9 @@ class ChartBar extends ChartPoint {
             this.ratioW / 2 -
             this.barWidth / 2 +
             this.multipleBarSpacing,
-          this.height - value[i] * this.scaleH,
+          this.height - (value[i] - this.limitMinValue) * this.scaleH,
           this.barWidth,
-          value[i] * this.scaleH
+          (value[i] - this.limitMinValue) * this.scaleH
         );
         this.nextColumnAndRow();
       }

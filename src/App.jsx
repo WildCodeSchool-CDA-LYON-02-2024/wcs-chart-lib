@@ -6,7 +6,7 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'line',
+    type: 'bar',
     // height: 500,
     // width: 1000,
     radius: 10,
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <>
-      <WCS config={config} dataset={dataset} legend='onTop' />
+      <WCS config={config} dataset={dataset} legend='top' />
     </>
   );
 }

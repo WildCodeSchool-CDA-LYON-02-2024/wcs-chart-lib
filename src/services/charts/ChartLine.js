@@ -6,7 +6,6 @@ class ChartLine extends ChartPoint {
   }
 
   drawLineArray() {
-    console.log(this.cfgGrid);
     // draw grid
     this.drawGrid();
     // init value of row and column for draw again

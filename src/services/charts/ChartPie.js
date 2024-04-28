@@ -56,7 +56,6 @@ class ChartPie extends ChartPoint {
   }
 
   pieChart() {
-    console.log('data :', this.data);
     this.twoPoint.drawPie(
       this.data,
       this.context,

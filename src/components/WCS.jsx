@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import CanvasConfig from "../services/Canvas";
-import Legend from "../services/Legend";
-import selectChart from "../services/charts/selectChart";
-import initAxies from "../services/initAxies";
+import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import CanvasConfig from '../services/Canvas';
+import Legend from '../services/Legend';
+import selectChart from '../services/charts/selectChart';
+import initAxies from '../services/initAxies';
 
 const WCS = ({ config, legend, dataset }) => {
   const canvasRef = useRef(null);
@@ -30,7 +30,7 @@ const WCS = ({ config, legend, dataset }) => {
       };
 
       drawContent();
-      if (config.type !== "pie") {
+      if (config.type !== 'pie') {
         initAxies(canvasCfg, config);
       }
 
@@ -39,10 +39,10 @@ const WCS = ({ config, legend, dataset }) => {
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [config, dataset, legend]);
 
@@ -50,9 +50,9 @@ const WCS = ({ config, legend, dataset }) => {
 };
 
 WCS.propTypes = {
-  dataset: PropTypes.object,
+  dataset: PropTypes.array,
   config: PropTypes.object.isRequired,
-  legend: PropTypes.oneOf(["inline", "blockLeft", "blockRight", "none"]),
+  legend: PropTypes.oneOf(['bottom', 'left', 'right', 'none', 'top']),
 };
 
 export default WCS;

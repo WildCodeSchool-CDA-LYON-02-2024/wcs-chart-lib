@@ -103,7 +103,6 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    console.log('type', this.chartType);
     this.drawGrid();
 
     this.initStartForClmnAndRow();

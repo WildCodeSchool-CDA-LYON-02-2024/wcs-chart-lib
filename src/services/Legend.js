@@ -6,16 +6,16 @@ class Legend {
 
   drawLegend(context, layout, canvas, spacing) {
     switch (layout) {
-      case "onTop": // ? changer le nom en top ?
+      case 'top': // ? changer le nom en top ?
         this.drawLegendOnTheTop(context, canvas, spacing);
         break;
-      case "inline": // ? changer le nom en bottom ?
+      case 'bottom': // ? changer le nom en bottom ?
         this.drawInlineLegend(context, canvas, spacing);
         break;
-      case "blockLeft": // ? changer le nom en left ?
+      case 'left': // ? changer le nom en left ?
         this.drawBlockLeftLegend(context, canvas, spacing);
         break;
-      case "blockRight": // ? changer le nom en right ?
+      case 'right': // ? changer le nom en right ?
         this.drawBlockRightLegend(context, canvas, spacing);
         break;
       default:
@@ -28,13 +28,13 @@ class Legend {
     const legendX = 0;
     const legendY = 0;
 
-    context.fillStyle = "transparent";
+    context.fillStyle = 'transparent';
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
-    context.fillStyle = "black";
-    context.font = "bold 24px Roboto";
-    context.textAlign = "center";
-    context.fillText("Légende", canvas.width / 2, 20);
+    context.fillStyle = 'black';
+    context.font = 'bold 24px Roboto';
+    context.textAlign = 'center';
+    context.fillText('Légende', canvas.width / 2, 20);
 
     let startX = 50;
     let startY = 40;
@@ -58,8 +58,8 @@ class Legend {
       context.fillStyle = randomColor;
       context.fillRect(startX - 30, startY - 10, 10, 10);
 
-      context.fillStyle = "black";
-      context.font = "14px Roboto";
+      context.fillStyle = 'black';
+      context.font = '14px Roboto';
       context.fillText(label, startX + 20, startY);
 
       startX += labelWidth;
@@ -72,13 +72,13 @@ class Legend {
     const legendX = 0;
     const legendY = canvas.height - spacing;
 
-    context.fillStyle = "transparent";
+    context.fillStyle = 'transparent';
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
-    context.fillStyle = "black";
-    context.font = "bold 24px Roboto";
-    context.textAlign = "center";
-    context.fillText("Légende", canvas.width / 2, canvas.height - 50);
+    context.fillStyle = 'black';
+    context.font = 'bold 24px Roboto';
+    context.textAlign = 'center';
+    context.fillText('Légende', canvas.width / 2, canvas.height - 50);
 
     let startX = 10;
     let startY = canvas.height - 40;
@@ -102,8 +102,8 @@ class Legend {
 
       context.fillStyle = randomColor;
       context.fillRect(startX, startY, 10, 10);
-      context.fillStyle = "black";
-      context.font = "14px Roboto";
+      context.fillStyle = 'black';
+      context.font = '14px Roboto';
       context.fillText(label, startX + 50, startY + 10);
       startX += labelWidth;
     }
@@ -115,13 +115,13 @@ class Legend {
     const legendX = 0;
     const legendY = 0;
 
-    context.fillStyle = "transparent";
+    context.fillStyle = 'transparent';
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
-    context.fillStyle = "black";
-    context.font = "bold 24px Roboto";
-    context.textAlign = "left";
-    context.fillText("Légende", 5, 30);
+    context.fillStyle = 'black';
+    context.font = 'bold 24px Roboto';
+    context.textAlign = 'left';
+    context.fillText('Légende', 5, 30);
 
     const labelSpacing = 20;
     let yPosition = 60;
@@ -134,8 +134,8 @@ class Legend {
       context.fillStyle = randomColor;
       context.fillRect(legendX + 2, yPosition + 30, 10, 10);
 
-      context.fillStyle = "black";
-      context.font = "14px Roboto";
+      context.fillStyle = 'black';
+      context.font = '14px Roboto';
       context.fillText(this.labels[i], legendX + 20, yPosition + 40);
 
       yPosition += labelSpacing;
@@ -148,13 +148,13 @@ class Legend {
     const legendX = canvas.width - legendWidth;
     const legendY = 0;
 
-    context.fillStyle = "transparent";
+    context.fillStyle = 'transparent';
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
-    context.fillStyle = "black";
-    context.font = "bold 24px Roboto";
-    context.textAlign = "center";
-    context.fillText("Légende", legendX + legendWidth / 2, 40);
+    context.fillStyle = 'black';
+    context.font = 'bold 24px Roboto';
+    context.textAlign = 'center';
+    context.fillText('Légende', legendX + legendWidth / 2, 40);
 
     const labelSpacing = 20;
     let yPosition = 60;
@@ -167,8 +167,8 @@ class Legend {
       context.fillStyle = randomColor;
       context.fillRect(legendX + 5, yPosition + 30, 10, 10);
 
-      context.fillStyle = "black";
-      context.font = "14px Roboto";
+      context.fillStyle = 'black';
+      context.font = '14px Roboto';
       context.fillText(this.labels[i], legendX + 55, yPosition + 40);
 
       yPosition += labelSpacing;
