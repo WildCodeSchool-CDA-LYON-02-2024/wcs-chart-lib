@@ -43,7 +43,7 @@ class Point {
     context.beginPath();
 
     // Coordinate x and y of first point
-    context.moveTo(startX, startY);
+    context.moveTo(startX, startY - (data[0] - limitMinValue) * scaleH);
     //Loop for next point
     for (let i = 0; i < data.length; i++) {
       // Coordinate x and y of next
