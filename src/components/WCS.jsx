@@ -24,7 +24,8 @@ const WCS = ({ config, legend, dataset }) => {
             canvasCfg.context,
             legend,
             canvasCfg.canvas,
-            canvasCfg.spacing
+            canvasCfg.spacing,
+            config.type
           );
         }
       };

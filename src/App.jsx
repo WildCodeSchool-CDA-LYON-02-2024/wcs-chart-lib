@@ -9,14 +9,14 @@ function App() {
     type: 'bar',
     // height: 500,
     // width: 1000,
-    radius: 10,
+    radius: 100,
     grid: true,
     barWidth: 10,
   };
 
   const dataset = [
     {
-      tag: 'Titre',
+      tag: ['Titre1', 'Titre2'],
       data: {
         labels: [
           'Janvier',
@@ -32,7 +32,10 @@ function App() {
           'Novembre',
           'Decembre',
         ],
-        values: [[10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
+        values: [
+          [10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+          [30, 10, 40, 30, 60, 50, 61, 21, 41, 33, 37, 66],
+        ],
       },
     },
   ];
