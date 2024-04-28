@@ -23,7 +23,7 @@ class Theme {
         this.lineColor = '#FF1493';
         break;
         case 'sun':
-          this.backGroundColor = 'rgb(240,230,140)git';
+          this.backGroundColor = 'rgb(240,230,140)';
           this.fillColor = '	red';
           this.strokeColor = 'brown';
           this.lineColor = '	black';
