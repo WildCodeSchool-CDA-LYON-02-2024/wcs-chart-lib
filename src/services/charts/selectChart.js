@@ -56,7 +56,7 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
     case 'pie':
       chart = new ChartPie(
         dataset,
-        themeObj,
+        themeObj?.themeForChartPie,
         canvasCfg.context,
         canvasCfg.spacing,
         config.height,

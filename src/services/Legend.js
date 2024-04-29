@@ -66,12 +66,8 @@ class Legend {
           startY += 20;
         }
 
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(startX - 30, startY - 10, 10, 10);
 
         context.fillStyle = 'black';
@@ -124,13 +120,8 @@ class Legend {
           startY += 20;
         }
 
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
         context.font = '14px Roboto';
@@ -168,13 +159,8 @@ class Legend {
 
     if (configType === 'pie') {
       for (let i = 0; i < this.labels.length; i++) {
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';
@@ -214,13 +200,8 @@ class Legend {
 
     if (configType === 'pie') {
       for (let i = 0; i < this.labels.length; i++) {
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(legendX + 5, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';

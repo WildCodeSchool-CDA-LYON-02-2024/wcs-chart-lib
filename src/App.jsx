@@ -15,11 +15,11 @@ function App() {
     // toLine: true,
   };
 
-  // const theme = {
-  //   backgroundColor: 'red',
-  //   fillColor: 'white',
-  //   strokeColor: 'red',
-  // };
+  const theme = {
+    // backgroundColor: 'red',
+    // fillColor: 'white',
+    // strokeColor: 'red',
+  };
 
   const dataset = [
     {
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-      <WCS config={config} dataset={dataset} legend='top' theme='sea' />
+      <WCS config={config} dataset={dataset} legend='top' theme={theme} />
     </>
   );
 }

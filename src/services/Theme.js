@@ -8,6 +8,31 @@ class Theme {
     this.gridColor = theme?.gridColor;
     this.axiesColor = theme?.axiesColor;
 
+    this.themeForChartPie = theme?.themeForChartPie
+      ? theme?.themeForChartPie
+      : [
+          'cornflowerblue',
+          'salmon',
+          'gold',
+          'mediumseagreen',
+          'mediumpurple',
+          'tomato',
+          'lightskyblue',
+          'lightcoral',
+          'khaki',
+          'lightgreen',
+          'skyblue',
+          'lightpink',
+          'lightsteelblue',
+          'palegreen',
+          'orchid',
+          'palegoldenrod',
+          'lightseagreen',
+          'lightblue',
+          'thistle',
+          'lightyellow',
+        ];
+
     this.themeAqua = [
       ['#002d6e', '#c5dadd', ' #e6cfa3', '#c5dadd'],
       // Bleu foncé

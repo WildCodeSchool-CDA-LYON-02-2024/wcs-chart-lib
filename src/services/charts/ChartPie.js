@@ -8,36 +8,13 @@ class ChartPie extends ChartPoint {
     spacing,
     width = innerWidth,
     height = innerHeight / 2,
-    radius = height - spacing,
-
-    colist = [
-      'cornflowerblue',
-      'salmon',
-      'gold',
-      'mediumseagreen',
-      'mediumpurple',
-      'tomato',
-      'lightskyblue',
-      'lightcoral',
-      'khaki',
-      'lightgreen',
-      'skyblue',
-      'lightpink',
-      'lightsteelblue',
-      'palegreen',
-      'orchid',
-      'palegoldenrod',
-      'lightseagreen',
-      'lightblue',
-      'thistle',
-      'lightyellow',
-    ]
+    radius = height - spacing
   ) {
     super(data, themeObj, context, spacing, height, width, null, null, radius);
 
     this.startX = width / 2;
     this.startY = height / 2;
-    this.colorList = colist;
+    this.colorList = themeObj;
     this.data = data[0].data.values[0];
   }
 
