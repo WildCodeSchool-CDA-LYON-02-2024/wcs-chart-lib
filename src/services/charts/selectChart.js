@@ -22,7 +22,6 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
       chart.drawPointArray();
       break;
     case 'line':
-      //TO DO
       chart = new ChartLine(
         dataset,
         themeObj,
@@ -51,7 +50,7 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         config.barWidth
       );
       chart.drawBarArray();
-      // TO DO
+
       break;
     case 'pie':
       chart = new ChartPie(

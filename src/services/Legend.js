@@ -121,6 +121,7 @@ class Legend {
 
         const color = themeObj?.themeForChartPie[i];
         context.fillStyle = color;
+
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
         context.font = `14px ${themeObj?.font}`;
@@ -129,12 +130,14 @@ class Legend {
       }
     } else {
       startX = canvas.width / 2;
+      console.log('color : ', themeObj?.fillColor);
       for (let i = 0; i < this.tag.length; i++) {
-        context.fillStyle = themeObj?.fillColor;
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
         context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], startX + 50, startY + 10);
+        startX += 100;
       }
     }
   }
@@ -171,18 +174,19 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
-        context.fillStyle = themeObj?.fillColor;
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
         context.fillStyle = 'black';
         context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 20, yPosition + 40);
+        yPosition += 20;
       }
     }
   }
 
   drawBlockRightLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = canvas.height;
-    const legendWidth = spacing;
+    const legendWidth = spacing + 50;
     const legendX = canvas.width - legendWidth;
     const legendY = 0;
 
@@ -212,11 +216,12 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
-        context.fillStyle = themeObj?.fillColor;
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
         context.fillStyle = 'black';
         context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 55, yPosition + 40);
+        yPosition += 20;
       }
     }
   }

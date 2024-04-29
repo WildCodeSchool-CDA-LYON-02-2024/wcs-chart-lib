@@ -6,9 +6,9 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'pie',
-    height: 300,
-    width: 400,
+    type: 'line',
+    // height: 300,
+    // width: 400,
   };
 
   const theme = {};
