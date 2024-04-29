@@ -3,6 +3,7 @@ import ChartPoint from './ChartPoint';
 class ChartPie extends ChartPoint {
   constructor(
     data,
+    themeObj,
     context,
     spacing,
     width = innerWidth,
@@ -32,18 +33,7 @@ class ChartPie extends ChartPoint {
       'lightyellow',
     ]
   ) {
-    super(
-      data,
-      context,
-      spacing,
-      height,
-      width,
-      null,
-      null,
-      null,
-      null,
-      radius
-    );
+    super(data, themeObj, context, spacing, height, width, null, null, radius);
 
     this.startX = width / 2;
     this.startY = height / 2;
@@ -56,6 +46,14 @@ class ChartPie extends ChartPoint {
   }
 
   pieChart() {
+    console.log(
+      // this.data
+      // this.context
+      // this.colorList
+      // this.startX
+      // this.startY
+      this.radius
+    );
     this.twoPoint.drawPie(
       this.data,
       this.context,
