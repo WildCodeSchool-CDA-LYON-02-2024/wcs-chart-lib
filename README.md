@@ -176,32 +176,32 @@ N B : For the moment, the theme is not functional, and the color and size parame
 
 **Legend takes 4 possible parameters (in string):**
 - **"none"** : Legend is not displayed,
-- **"onTop"**: The legend is displayed at the top (note that if the pie chart has a radius greater than 150, it may overflow onto the legend),
-- **"inline"**: The legend is displayed at the bottom (note that if the pie chart has a radius greater than 150, it may overlap the legend),
-- **"blockLeft"**: The legend is displayed on the left (do not use in charts other than pie chart, otherwise the axis labels will overlap),
-- **"blockRight"**: Legend is displayed on the right.
+- **"top"**: The legend is displayed at the top (note that if the pie chart has a radius greater than 150, it may overflow onto the legend),
+- **"bottom"**: The legend is displayed at the bottom (note that if the pie chart has a radius greater than 150, it may overlap the legend),
+- **"left"**: The legend is displayed on the left (do not use in charts other than pie chart, otherwise the axis labels will overlap),
+- **"right"**: Legend is displayed on the right.
 
 
 For greater clarity, we'll show you examples with the pie chart.
 For other charts, only the "onTop" parameter is relevant.
 
-*Without legend :*
+*Without legend ("none") :*
 
 ![LEGEND 3 Screenshot](./DOCUMENTATION/src/img/legend-none-point.png)
 
-*Legend at left:*
+*Legend at left ("left") :*
 
 ![LEGEND 1 Screenshot](./DOCUMENTATION/src/img/legend-left-pie.png)
 
-*Legend at right :*
+*Legend at right ("right") :*
 
 ![LEGEND 2 Screenshot](./DOCUMENTATION/src/img/legend-right-pie.png)
 
-*Legend on top:*
+*Legend on top ("top"):*
 
 ![LEGEND 4 Screenshot](./DOCUMENTATION/src/img/legendPieOnTop.PNG)
 
-*Legend on bottom :*
+*Legend on bottom ("bottom") :*
 
 ![LEGEND 5 Screenshot](./DOCUMENTATION/src/img/legendPieInline.PNG)
 
@@ -357,31 +357,31 @@ Le composant utilise l’API canvas pour dessiner le graphique, est responsive e
 
 **Legend** prend 4 paramètres possible (en string):
 - **“none”** : La légende ne s’affiche pas,
-- **“onTop”** : La légende s’affiche en haut (attention si pie chart a un radius supérieur à 150, cela peut déborder sur la légende),
-- **“inline”** : La légende s’affiche en bas (attention si pie chart a un radius supérieur à 150, cela peut déborder sur la légende),
-- **“blockLeft”** : La légende s’affiche à gauche (ne pas utiliser dans les autres graphiques que pie chart sinon les labels de l’axe se chevauchent),
-- **“blockRight”** : La légende s’affiche à droite
+- **“top”** : La légende s’affiche en haut (attention si pie chart a un radius supérieur à 150, cela peut déborder sur la légende),
+- **“bottom”** : La légende s’affiche en bas (attention si pie chart a un radius supérieur à 150, cela peut déborder sur la légende),
+- **“left”** : La légende s’affiche à gauche (ne pas utiliser dans les autres graphiques que pie chart sinon les labels de l’axe se chevauchent),
+- **“right”** : La légende s’affiche à droite
 
 
 Pour plus de clarté, nous vous montrerons des exemples avec le camembert.
 Pour les autres graphiques, seul le paramètre **“onTop”** sera pertinent
 
-*Sans légrende :*
+*Sans légrende ("none") :*
 
 ![LEGEND 3 Screenshot](./DOCUMENTATION/src/img/legend-none-point.png)
 
-*Légende à gauche (blockLeft):*
+*Légende à gauche ("left"):*
 
 ![LEGEND 1 Screenshot](./DOCUMENTATION/src/img/legend-left-pie.png)
 
-*Légende à droite (blockRight):*
+*Légende à droite ("right"):*
 
 ![LEGEND 2 Screenshot](./DOCUMENTATION/src/img/legend-right-pie.png)
 
-*Légende en haut (onTop):*
+*Légende en haut ("top"):*
 
 ![LEGEND 4 Screenshot](./DOCUMENTATION/src/img/legendPieOnTop.PNG)
 
-*Légend en bas (inline) :*
+*Légend en bas ("bottom") :*
 
 ![LEGEND 5 Screenshot](./DOCUMENTATION/src/img/legendPieInline.PNG)
