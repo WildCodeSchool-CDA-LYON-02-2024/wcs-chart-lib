@@ -34,7 +34,7 @@ class Point {
     ratioW,
     scaleH,
     limitMinValue,
-    color = 'black'
+    color = 'red'
   ) {
     // Color line
     context.strokeStyle = color;
@@ -43,7 +43,7 @@ class Point {
     context.beginPath();
 
     // Coordinate x and y of first point
-    context.moveTo(startX, startY);
+    context.moveTo(startX, startY - (data[0] - limitMinValue) * scaleH);
     //Loop for next point
     for (let i = 0; i < data.length; i++) {
       // Coordinate x and y of next
@@ -52,6 +52,7 @@ class Point {
     }
     // Draw line
     context.stroke();
+    context.closePath();
   }
 
   drawText(context, value, x, y) {
