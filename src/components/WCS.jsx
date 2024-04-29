@@ -50,7 +50,7 @@ const WCS = ({ config, legend, dataset, theme }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [config, dataset, legend]);
+  }, [config, dataset, legend, theme]);
 
   return <canvas ref={canvasRef} />;
 };

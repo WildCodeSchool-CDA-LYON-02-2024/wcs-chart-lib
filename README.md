@@ -4,7 +4,7 @@
 [![Version Française](https://img.shields.io/badge/Version-Française-red)](#french-version)
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -203,7 +203,7 @@ For other charts, only the "onTop" parameter is relevant.
 
 ## French Version
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
