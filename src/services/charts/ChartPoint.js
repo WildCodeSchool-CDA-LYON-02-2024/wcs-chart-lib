@@ -191,7 +191,10 @@ class ChartPoint {
   // draw a line between several points with a loop
   drawLoopLine(data = this.data) {
     for (let j = 0; j < data.length; j++) {
+      console.log('j', j);
       let value = data[j];
+      let color = this.lineColor[j];
+      console.log('color : ', color);
       for (let i = 0; i < value.length; i++) {
         this.twoPoint.drawLoop(
           value,
@@ -202,7 +205,7 @@ class ChartPoint {
           this.ratioW,
           this.scaleH,
           this.limitMinValue,
-          this.lineColor
+          color
         );
       }
     }
@@ -212,6 +215,7 @@ class ChartPoint {
   drawArc(data = this.data) {
     for (let j = 0; j < data.length; j++) {
       let value = data[j];
+      let color = this.fillColor[j];
 
       for (let i = 0; i < value.length; i++) {
         this.context.beginPath();
@@ -229,7 +233,7 @@ class ChartPoint {
           this.color
         );
         // apply color
-        this.context.fillStyle = this.fillColor;
+        this.context.fillStyle = color;
         this.context.strokeStyle = this.strokeColor;
 
         // draw fill and stroke

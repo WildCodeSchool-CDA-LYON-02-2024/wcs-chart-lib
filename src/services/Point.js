@@ -56,6 +56,7 @@ class Point {
   }
 
   drawText(context, value, x, y) {
+    context.fillStyle = 'black';
     context.font = '15px serif';
 
     context.fillText(value, x, y);

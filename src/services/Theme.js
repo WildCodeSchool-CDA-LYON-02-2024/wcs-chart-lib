@@ -9,7 +9,8 @@ class Theme {
     this.axiesColor = theme?.axiesColor;
 
     this.themeAqua = [
-      '#002d6e', // Bleu foncé
+      ['#002d6e', '#c5dadd', ' #e6cfa3', '#c5dadd'],
+      // Bleu foncé
       '#004999',
       '#0066c4',
       '#0082e0',
@@ -33,7 +34,7 @@ class Theme {
       '#e4cd73',
       '#fbf380', // Marron clair
       '#1a321b', // Vert foncé
-      '#2a472c',
+      ['#2a472c', '#8b4513', '#679267', '#f4e76e', '#654321'],
       '#3b5e3e',
       '#4d754f',
       '#5f8c61',
@@ -50,14 +51,14 @@ class Theme {
       case 'sea':
         this.backGroundColor = 'white';
         this.fillColor = this.themeAqua[0];
-        this.lineColor = this.themeAqua[7];
+        this.lineColor = this.themeAqua[0];
         this.gridColor = this.themeAqua[9];
         this.axiesColor = this.themeAqua[0];
         break;
       case 'nature':
         this.backGroundColor = 'white';
         this.fillColor = this.themeNature[11];
-        this.lineColor = this.themeNature[7];
+        this.lineColor = this.themeNature[11];
         this.gridColor = this.themeNature[19];
         this.axiesColor = this.themeNature[1];
     }

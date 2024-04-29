@@ -5,25 +5,37 @@ class Legend {
     this.data = data[0].data.values;
   }
 
-  drawLegend(context, layout, canvas, spacing, configType, color = 'black') {
+  drawLegend(context, layout, canvas, spacing, configType, themeObj) {
     switch (layout) {
       case 'top': // ? changer le nom en top ?
-        this.drawLegendOnTheTop(context, canvas, spacing, configType, color);
+        this.drawLegendOnTheTop(context, canvas, spacing, configType, themeObj);
         break;
       case 'bottom': // ? changer le nom en bottom ?
-        this.drawInlineLegend(context, canvas, spacing, configType, color);
+        this.drawInlineLegend(context, canvas, spacing, configType, themeObj);
         break;
       case 'left': // ? changer le nom en left ?
-        this.drawBlockLeftLegend(context, canvas, spacing, configType, color);
+        this.drawBlockLeftLegend(
+          context,
+          canvas,
+          spacing,
+          configType,
+          themeObj
+        );
         break;
       case 'right': // ? changer le nom en right ?
-        this.drawBlockRightLegend(context, canvas, spacing, configType, color);
+        this.drawBlockRightLegend(
+          context,
+          canvas,
+          spacing,
+          configType,
+          themeObj
+        );
         break;
       default:
         break;
     }
   }
-  drawLegendOnTheTop(context, canvas, spacing, configType, color) {
+  drawLegendOnTheTop(context, canvas, spacing, configType, themeObj) {
     console.log('configType', configType);
     const legendHeight = spacing;
     const legendWidth = canvas.width;
@@ -71,8 +83,9 @@ class Legend {
     } else {
       startX = canvas.width / 2;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX - 30, startY - 10, 10, 10);
-        context.fillStyle = color;
+        context.fillStyle = 'black';
         context.font = '14px Roboto';
         context.fillText(this.tag[i], startX + 20, startY);
         startX += spacing;
@@ -80,7 +93,7 @@ class Legend {
     }
   }
 
-  drawInlineLegend(context, canvas, spacing, configType, color) {
+  drawInlineLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = spacing;
     const legendWidth = canvas.width;
     const legendX = 0;
@@ -127,15 +140,16 @@ class Legend {
     } else {
       startX = canvas.width / 2;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor;
         context.fillRect(startX, startY, 10, 10);
-        context.fillStyle = color;
+        context.fillStyle = 'black';
         context.font = '14px Roboto';
         context.fillText(this.tag[i], startX + 50, startY + 10);
       }
     }
   }
 
-  drawBlockLeftLegend(context, canvas, spacing, configType, color) {
+  drawBlockLeftLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = canvas.height;
     const legendWidth = spacing;
     const legendX = 0;
@@ -172,15 +186,16 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
-        context.fillStyle = color;
+        context.fillStyle = 'black';
         context.font = '14px Roboto';
         context.fillText(this.tag[i], legendX + 20, yPosition + 40);
       }
     }
   }
 
-  drawBlockRightLegend(context, canvas, spacing, configType, color) {
+  drawBlockRightLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = canvas.height;
     const legendWidth = spacing;
     const legendX = canvas.width - legendWidth;
@@ -217,8 +232,9 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
-        context.fillStyle = color;
+        context.fillStyle = 'black';
         context.font = '14px Roboto';
         context.fillText(this.tag[i], legendX + 55, yPosition + 40);
       }

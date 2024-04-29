@@ -30,7 +30,8 @@ const WCS = ({ config, legend, dataset, theme }) => {
             legend,
             canvasCfg.canvas,
             canvasCfg.spacing,
-            config.type
+            config.type,
+            themeObj
           );
         }
       };

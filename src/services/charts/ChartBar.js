@@ -48,12 +48,15 @@ class ChartBar extends ChartPoint {
   }
 
   drawBars(data = this.data) {
-    for (let value of data) {
+    for (let j = 0; j < data.length; j++) {
+      let value = data[j];
+      let color = this.fillColor[j];
       if (data.length === 1) {
         this.multipleBarSpacing = 0;
       }
       for (let i = 0; i < value.length; i++) {
-        this.context.fillStyle = this.fillColor;
+        this.context.fillStyle = color;
+
         this.context.fillRect(
           /// we did / 2 to put everything ob place in good pos in the chart
           this.startColumn +
