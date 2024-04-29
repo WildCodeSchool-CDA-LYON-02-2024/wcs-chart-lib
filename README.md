@@ -234,7 +234,7 @@ https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib
 Le composant WCS  permet d’afficher un graphique en passant différentes props (dataset, config, thème)
 
 **Exemple d'implémentation  :**
-   ```
+   ``` js
    <WCS config={config} dataset={dataset} />
 ```
 
