@@ -9,10 +9,6 @@ function App() {
     type: 'pie',
     height: 300,
     width: 400,
-    // radius: 150,
-    // grid: true,
-    // barWidth: 30,
-    // toLine: true,
   };
 
   const theme = {};
