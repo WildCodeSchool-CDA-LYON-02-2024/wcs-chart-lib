@@ -51,7 +51,7 @@ Implementation exemple code
 ```
  Example of the dataset object, the structure does not change depending on the chart type :
 
-```
+``` js
 const dataset = [
     {
       tag: "Titre",
