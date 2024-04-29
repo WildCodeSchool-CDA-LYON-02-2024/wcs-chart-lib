@@ -52,14 +52,23 @@ config, theme).
 
 Implementation exemple code 
 ``` js
- <WCS config={config} dataset={dataset} />
+ <WCS config={config} dataset={dataset} theme='sea'/>
 ```
+**Theme**
+
+The chart has two default themes: "sea" and "nature".
+
+Simply pass the value as a string in the component props.
+
+Without any props, the chart will take "sea" as its default theme.
+
+
  Example of the dataset object, the structure does not change depending on the chart type :
 
 ``` js
 const dataset = [
     {
-      tag: "Titre",
+      tag: ["Titre1"],
       data: {
         labels: [
           "Janvier",
@@ -75,17 +84,17 @@ const dataset = [
           "Novembre",
           "Décembre",
         ],
-        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [[88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 ```
 
 This is an array, with an object:
-- **tag** (type: string): The title of the chart
+- **tag** (type: array of string): The title of the chart
 - **data**: Another object with:
 - **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, thus label[i]=values[i]);
-- **values**: Represents the values to display in the chart (this is a value table of type number int)
+- **values**: Represents the values to display in the chart (this is an array of tables with values ​​of type number int), if you want to display several graphs, simply add another table in the initial table.
 
 
 **The different chart types: bar, line, point, pie...** 
@@ -236,15 +245,23 @@ Le composant WCS  permet d’afficher un graphique en passant différentes props
 
 **Exemple d'implémentation  :**
    ``` js
-   <WCS config={config} dataset={dataset} />
+   <WCS config={config} dataset={dataset} theme='sea'/>
 ```
+**Thème**
+
+Le graphique a deux thème par defaut : "sea" et "nature".
+
+Passer simplement la valeur en string dans les props du composant.
+
+Sans aucun props, le graphique prendra "sea" en thème par defaut.
+
 
 **Exemple de l’objet dataset, la structure ne change pas en fonction du type de graphique :**
 
 ``` js
 const dataset = [
     {
-      tag: "Titre",
+      tag: ["Titre1"],
       data: {
         labels: [
           "Janvier",
@@ -260,17 +277,17 @@ const dataset = [
           "Novembre",
           "Décembre",
         ],
-        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [[88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 ```
 
 Il s’agit d’un tableau, avec un objet :
- - **tag** (type : string) : Le titre du graphique 
+ - **tag** (type : tableau de string) : Le titre du graphique 
 data : Un autre objet avec : 
 - **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[i]=values[i]);
-- **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de valeur de type number int)
+- **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de tableaux avec des valeur de type number int), si vous voulez afficher plusieurs graphiques, ajouter simplement un autre tableau dans le tableau initial.
 
 Les différents types de graphiques : **bar, ligne, point, à secteur (camembert)...** 
 
