@@ -36,7 +36,6 @@ class Legend {
     }
   }
   drawLegendOnTheTop(context, canvas, spacing, configType, themeObj) {
-    console.log('configType', configType);
     const legendHeight = spacing;
     const legendWidth = canvas.width;
     const legendX = 0;
@@ -46,7 +45,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', canvas.width / 2, 20);
 
@@ -71,7 +70,7 @@ class Legend {
         context.fillRect(startX - 30, startY - 10, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(label, startX + 20, startY);
 
         startX += labelWidth;
@@ -82,7 +81,7 @@ class Legend {
         context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX - 30, startY - 10, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], startX + 20, startY);
         startX += spacing;
       }
@@ -99,7 +98,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', canvas.width / 2, canvas.height - 50);
 
@@ -124,7 +123,7 @@ class Legend {
         context.fillStyle = color;
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(label, startX + 50, startY + 10);
         startX += labelWidth;
       }
@@ -134,7 +133,7 @@ class Legend {
         context.fillStyle = themeObj?.fillColor;
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], startX + 50, startY + 10);
       }
     }
@@ -150,7 +149,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'left';
     context.fillText('Légende', 5, 30);
 
@@ -164,7 +163,7 @@ class Legend {
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.labels[i], legendX + 20, yPosition + 40);
 
         yPosition += labelSpacing;
@@ -175,7 +174,7 @@ class Legend {
         context.fillStyle = themeObj?.fillColor;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 20, yPosition + 40);
       }
     }
@@ -191,7 +190,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', legendX + legendWidth / 2, 40);
 
@@ -205,7 +204,7 @@ class Legend {
         context.fillRect(legendX + 5, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.labels[i], legendX + 55, yPosition + 40);
 
         yPosition += labelSpacing;
@@ -216,7 +215,7 @@ class Legend {
         context.fillStyle = themeObj?.fillColor;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 55, yPosition + 40);
       }
     }

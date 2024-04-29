@@ -7,19 +7,15 @@ function App() {
 
   const config = {
     type: 'pie',
-    // height: 500,
-    // width: 1000,
-    radius: 100,
+    height: 300,
+    width: 400,
+    // radius: 150,
     // grid: true,
     // barWidth: 30,
     // toLine: true,
   };
 
-  const theme = {
-    // backgroundColor: 'red',
-    // fillColor: 'white',
-    // strokeColor: 'red',
-  };
+  const theme = {};
 
   const dataset = [
     {
@@ -46,7 +42,7 @@ function App() {
 
   return (
     <>
-      <WCS config={config} dataset={dataset} legend='top' theme={theme} />
+      <WCS config={config} dataset={dataset} legend='left' theme={theme} />
     </>
   );
 }

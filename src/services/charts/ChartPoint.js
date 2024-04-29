@@ -36,6 +36,7 @@ class ChartPoint {
     this.strokeColor = themeObj?.strokeColor;
     this.lineColor = themeObj?.lineColor;
     this.gridColor = themeObj?.gridColor;
+    this.font = themeObj?.font;
 
     // ----------------- DATA --------------------//
 
@@ -154,7 +155,8 @@ class ChartPoint {
 
         chartType === 'bar' ? nexPositionX + this.ratioW / 2 : nexPositionX,
 
-        this.height + this.margin
+        this.height + this.margin,
+        this.font
       );
       nexPositionX += this.ratioW;
     }
@@ -191,10 +193,9 @@ class ChartPoint {
   // draw a line between several points with a loop
   drawLoopLine(data = this.data) {
     for (let j = 0; j < data.length; j++) {
-      console.log('j', j);
       let value = data[j];
       let color = this.lineColor[j];
-      console.log('color : ', color);
+
       for (let i = 0; i < value.length; i++) {
         this.twoPoint.drawLoop(
           value,
