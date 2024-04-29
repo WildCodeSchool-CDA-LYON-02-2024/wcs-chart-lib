@@ -51,6 +51,10 @@ The WCS component allows to display a Chart by passing different props (dataset,
 config, theme).
 
 Implementation exemple code 
+``` js 
+import { WCS } from 'wcs-chart-lib';
+```
+
 ``` js
  <WCS config={config} dataset={dataset} theme='sea'/>
 ```
@@ -239,6 +243,11 @@ https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib
 Le composant WCS  permet d’afficher un graphique en passant différentes props (dataset, config, thème)
 
 **Exemple d'implémentation  :**
+
+``` js 
+import { WCS } from 'wcs-chart-lib';
+```
+
    ``` js
    <WCS config={config} dataset={dataset} theme='sea'/>
 ```
