@@ -10,7 +10,6 @@ const WCS = ({ config, legend, dataset, theme }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    console.log('theme 2:', theme);
     const legendService = new Legend(dataset);
     const themeObj = new Theme(theme);
     themeObj.selectedTheme(theme);
@@ -30,7 +29,8 @@ const WCS = ({ config, legend, dataset, theme }) => {
             legend,
             canvasCfg.canvas,
             canvasCfg.spacing,
-            config.type
+            config.type,
+            themeObj
           );
         }
       };

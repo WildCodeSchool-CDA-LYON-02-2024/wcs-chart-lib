@@ -5,26 +5,37 @@ class Legend {
     this.data = data[0].data.values;
   }
 
-  drawLegend(context, layout, canvas, spacing, configType, color = 'black') {
+  drawLegend(context, layout, canvas, spacing, configType, themeObj) {
     switch (layout) {
       case 'top': // ? changer le nom en top ?
-        this.drawLegendOnTheTop(context, canvas, spacing, configType, color);
+        this.drawLegendOnTheTop(context, canvas, spacing, configType, themeObj);
         break;
       case 'bottom': // ? changer le nom en bottom ?
-        this.drawInlineLegend(context, canvas, spacing, configType, color);
+        this.drawInlineLegend(context, canvas, spacing, configType, themeObj);
         break;
       case 'left': // ? changer le nom en left ?
-        this.drawBlockLeftLegend(context, canvas, spacing, configType, color);
+        this.drawBlockLeftLegend(
+          context,
+          canvas,
+          spacing,
+          configType,
+          themeObj
+        );
         break;
       case 'right': // ? changer le nom en right ?
-        this.drawBlockRightLegend(context, canvas, spacing, configType, color);
+        this.drawBlockRightLegend(
+          context,
+          canvas,
+          spacing,
+          configType,
+          themeObj
+        );
         break;
       default:
         break;
     }
   }
-  drawLegendOnTheTop(context, canvas, spacing, configType, color) {
-    console.log('configType', configType);
+  drawLegendOnTheTop(context, canvas, spacing, configType, themeObj) {
     const legendHeight = spacing;
     const legendWidth = canvas.width;
     const legendX = 0;
@@ -34,7 +45,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', canvas.width / 2, 20);
 
@@ -54,16 +65,12 @@ class Legend {
           startY += 20;
         }
 
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(startX - 30, startY - 10, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(label, startX + 20, startY);
 
         startX += labelWidth;
@@ -71,16 +78,17 @@ class Legend {
     } else {
       startX = canvas.width / 2;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX - 30, startY - 10, 10, 10);
-        context.fillStyle = color;
-        context.font = '14px Roboto';
+        context.fillStyle = 'black';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], startX + 20, startY);
         startX += spacing;
       }
     }
   }
 
-  drawInlineLegend(context, canvas, spacing, configType, color) {
+  drawInlineLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = spacing;
     const legendWidth = canvas.width;
     const legendX = 0;
@@ -90,7 +98,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', canvas.width / 2, canvas.height - 50);
 
@@ -111,31 +119,30 @@ class Legend {
           startY += 20;
         }
 
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
 
-        context.fillStyle = randomColor;
         context.fillRect(startX, startY, 10, 10);
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(label, startX + 50, startY + 10);
         startX += labelWidth;
       }
     } else {
       startX = canvas.width / 2;
+      console.log('color : ', themeObj?.fillColor);
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX, startY, 10, 10);
-        context.fillStyle = color;
-        context.font = '14px Roboto';
+        context.fillStyle = 'black';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], startX + 50, startY + 10);
+        startX += 100;
       }
     }
   }
 
-  drawBlockLeftLegend(context, canvas, spacing, configType, color) {
+  drawBlockLeftLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = canvas.height;
     const legendWidth = spacing;
     const legendX = 0;
@@ -145,7 +152,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'left';
     context.fillText('Légende', 5, 30);
 
@@ -154,17 +161,12 @@ class Legend {
 
     if (configType === 'pie') {
       for (let i = 0; i < this.labels.length; i++) {
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.labels[i], legendX + 20, yPosition + 40);
 
         yPosition += labelSpacing;
@@ -172,17 +174,19 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
-        context.fillStyle = color;
-        context.font = '14px Roboto';
+        context.fillStyle = 'black';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 20, yPosition + 40);
+        yPosition += 20;
       }
     }
   }
 
-  drawBlockRightLegend(context, canvas, spacing, configType, color) {
+  drawBlockRightLegend(context, canvas, spacing, configType, themeObj) {
     const legendHeight = canvas.height;
-    const legendWidth = spacing;
+    const legendWidth = spacing + 50;
     const legendX = canvas.width - legendWidth;
     const legendY = 0;
 
@@ -190,7 +194,7 @@ class Legend {
     context.fillRect(legendX, legendY, legendWidth, legendHeight);
 
     context.fillStyle = 'black';
-    context.font = 'bold 24px Roboto';
+    context.font = `bold 24px ${themeObj?.font}`;
     context.textAlign = 'center';
     context.fillText('Légende', legendX + legendWidth / 2, 40);
 
@@ -199,17 +203,12 @@ class Legend {
 
     if (configType === 'pie') {
       for (let i = 0; i < this.labels.length; i++) {
-        const randomColor = `rgb(${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )})`;
-
-        context.fillStyle = randomColor;
+        const color = themeObj?.themeForChartPie[i];
+        context.fillStyle = color;
         context.fillRect(legendX + 5, yPosition + 30, 10, 10);
 
         context.fillStyle = 'black';
-        context.font = '14px Roboto';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.labels[i], legendX + 55, yPosition + 40);
 
         yPosition += labelSpacing;
@@ -217,10 +216,12 @@ class Legend {
     } else {
       yPosition = 15;
       for (let i = 0; i < this.tag.length; i++) {
+        context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(legendX + 2, yPosition + 30, 10, 10);
-        context.fillStyle = color;
-        context.font = '14px Roboto';
+        context.fillStyle = 'black';
+        context.font = `14px ${themeObj?.font}`;
         context.fillText(this.tag[i], legendX + 55, yPosition + 40);
+        yPosition += 20;
       }
     }
   }

@@ -55,8 +55,9 @@ class Point {
     context.closePath();
   }
 
-  drawText(context, value, x, y) {
-    context.font = '15px serif';
+  drawText(context, value, x, y, font) {
+    context.fillStyle = 'black';
+    context.font = `15px ${font}`;
 
     context.fillText(value, x, y);
   }
