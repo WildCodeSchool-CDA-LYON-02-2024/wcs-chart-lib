@@ -2,9 +2,12 @@
 
 [![English Version](https://img.shields.io/badge/Version-English-blue)](#english-version)
 [![Version Française](https://img.shields.io/badge/Version-Française-red)](#french-version)
+[![Storybook](https://img.shields.io/badge/Storybook-Yes-purple)](https://wild-chart-lib-sb.netlify.app/)
+
+
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.6-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
