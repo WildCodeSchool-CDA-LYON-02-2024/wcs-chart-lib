@@ -7,8 +7,6 @@ function App() {
 
   const config = {
     type: 'line',
-    // height: 300,
-    // width: 400,
   };
 
   const theme = {};
