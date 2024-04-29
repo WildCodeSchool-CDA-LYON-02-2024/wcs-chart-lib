@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "licence": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
