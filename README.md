@@ -109,15 +109,6 @@ type, height and width properties are common to all graphics.
 
 ![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
 
-**Example for the line chart :** 
-``` js
-  const config = {
-    type: 'line',
-    height: 1000,
-    width: 1000,
-  };
-  ```
-
 
 **Example for the point chart :**
   ``` js
@@ -185,23 +176,23 @@ N B : For the moment, the theme is not functional, and the color and size parame
 For greater clarity, we'll show you examples with the pie chart.
 For other charts, only the "onTop" parameter is relevant.
 
-*Without legend :*
+*Without legend (non) :*
 
 ![LEGEND 3 Screenshot](./DOCUMENTATION/src/img/legend-none-point.png)
 
-*Legend at left:*
+*Legend at left (blockLeft) :*
 
 ![LEGEND 1 Screenshot](./DOCUMENTATION/src/img/legend-left-pie.png)
 
-*Legend at right :*
+*Legend at right (blockRight) :*
 
 ![LEGEND 2 Screenshot](./DOCUMENTATION/src/img/legend-right-pie.png)
 
-*Legend on top:*
+*Legend on top (onTop) :*
 
 ![LEGEND 4 Screenshot](./DOCUMENTATION/src/img/legendPieOnTop.PNG)
 
-*Legend on bottom :*
+*Legend on bottom (inline) :*
 
 ![LEGEND 5 Screenshot](./DOCUMENTATION/src/img/legendPieInline.PNG)
 
