@@ -32,8 +32,13 @@ It can be used as soon as it is installed with test data or by replacing it with
 
 ### Installation
 
+Download and install with npm with:
 
-Clone this repository  (you will be able to download the library with npm install chart-wcs)
+```bash
+npm i wcs-chart-lib
+```
+
+Or clone this repository  (you will be able to download the library with npm install chart-wcs)
 
 ```bash
   git clone git@github.com:WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib.git
@@ -215,12 +220,17 @@ Le graphique est responsive et se redimensionne automatiquement avec la fenêtre
 Elle est utilisable dès son installation avec des données de test ou en remplaçant celles-ci par les siennes, tout en conservant la structure donnée ci-dessous.
 
 ## Commencer avec WildChartSchool
-Cloner le repo : 
+
+Installer depuis npm :
+
+``` bash
+npm i wcs-chart-lib
+```
+
+Ou cloner le repo : 
 ```
 https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib
 ```
-
-( A terme vous pourrez télécharger la librairie avec npm install chart-wcs)
 
 Le composant WCS  permet d’afficher un graphique en passant différentes props (dataset, config, thème)
 
