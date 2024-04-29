@@ -167,8 +167,8 @@ N B : For the moment, the theme is not functional, and the color and size parame
 
 **Legend takes 4 possible parameters (in string):**
 - **"none"** : Legend is not displayed,
-- **"onTop"**: The legend is displayed at the top (note that if the pie chart has a radius greater than 150, it may overflow onto the legend),
-- **"inline"**: The legend is displayed at the bottom (note that if the pie chart has a radius greater than 150, it may overlap the legend),
+- **"top"**: The legend is displayed at the top (note that if the pie chart has a radius greater than 150, it may overflow onto the legend),
+- **"bottom"**: The legend is displayed at the bottom (note that if the pie chart has a radius greater than 150, it may overlap the legend),
 - **"blockLeft"**: The legend is displayed on the left (do not use in charts other than pie chart, otherwise the axis labels will overlap),
 - **"blockRight"**: Legend is displayed on the right.
 
