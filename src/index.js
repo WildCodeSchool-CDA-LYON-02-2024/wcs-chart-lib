@@ -1,3 +1,3 @@
-import WCS from "./components/WCS";
+import WCS from './components/WCS';
 
 export { WCS };
