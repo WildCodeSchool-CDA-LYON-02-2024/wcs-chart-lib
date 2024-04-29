@@ -1,13 +1,13 @@
 {
   "name": "wcs-chart-lib",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "licence": "MIT",
   "type": "module",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib"
   },
-  "entry point": "./src/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
