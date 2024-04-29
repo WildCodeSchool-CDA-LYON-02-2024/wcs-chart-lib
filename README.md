@@ -93,8 +93,8 @@ const dataset = [
 This is an array, with an object:
 - **tag** (type: array of string): The title of the chart
 - **data**: Another object with:
-- **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, thus label[i]=values[i]);
-- **values**: Represents the values to display in the chart (this is an array of tables with values ​​of type number int), if you want to display several graphs, simply add another table in the initial table.
+  - **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, label[0]=values[0]);
+  - **values**: Represents the values to display in the chart (this is an array of tables with values ​​of type number int), if you want to display several graphs, simply add another table in the initial table.
 
 
 **The different chart types: bar, line, point, pie...** 
@@ -284,10 +284,10 @@ const dataset = [
 ```
 
 Il s’agit d’un tableau, avec un objet :
- - **tag** (type : tableau de string) : Le titre du graphique 
-data : Un autre objet avec : 
-- **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[i]=values[i]);
-- **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de tableaux avec des valeur de type number int), si vous voulez afficher plusieurs graphiques, ajouter simplement un autre tableau dans le tableau initial.
+- **tag** (type : tableau de string) : Le titre du graphique 
+- **data** : Un autre objet avec : 
+  - **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[0]=values[0]);
+  - **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de tableaux avec des valeur de type number int), si vous voulez afficher plusieurs graphiques, ajouter simplement un autre tableau dans le tableau initial.
 
 Les différents types de graphiques : **bar, ligne, point, à secteur (camembert)...** 
 
@@ -309,7 +309,7 @@ Dans les exemples de config ci dessous, sont expliquées les propriétés propre
 
 - **type** (type string) : si pas de valeur fournis, il prendra “point” par défaut
 - **height** (de type number int), si pas de valeur fournis, height sera égal à la taille de la fenêtre du navigateur (innerHeight) divisé par deux 
-- **width* (type number int), si pas de valeur fournis, width sera égal à 100% de la largeur de la fenêtre du navigateur (innerWidth)
+- **width** (type number int), si pas de valeur fournis, width sera égal à 100% de la largeur de la fenêtre du navigateur (innerWidth)
 Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
 
 ![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
