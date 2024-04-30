@@ -45,4 +45,20 @@ const limitMaxValue = (higherSignDigit, nbOfZeroOfMax) => {
   return (higherSignDigit += newStr);
 };
 
-export { limitMinValue, limitMaxValue };
+// return an array of value for Y axie from limitMaxValue, limitMinValue, referenceData
+const axieYNumber = (limitMaxValue, limitMinValue, referenceData) => {
+  let yArray = [];
+
+  let incrValue =
+    (limitMaxValue - parseInt(limitMinValue)) / referenceData.length;
+
+  let value = parseInt(limitMinValue);
+  for (let i = 0; i < referenceData.length + 1; i++) {
+    yArray.push(Math.round(value).toString());
+    value += incrValue;
+  }
+
+  return yArray;
+};
+
+export { limitMinValue, limitMaxValue, axieYNumber };

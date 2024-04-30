@@ -1,8 +1,17 @@
 import ChartPoint from './ChartPoint';
 
 class ChartLine extends ChartPoint {
-  constructor(data, context, spacing, fillColor, width, height) {
-    super(data, context, spacing, null, fillColor, null, width, height);
+  constructor(
+    data,
+    themeObj,
+    context,
+    spacing,
+    height,
+    width,
+    cfgGrid,
+    fillColor
+  ) {
+    super(data, themeObj, context, spacing, height, width, cfgGrid, fillColor);
   }
 
   drawLineArray() {
@@ -14,8 +23,7 @@ class ChartLine extends ChartPoint {
     this.drawLabels();
     // draw line with an array and a loop : start to next point => to next point
     this.drawLoopLine();
-    // Return array of number !== data, for y axie
-    this.axieYNumber();
+
     // I draw those numbers
     this.drawNumber();
   }

@@ -1,49 +1,42 @@
-import "./App.css";
+import './App.css';
 
-import WCS from "./components/WCS";
-import TestCanvas from "./components/TestCanvas";
+import WCS from './components/WCS';
 
 function App() {
   //Exemple for config chart
 
   const config = {
-    type: "point",
-    toLine: true,
-    grid: true,
-    radius: 10,
-    fillColor: "blue",
-    // strokeColor: 'red',
-    // // height: 500,
-    // width: 500,
+    type: 'line',
   };
+
+  const theme = {};
 
   const dataset = [
     {
-      tag: "Titre",
+      tag: ['Titre1'],
       data: {
         labels: [
-          "Janvier",
-          "Fevrier",
-          "Mars",
-          "Avril",
-          "Mai",
-          "Juin",
-          "Juillet",
-          "Aout",
-          "Septemnre",
-          "Octobre",
-          "Novembre",
-          "Decembre",
+          'Janvier',
+          'Fevrier',
+          'Mars',
+          'Avril',
+          'Mai',
+          'Juin',
+          'Juillet',
+          'Aout',
+          'Septembre',
+          'Octobre',
+          'Novembre',
+          'Decembre',
         ],
-        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [[10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 
   return (
     <>
-      <WCS config={config} dataset={dataset} />
-      <TestCanvas config={config} dataset={dataset} />
+      <WCS config={config} dataset={dataset} legend='left' theme={theme} />
     </>
   );
 }

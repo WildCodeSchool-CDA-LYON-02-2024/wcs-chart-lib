@@ -1,42 +1,21 @@
-import ChartPoint from "./ChartPoint";
+import ChartPoint from './ChartPoint';
 
 class ChartPie extends ChartPoint {
   constructor(
     data,
+    themeObj,
     context,
     spacing,
-    width = innerWidth,
     height = innerHeight / 2,
-    radius = height - spacing,
-
-    colist = [
-      "cornflowerblue",
-      "salmon",
-      "gold",
-      "mediumseagreen",
-      "mediumpurple",
-      "tomato",
-      "lightskyblue",
-      "lightcoral",
-      "khaki",
-      "lightgreen",
-      "skyblue",
-      "lightpink",
-      "lightsteelblue",
-      "palegreen",
-      "orchid",
-      "palegoldenrod",
-      "lightseagreen",
-      "lightblue",
-      "thistle",
-      "lightyellow",
-    ]
+    width = innerWidth,
+    radius = width - spacing
   ) {
-    super(data, context, spacing, radius, null, null, width, height);
-
+    super(data, themeObj, context, spacing, height, width, null, null, radius);
+    this.radius = this.height / 2;
     this.startX = width / 2;
     this.startY = height / 2;
-    this.colorList = colist;
+    this.colorList = themeObj;
+    this.data = data[0].data.values[0];
   }
 
   draw() {
