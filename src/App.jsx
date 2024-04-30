@@ -4,11 +4,12 @@ import WCS from './components/WCS';
 
 function App() {
   //Exemple for config chart
+  console.log('innerWidh : ', innerWidth);
 
   const config = {
-    type: 'bar',
-    height: 1000,
-    width: 1000,
+    type: 'point',
+    height: 100,
+    width: 100,
   };
 
   const dataset = [
@@ -35,9 +36,9 @@ function App() {
   ];
 
   return (
-    <>
+    <div className='app'>
       <WCS config={config} dataset={dataset} />
-    </>
+    </div>
   );
 }
 
