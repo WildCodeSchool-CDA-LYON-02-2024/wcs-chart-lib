@@ -53,13 +53,49 @@ Or clone this repository  (you will be able to download the library with npm ins
 The WCS component allows to display a Chart by passing different props (dataset,
 config, theme).
 
-Implementation exemple code 
-``` js 
-import { WCS } from 'wcs-chart-lib';
-```
+Implementation exemple code (ready-to-use)
+
 
 ``` js
- <WCS config={config} dataset={dataset} theme='sea'/>
+import { WCS } from 'wcs-chart-lib';
+
+function App() {
+  const config = {
+    type: 'point',
+  };
+
+  const dataset = [
+    {
+      tag: ['Titre1'],
+      data: {
+        labels: [
+          'Janvier',
+          'Fevrier',
+          'Mars',
+          'Avril',
+          'Mai',
+          'Juin',
+          'Juillet',
+          'Aout',
+          'Septembre',
+          'Octobre',
+          'Novembre',
+          'Decembre',
+        ],
+        values: [[10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
+      },
+    },
+  ];
+
+  return (
+    <>
+      <WCS config={config} dataset={dataset} theme="sea" legend="top" />
+    </>
+  );
+}
+
+export default App;
+
 ```
 **Theme**
 
@@ -151,10 +187,10 @@ type, height and width properties are common to all graphics.
  ``` js
  const config = {
     type: 'bar',
-    radius: 30,
+    barWidth: 30,
   };
 ```
-- **radius** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, radius = 10.
+- **barWidth** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, barWidth = 15.
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
@@ -248,10 +284,50 @@ https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib
 
 Le composant WCS  permet d’afficher un graphique en passant différentes props (dataset, config, thème)
 
-**Exemple d'implémentation  :**
-   ``` js
-   <WCS config={config} dataset={dataset} />
+**Exemple d'implémentation (prêt à l'emploi)  :**
+  
+ ``` js
+import { WCS } from 'wcs-chart-lib';
+
+function App() {
+  const config = {
+    type: 'point',
+  };
+
+  const dataset = [
+    {
+      tag: ['Titre1'],
+      data: {
+        labels: [
+          'Janvier',
+          'Fevrier',
+          'Mars',
+          'Avril',
+          'Mai',
+          'Juin',
+          'Juillet',
+          'Aout',
+          'Septembre',
+          'Octobre',
+          'Novembre',
+          'Decembre',
+        ],
+        values: [[10, 20, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
+      },
+    },
+  ];
+
+  return (
+    <>
+      <WCS config={config} dataset={dataset} theme="sea" legend="top" />
+    </>
+  );
+}
+
+export default App;
+
 ```
+
 **Thème**
 
 Le graphique a deux thème par defaut : "sea" et "nature".
@@ -339,11 +415,11 @@ Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
   ``` js
   const config = {
     type: 'bar',
-    radius: 30,
+    barWidth: 30,
   };
 ```
 
-- **radius** (type number, accepte un chiffre après la virgule), cette option permet de définir la largeur de la barre sur le graphique. Par défaut, radius = 10. 
+- **barWidth** (type number, accepte un chiffre après la virgule), cette option permet de définir la largeur de la barre sur le graphique. Par défaut, barWidth = 15. 
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
