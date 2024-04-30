@@ -4,7 +4,7 @@
 [![Version Française](https://img.shields.io/badge/Version-Française-red)](#french-version)
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.7-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -17,13 +17,13 @@
 ## English Version
 
 
-## Welcome to your free open source library for data visualization.
+## Welcome to your free open-source library for data visualization with React (utilizing PropTypes).
 
 Wild Chart School is a project maintained by the community, contributions are welcome!
 
 Visualize your data in 4 different ways (4 chart types currently: bars, lines, points and pie charts).
 
-The graph is responsive and resizes automatically with the window.
+The graph is responsive and resizes automatically with the window (unless a specific size is specified).
 
 It can be used as soon as it is installed with test data or by replacing it with its own, while retaining the structure given below.
 
@@ -203,7 +203,7 @@ For other charts, only the "onTop" parameter is relevant.
 
 ## French Version
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.7-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -212,11 +212,14 @@ For other charts, only the "onTop" parameter is relevant.
 [![Build Status](https://img.shields.io/badge/Build-In%20Progress-yellow)](#)
 [![Documentation](https://img.shields.io/badge/Documentation-Yes-brightgreen)](#)
 
-## Bienvenue sur votre librairie open source gratuite pour la visualisation de données.
+## Bienvenue dans votre bibliothèque open source gratuite pour la visualisation des données avec React (utilisant PropTypes).
 
 Wild Chart School est un projet maintenu par la communauté, les contributions sont les bienvenues !
-Visualisez vos données de 4 manières différentes (4 types de graphiques actuellement : barres, lignes, points et camemberts).
-Le graphique est responsive et se redimensionne automatiquement avec la fenêtre.
+
+Visualisez vos données de 4 manières différentes (4 types de graphiques actuellement : barres, lignes, points et à secteurs).
+
+Le graphique est responsive et se redimensionne automatiquement avec la fenêtre (sauf si vous passez outre en donnant une taille définie).
+
 Elle est utilisable dès son installation avec des données de test ou en remplaçant celles-ci par les siennes, tout en conservant la structure donnée ci-dessous.
 
 ## Commencer avec WildChartSchool
