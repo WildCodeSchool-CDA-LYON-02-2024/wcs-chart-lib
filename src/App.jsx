@@ -6,10 +6,10 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'line',
+    type: 'bar',
+    height: 1000,
+    width: 1000,
   };
-
-  const theme = {};
 
   const dataset = [
     {
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <WCS config={config} dataset={dataset} legend='left' theme={theme} />
+      <WCS config={config} dataset={dataset} />
     </>
   );
 }

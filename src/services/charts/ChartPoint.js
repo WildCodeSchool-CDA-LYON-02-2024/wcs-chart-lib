@@ -151,7 +151,7 @@ class ChartPoint {
         this.context,
 
         // if labels width is to big, we take the only the first letter
-        this.width / 2 < labelsWidth ? label[i][0] + '.' : label[i],
+        this.width / 2.5 < labelsWidth ? label[i][0] + '.' : label[i],
 
         chartType === 'bar' ? nexPositionX + this.ratioW / 2 : nexPositionX,
 
