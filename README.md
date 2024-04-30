@@ -2,9 +2,12 @@
 
 [![English Version](https://img.shields.io/badge/Version-English-blue)](#english-version)
 [![Version Française](https://img.shields.io/badge/Version-Française-red)](#french-version)
+[![Storybook](https://img.shields.io/badge/Storybook-Yes-purple)](https://wild-chart-lib-sb.netlify.app/)
+
+
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.6-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -51,15 +54,28 @@ The WCS component allows to display a Chart by passing different props (dataset,
 config, theme).
 
 Implementation exemple code 
-``` js
- <WCS config={config} dataset={dataset} />
+``` js 
+import { WCS } from 'wcs-chart-lib';
 ```
+
+``` js
+ <WCS config={config} dataset={dataset} theme='sea'/>
+```
+**Theme**
+
+The chart has two default themes: "sea" and "nature".
+
+Simply pass the value as a string in the component props.
+
+Without any props, the chart will take "sea" as its default theme.
+
+
  Example of the dataset object, the structure does not change depending on the chart type :
 
 ``` js
 const dataset = [
     {
-      tag: "Titre",
+      tag: ["Titre1"],
       data: {
         labels: [
           "Janvier",
@@ -75,17 +91,17 @@ const dataset = [
           "Novembre",
           "Décembre",
         ],
-        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [[88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 ```
 
 This is an array, with an object:
-- **tag** (type: string): The title of the chart
+- **tag** (type: array of string): The title of the chart
 - **data**: Another object with:
-- **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, thus label[i]=values[i]);
-- **values**: Represents the values to display in the chart (this is a value table of type number int)
+  - **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, label[0]=values[0]);
+  - **values**: Represents the values to display in the chart (this is an array of tables with values ​​of type number int), if you want to display several graphs, simply add another table in the initial table.
 
 
 **The different chart types: bar, line, point, pie...** 
@@ -122,15 +138,12 @@ type, height and width properties are common to all graphics.
     toLine: false,
     grid: true,
     radius: 5,
-    fillColor: 'red',
-    strokeColor: 'blue',
   };
 ```
 - **toLine** (Boolean), defaulted to false, this option connects the points together.
 - **grid** (Boolean), defaults to true, this option allows you to display or not the grid on the graph, this grid is drawn from the number of values provided in the values table in dataset.
 - **radius** (type number, accepts one digit after the decimal point), this option defines the size of the point on the graph. By default, radius = 2.
-- **fillColor** (type string): this option lets you change the color of the dot. Default fillColor = “black”.
-- **strokeColor** (type string): this option changes the color of the point outline. Default strokeColor = “black
+
 
 ![Point Screenshot](./DOCUMENTATION/src/img/chartPointv2.PNG)
 
@@ -139,11 +152,9 @@ type, height and width properties are common to all graphics.
  const config = {
     type: 'bar',
     radius: 30,
-    fillColor: 'blue',
   };
 ```
 - **radius** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, radius = 10.
-- **fillColor** (type string): this option lets you change the color of the bars. Default fillColor = “black”.
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
@@ -167,7 +178,7 @@ N B : For the moment, the theme is not functional, and the color and size parame
 
 **Example of legend display :**
 ```js
-<WCS config={config} dataset={dataset} legend='onTop' />
+<WCS config={config} dataset={dataset} legend='top' />
 ```
 
 **Legend takes 4 possible parameters (in string):**
@@ -235,16 +246,29 @@ https://github.com/WildCodeSchool-CDA-LYON-02-2024/wcs-chart-lib
 Le composant WCS  permet d’afficher un graphique en passant différentes props (dataset, config, thème)
 
 **Exemple d'implémentation  :**
-   ``` js
-   <WCS config={config} dataset={dataset} />
+
+``` js 
+import { WCS } from 'wcs-chart-lib';
 ```
+
+   ``` js
+   <WCS config={config} dataset={dataset} theme='sea'/>
+```
+**Thème**
+
+Le graphique a deux thème par defaut : "sea" et "nature".
+
+Passer simplement la valeur en string dans les props du composant.
+
+Sans aucun props, le graphique prendra "sea" en thème par defaut.
+
 
 **Exemple de l’objet dataset, la structure ne change pas en fonction du type de graphique :**
 
 ``` js
 const dataset = [
     {
-      tag: "Titre",
+      tag: ["Titre1"],
       data: {
         labels: [
           "Janvier",
@@ -260,17 +284,17 @@ const dataset = [
           "Novembre",
           "Décembre",
         ],
-        values: [88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56],
+        values: [[88, 100, 30, 40, 50, 60, 51, 11, 51, 23, 47, 56]],
       },
     },
   ];
 ```
 
 Il s’agit d’un tableau, avec un objet :
- - **tag** (type : string) : Le titre du graphique 
-data : Un autre objet avec : 
-- **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[i]=values[i]);
-- **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de valeur de type number int)
+- **tag** (type : tableau de string) : Le titre du graphique 
+- **data** : Un autre objet avec : 
+  - **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[0]=values[0]);
+  - **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de tableaux avec des valeur de type number int), si vous voulez afficher plusieurs graphiques, ajouter simplement un autre tableau dans le tableau initial.
 
 Les différents types de graphiques : **bar, ligne, point, à secteur (camembert)...** 
 
@@ -292,7 +316,7 @@ Dans les exemples de config ci dessous, sont expliquées les propriétés propre
 
 - **type** (type string) : si pas de valeur fournis, il prendra “point” par défaut
 - **height** (de type number int), si pas de valeur fournis, height sera égal à la taille de la fenêtre du navigateur (innerHeight) divisé par deux 
-- **width* (type number int), si pas de valeur fournis, width sera égal à 100% de la largeur de la fenêtre du navigateur (innerWidth)
+- **width** (type number int), si pas de valeur fournis, width sera égal à 100% de la largeur de la fenêtre du navigateur (innerWidth)
 Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
 
 ![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
@@ -304,16 +328,12 @@ Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
     toLine: false,
     grid: true,
     radius: 5,
-    fillColor: 'red',
-    strokeColor: 'blue',
   };
 ```
 
 - **toLine** (booléen), par défaut à false, cette option permet de relier les points entre eux.
 - **grid** (booléen), par défaut à true, cette option permet d’afficher ou non le quadrillage sur le graphique, ce quadrillage est dessiné à partir du nombre de valeurs fournis dans le tableau values dans dataset.
 - **radius** (type number, accepte un chiffre après la virgule), cette option permet de définir la taille du point sur le graphique. Par défaut, radius = 2.
-- **fillColor** (type string):cette option permet de changer la couleur du point. Par défaut, fillColor = “black”
-- **strokeColor** (type string), cette option permet de changer la couleur du contour du point. Par défaut, strokeColor = “black
 
 ![Point Screenshot](./DOCUMENTATION/src/img/chartPointv2.PNG)
 
@@ -322,12 +342,10 @@ Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
   const config = {
     type: 'bar',
     radius: 30,
-    fillColor: 'blue',
   };
 ```
 
 - **radius** (type number, accepte un chiffre après la virgule), cette option permet de définir la largeur de la barre sur le graphique. Par défaut, radius = 10. 
-- **fillColor** (type string):cette option permet de changer la couleur des barres. Par défaut, fillColor = “black”
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
@@ -353,7 +371,7 @@ Le composant utilise l’API canvas pour dessiner le graphique, est responsive e
 
 **Exemple pour l'affichage de la légende :**
 ``` js
-<WCS config={config} dataset={dataset} legend='onTop' />
+<WCS config={config} dataset={dataset} legend='top' />
 ```
 
 **Legend** prend 4 paramètres possible (en string):
