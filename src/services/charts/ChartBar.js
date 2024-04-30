@@ -12,7 +12,7 @@ class ChartBar extends ChartPoint {
 
     fillColor = 'black',
     strokeColor = 'black',
-    barWidth
+    barWidth = 15
   ) {
     super(
       data,
