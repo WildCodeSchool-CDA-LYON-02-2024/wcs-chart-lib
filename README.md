@@ -7,7 +7,7 @@
 
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.7-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.8-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -97,7 +97,7 @@ function App() {
 export default App;
 
 ```
-**Theme**
+## Theme
 
 The chart has two default themes: "sea" and "nature".
 
@@ -105,7 +105,21 @@ Simply pass the value as a string in the component props.
 
 Without any props, the chart will take "sea" as its default theme.
 
+**Customize your theme**
 
+You can pass an object to the **theme** props with the following values :
+
+| Propriété |Type | Description | Example |
+|:---------|:----|:------------|:--------------|
+|backGroundColor| String|Change the background color of the canvas| "yellow"| 
+|fillColor|Array of string| Change the color of points and bars| ["blue","yellow"]|
+|strokeColor| String| Change the color of points | "blue"|
+|gridColor|Chaine de caractères| Change the grid color | "grey"|
+|axiesColor|Chaine de caractères|Change X and Y axies | "red"|
+|adaptFontSizeY|Number(int) negative or positive| Change the size of numbers on the Y axis| 5 |
+|adaptFontSizeX|Number(int) negative or positive|Change the size of labels on the X axis| -5|
+
+## Data
  Example of the dataset object, the structure does not change depending on the chart type :
 
 ``` js
@@ -133,12 +147,23 @@ const dataset = [
   ];
 ```
 
-This is an array, with an object:
-- **tag** (type: array of string): The title of the chart
-- **data**: Another object with:
-  - **labels** (type: value table of type “string”): Represents the labels associated with the values (for example, “January” will be displayed below the value “10”, label[0]=values[0]);
-  - **values**: Represents the values to display in the chart (this is an array of tables with values ​​of type number int), if you want to display several graphs, simply add another table in the initial table.
+| Proprety |Type | Description | Example |required|
+|:---------|:----|:------------|:--------------|:-------|
+|dataset|Array of *object*| The whole structure|  |**Yes**|
+|tag| Array of *string* | Title of the chart|["Title1","Title2"]  | No |
+|data| Object | Contains labels and value| | **Yes** |
+|labels| Array of *string* |Represents the labels associated with the values|["Janurary","February"] | **Yes**|
+|values| Array of *array* with number int | The values to display in the chart|[10,20,30] | **Yes**|
 
+⚠ *Note* : To display multiple charts, for comparisons for example, add another array.
+
+If there are multiple arrays, the first one should be the longest, or it will cause bugs!
+
+*Example* : 
+```[[10,20,30,40,70], [40,50,60]]``` 
+~~```[[40,50,60],[10,20,30,40,70]]```~~
+
+## Chart type
 
 **The different chart types: bar, line, point, pie...** 
 
@@ -151,6 +176,8 @@ Possible values: **“bar”**, “point”, “line”, “pie”.
 The configuration examples config explain the properties specific to each type of graphic. If a property is present for one type of graphic and absent for another, it's simply not functional.
 type, height and width properties are common to all graphics.
 
+### Chart line
+
 **Example for the line chart :** 
 ``` js
   const config = {
@@ -159,14 +186,16 @@ type, height and width properties are common to all graphics.
     width: 1000,
   };
 ```
-- type (string type): if no value is provided, it will default to “point”.
-- (type number int): if no value is provided, height will be equal to the size of the browser window (innerHeight) divided by two
-- width (type number int), if no value provided, width will be equal to 100% of the browser window width (innerWidth)
+| Proprety |Type | Description | Example |Required| By default |
+|:---------|:----|:------------|:--------------|:-------|:----|
+|type|String|Defines the chart type | "line"|Yes|"point"|
+|height|Number(int)| It's a percentage, it defines the height of the canvas | 50|No|100|
+|width|Number (int)| It's a percentage, it defines the width of the canvas |80|No|100|
 
 
 ![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
 
-
+### Chart point
 **Example for the point chart :**
   ``` js
   const config = {
@@ -176,12 +205,17 @@ type, height and width properties are common to all graphics.
     radius: 5,
   };
 ```
-- **toLine** (Boolean), defaulted to false, this option connects the points together.
-- **grid** (Boolean), defaults to true, this option allows you to display or not the grid on the graph, this grid is drawn from the number of values provided in the values table in dataset.
-- **radius** (type number, accepts one digit after the decimal point), this option defines the size of the point on the graph. By default, radius = 2.
+| Proprety |Type | Description | Example |By default|
+|:---------|:----|:------------|:--------------|:-------|
+|toLine|Boolean| Allows you to connect the points with a line|true|false|
+|grid|Boolean|Allows you to remove the grid|false|true|
+|radius|Number (int)|Sets the radius of the circle (point)|10|2|
+
 
 
 ![Point Screenshot](./DOCUMENTATION/src/img/chartPointv2.PNG)
+
+### Chart bar
 
 **Example for the bar chart :** 
  ``` js
@@ -190,9 +224,15 @@ type, height and width properties are common to all graphics.
     barWidth: 30,
   };
 ```
-- **barWidth** (type number, accepts one digit after the decimal point), this option defines the width of the bar on the graph. By default, barWidth = 15.
+| Proprety |Type | Description | Example |By default|
+|:---------|:----|:------------|:--------------|:-------|
+|barWidth| Number (int) (int)|Allows you to define the width of the bar| 20|15|
+
+⚠ **Note**: Currently, the bar chart can only accommodate two value tables. Beyond that, the result will not be as expected.
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
+
+### Chart pie
 
 **Example of a pie chart :** 
  ``` js
@@ -201,16 +241,13 @@ type, height and width properties are common to all graphics.
     radius: 100,
   };
   ```
-- **radius** (type number, accepts one digit after the decimal point), this option defines the radius of the pie chart. By default, radius = height - spacing, spacing is not modifiable for the moment and is equal to 100px.
+| Propriété |Type | Description | Exemple |By defaut|
+|:---------|:----|:------------|:--------------|:-------|
+|radius|Number (int)|Defines the size of the pie chart| 100 | See below|
+
+By default, the radius of the pie chart is half the smaller of width or heigh, minus some spacing (so that the ends of the pie chart are not stuck to the window edges)
 
 ![PieChart Screenshot](./DOCUMENTATION/src/img/chartPiev2.PNG)
-
-
-
-The **theme object** is not required for the component to function correctly, as it takes a default theme.
-The theme object will be used to customize graphic colors, font size, fonts, line thickness, etc...
-See all the possibilities on storybook
-N B : For the moment, the theme is not functional, and the color and size parameters are in the config object.
 
 **Example of legend display :**
 ```js
@@ -226,7 +263,7 @@ N B : For the moment, the theme is not functional, and the color and size parame
 
 
 For greater clarity, we'll show you examples with the pie chart.
-For other charts, only the "onTop" parameter is relevant.
+For other charts, only the "top" parameter is relevant.
 
 *Without legend ("none") :*
 
@@ -250,7 +287,7 @@ For other charts, only the "onTop" parameter is relevant.
 
 ## French Version
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.0.7-brightgreen)](#)
+[![Version](https://img.shields.io/badge/Version-0.0.8-brightgreen)](#)
 [![Language](https://img.shields.io/badge/Language-JavaScript-green)](#)
 [![Maintained with Node.js](https://img.shields.io/badge/Maintained%20with-Node.js-green)](https://nodejs.org/)
 [![Maintained with npm](https://img.shields.io/badge/Maintained%20with-npm-orange)](https://www.npmjs.com/)
@@ -328,15 +365,32 @@ export default App;
 
 ```
 
-**Thème**
+## Thème
 
-Le graphique a deux thème par defaut : "sea" et "nature".
+Le graphique a deux thèmes par defaut : "sea" et "nature".
 
-Passer simplement la valeur en string dans les props du composant.
+Passer simplement la valeur en chaine de caractères dans les props du composant.
 
 Sans aucun props, le graphique prendra "sea" en thème par defaut.
 
+**Faire son thème personnaliser**
 
+Vous pouvez passer un objet au props **theme** avec les valeurs suivante :
+
+| Propriété |Type | Description | Exemple |
+|:---------|:----|:------------|:--------------|
+|backGroundColor| Chaine de caractères|Change la couleur de fond du canvas| "yellow"| 
+|fillColor|Tableau de chaine de caractères| Change la couleur des points et des barres| ["blue","yellow"]|
+|strokeColor| Chaine de caractères| Change la couleur du contour du point | "blue"|
+|gridColor|Chaine de caractères| Change la couleur du quadrillage | "grey"|
+|axiesColor|Chaine de caractères|Change la couleur de l'axe X et Y | "red"|
+|adaptFontSizeY|Nombre(int) négatif ou positif| Change la taille des nombres sur l'axe Y| 5 |
+|adaptFontSizeX|Nombre(int) négatif ou positif|Change la taille des labels sur l'axe X| -5|
+
+
+
+
+## Données
 **Exemple de l’objet dataset, la structure ne change pas en fonction du type de graphique :**
 
 ``` js
@@ -364,13 +418,25 @@ const dataset = [
   ];
 ```
 
-Il s’agit d’un tableau, avec un objet :
-- **tag** (type : tableau de string) : Le titre du graphique 
-- **data** : Un autre objet avec : 
-  - **labels** (type : tableau de valeur de type “string”) : Représente les labels associés aux valeurs dans values (par exemple, “Janvier” sera affiché en dessous de la valeur “10”, ainsi label[0]=values[0]);
-  - **values** : Représente les valeurs à afficher dans le graphique (il s’agit d’un tableau de tableaux avec des valeur de type number int), si vous voulez afficher plusieurs graphiques, ajouter simplement un autre tableau dans le tableau initial.
+| Propriété |Type | Description | Exemple |Requis|
+|:---------|:----|:------------|:--------------|:-------|
+|dataset|Tableau d'*objets*| Toute la structure|  |**Oui**|
+|tag| Tableau de  *chaine de caractères* | Titre du graphique|["Titre1","Titre2"]  | Non |
+|data| Objet | Contient tous les labels| | **Oui** |
+|labels| Tableau de *chaine de caractères* |Représente les labels associés aux valeurs|["Janvier","Février"] | **Oui**|
+|values| Tableau de *tableau de nombres, int* | The values to display in the chart|[10,20,30] | **Oui**|
 
-Les différents types de graphiques : **bar, ligne, point, à secteur (camembert)...** 
+⚠ *Note* : pour afficher plusieurs graphiques, pour des comparaisons par exemple, ajouter un autre tableau.
+
+Si plusieurs tableaux, le premier doit être le plus long, ou cela causera des bugs !
+
+*Exemple* : 
+```[[10,20,30,40,70], [40,50,60]]``` 
+~~```[[40,50,60],[10,20,30,40,70]]```~~
+
+
+## Types de graphiques
+Les différents types de graphiques : **barre, ligne, point, à secteur (camembert)...** 
 
 Le type de graphique se définit dans l’objet **config** et il est obligatoire pour le fonctionnement du composant, même s' il est vide.
 Le type de graphique est a définir avec **type** (type string) : si pas de valeur fournis, il prendra “point” par défaut.
@@ -379,21 +445,25 @@ Valeurs possibles : **“bar”, “point”, “line”, “pie”**
 Dans les exemples de config ci dessous, sont expliquées les propriétés propres à chaque type de graphique, si une propriété est présente pour un type de graphique et absente pour un autre, elle n’est tout simplement pas fonctionnelle.
 **Les propriétés type, height, width, sont communes à tous les graphiques**.
 
+### Graphique en ligne
+
 **Exemple pour le graphique en ligne :**
 ``` js
   const config = {
     type: 'line',
-    height: 1000,
-    width: 1000,
+    height: 100,
+    width: 100,
   };
 ```
+| Propriété |Type | Description | Exemple |Requis| Par defaut |
+|:---------|:----|:------------|:--------------|:-------|:----|
+|type|Chaine de caractères|Définit le type de graphique | "line"|Oui|"point"|
+|height|Nombre (int)| C'est un pourcentage, il definit la hauteur du canvas | 50|Non|100|
+|width|Nombre (int)| C'est un pourcentage, il définit la largeur du canvas |80|Non|100|
 
-- **type** (type string) : si pas de valeur fournis, il prendra “point” par défaut
-- **height** (de type number int), si pas de valeur fournis, height sera égal à la taille de la fenêtre du navigateur (innerHeight) divisé par deux 
-- **width** (type number int), si pas de valeur fournis, width sera égal à 100% de la largeur de la fenêtre du navigateur (innerWidth)
-Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
 
 ![Line Screenshot](./DOCUMENTATION/src/img/chartLinev2.PNG)
+### Graphique en points
 
 **Exemple pour le graphique en point:**
 ``` js
@@ -404,26 +474,36 @@ Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
     radius: 5,
   };
 ```
+| Propriété |Type | Description | Exemple |Défaut|
+|:---------|:----|:------------|:--------------|:-------|
+|toLine|Booléen| Permet de relier les points par une ligne|true|false|
+|grid|Booléen|Permet d'enlever le quadrillage|false|true|
+|radius|Nombre (int)|Définit le rayon du cercle (point)|10|2|
 
-- **toLine** (booléen), par défaut à false, cette option permet de relier les points entre eux.
-- **grid** (booléen), par défaut à true, cette option permet d’afficher ou non le quadrillage sur le graphique, ce quadrillage est dessiné à partir du nombre de valeurs fournis dans le tableau values dans dataset.
-- **radius** (type number, accepte un chiffre après la virgule), cette option permet de définir la taille du point sur le graphique. Par défaut, radius = 2.
+
+
 
 ![Point Screenshot](./DOCUMENTATION/src/img/chartPointv2.PNG)
 
-**Exemple pour le graphique en bar  :** 
+### Graphique en barres
+**Exemple pour le graphique en secteur  :** 
   ``` js
   const config = {
     type: 'bar',
     barWidth: 30,
   };
 ```
+| Propriété |Type | Description | Exemple |Défaut|
+|:---------|:----|:------------|:--------------|:-------|
+|barWidth| Nombre (int)| Permet de definir la largeur de la barre| 20|15|
 
-- **barWidth** (type number, accepte un chiffre après la virgule), cette option permet de définir la largeur de la barre sur le graphique. Par défaut, barWidth = 15. 
+⚠ **Note** : Pour l'instant, le graphique en barre ne peut accepter que deux tableaux de valeur. Au délà, le rendu ne sera pas celui attendu. 
+
+
 
 ![BarChart Screenshot](./DOCUMENTATION/src/img/chartBarv2.PNG)
 
-
+### Graphique camembert
 **Exemple pour le graphique en camembert :**
 ``` js
   const config = {
@@ -432,14 +512,13 @@ Les valeurs de width et height sont des **pixels**, 1000 = 1000px.
   };
 ```
 
-- **radius** (type number, accepte un chiffre après la virgule), cette option permet de définir le rayon du camembert sur le graphique. Par défaut, radius = height - spacing, spacing n’est pas modifiable pour l’instant et est égal à 100.
+| Propriété |Type | Description | Exemple |Défaut|
+|:---------|:----|:------------|:--------------|:-------|
+|radius|Nombre (int)|Définit le taille du camembert| 100 | Voir ci-dessous|
+
+Par défaut, le rayon du camembert prend la moitié de la valeur la plus petite entre width et heigh, moins un espacement (pour que les extrémités du camembert ne soient pas collées aux bords de la fenêtre)
 
 ![PieChart Screenshot](./DOCUMENTATION/src/img/chartPiev2.PNG)
-
-L’objet **theme** n’est pas nécessaire au bon fonctionnement du composant car il prend un thème par défaut.
-L’objet thème sera utilisé pour personnaliser les couleurs du graphique, la taille de la police, les fonts, l'épaisseur des traits, etc…
-Voir toutes les possibilités sur storybook
-N B : Pour l’instant le thème n’est pas fonctionnel, et les paramètres de couleur ou de taille sont dans l’objet config
 
 Le composant utilise l’API canvas pour dessiner le graphique, est responsive et se resize automatiquement par rapport à la taille de la fenêtre du navigateur.
 
@@ -457,7 +536,7 @@ Le composant utilise l’API canvas pour dessiner le graphique, est responsive e
 
 
 Pour plus de clarté, nous vous montrerons des exemples avec le camembert.
-Pour les autres graphiques, seul le paramètre **“onTop”** sera pertinent
+Pour les autres graphiques, seul le paramètre **“top”** sera pertinent
 
 *Sans légrende ("none") :*
 
