@@ -92,8 +92,11 @@ class Theme {
         this.axiesColor = this.themeNature[1];
         this.front = 'Arial';
         break;
+
       default:
-        this.backGroundColor = 'white';
+        this.backGroundColor = theme?.backGroundColor
+          ? theme?.backGroundColor
+          : 'white';
         this.fillColor = theme?.fillColor
           ? theme?.fillColor
           : this.themeAqua[0];

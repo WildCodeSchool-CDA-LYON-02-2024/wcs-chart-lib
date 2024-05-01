@@ -17,10 +17,12 @@ class CanvasConfig {
 
     this.canvas.width = innerWidth * this.ratioWidth;
     this.background = this.context.fillStyle = backgroundColor;
-    this.drawCanvas = this.context.fillRect(0, 0, width, height);
-
-    console.log('ratio :', this.ratioWidth);
-    console.log('canvas width', this.canvas.width);
+    this.drawCanvas = this.context.fillRect(
+      0,
+      0,
+      this.canvas.width,
+      this.canvas.height
+    );
   }
 }
 

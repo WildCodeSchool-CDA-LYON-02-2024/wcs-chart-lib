@@ -4,17 +4,18 @@ import WCS from './components/WCS';
 
 function App() {
   //Exemple for config chart
-  console.log('innerWidh : ', innerWidth);
 
   const config = {
-    type: 'point',
+    type: 'bar',
     height: 50,
     width: 100,
+    radius: 10,
+    toLine: false,
   };
 
   const dataset = [
     {
-      tag: ['Titre1'],
+      tag: [],
       data: {
         labels: [
           'Janvier',
@@ -36,6 +37,14 @@ function App() {
   ];
 
   const theme = {
+    backGroundColor: 'white',
+    fillColor: ['red'],
+    strokeColor: 'black',
+    lineColor: ['blue'],
+    gridColor: '',
+    axiesColor: 'red',
+    font: 'Verdana',
+
     adaptFontSizeY: 5,
     adaptFontSizeX: 0,
     adaptFontSizeLabels: 0,
