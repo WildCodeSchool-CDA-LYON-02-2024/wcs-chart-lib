@@ -12,8 +12,10 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width,
+        canvasCfg.canvas.height,
+        canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
         config.grid,
         config.toLine,
         config.radius,
@@ -27,8 +29,10 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width,
+        canvasCfg.canvas.height,
+        canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
         config.grid
       );
 
@@ -41,8 +45,10 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width,
+        canvasCfg.canvas.height,
+        canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
         config.grid,
 
         config.fillColor,
@@ -58,8 +64,10 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         themeObj?.themeForChartPie,
         canvasCfg.context,
         canvasCfg.spacing,
-        config.height,
-        config.width,
+        canvasCfg.canvas.height,
+        canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
         config.radius
       );
       chart.draw();
@@ -67,14 +75,17 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
     default:
       chart = new ChartPoint(
         dataset,
+        themeObj,
         canvasCfg.context,
         canvasCfg.spacing,
+        canvasCfg.canvas.height,
+        canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
+        config.grid,
+        config.toLine,
         config.radius,
-        config.fillColor,
-        config.strokeColor,
-        config.height,
-        config.width,
-        config.toLine
+        config.type
       );
       chart.drawPointArray();
   }

@@ -60,5 +60,19 @@ const axieYNumber = (limitMaxValue, limitMinValue, referenceData) => {
 
   return yArray;
 };
+// This function adapt Font width with ratio and innerWidth or innerHeight
+// I use scale for y axies because otherwise it's too small for y axies
+const responsiveFont = ([ratio, axie, adapt = 0]) => {
+  let inner = null;
+  let scale = 1;
+  if (axie === 'y') {
+    inner = innerHeight;
+    scale = 2;
+  } else if (axie === 'x') inner = innerWidth;
 
-export { limitMinValue, limitMaxValue, axieYNumber };
+  let fontWidth = (inner * ratio * scale) / 100 + adapt + 'px';
+
+  return fontWidth;
+};
+
+export { limitMinValue, limitMaxValue, axieYNumber, responsiveFont };

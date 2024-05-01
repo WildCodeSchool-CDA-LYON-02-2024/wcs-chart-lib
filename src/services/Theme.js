@@ -7,6 +7,11 @@ class Theme {
     this.gridColor = theme?.gridColor;
     this.axiesColor = theme?.axiesColor;
     this.font = theme?.font;
+    this.adaptFontSizeY = theme?.adaptFontSizeY;
+    this.adaptFontSizeX = theme?.adaptFontSizeX;
+
+    // Not functional
+    this.adaptFontSizeLabels = theme?.adaptFontSizeLabels;
 
     this.themeForChartPie = theme?.themeForChartPie
       ? theme?.themeForChartPie
@@ -89,8 +94,11 @@ class Theme {
         this.axiesColor = this.themeNature[1];
         this.front = 'Arial';
         break;
+
       default:
-        this.backGroundColor = 'white';
+        this.backGroundColor = theme?.backGroundColor
+          ? theme?.backGroundColor
+          : 'white';
         this.fillColor = theme?.fillColor
           ? theme?.fillColor
           : this.themeAqua[0];

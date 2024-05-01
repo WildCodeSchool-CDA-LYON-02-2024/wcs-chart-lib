@@ -8,10 +8,23 @@ class ChartLine extends ChartPoint {
     spacing,
     height,
     width,
+    ratioWidth,
+    ratioHeight,
     cfgGrid,
     fillColor
   ) {
-    super(data, themeObj, context, spacing, height, width, cfgGrid, fillColor);
+    super(
+      data,
+      themeObj,
+      context,
+      spacing,
+      height,
+      width,
+      ratioWidth,
+      ratioHeight,
+      cfgGrid,
+      fillColor
+    );
   }
 
   drawLineArray() {

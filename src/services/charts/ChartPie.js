@@ -8,10 +8,25 @@ class ChartPie extends ChartPoint {
     spacing,
     height = innerHeight / 2,
     width = innerWidth,
-    radius = width - spacing
+    ratioWidth,
+    ratioHeight,
+
+    radius = width > height ? height / 2 - spacing / 2 : width / 2 - spacing / 2
   ) {
-    super(data, themeObj, context, spacing, height, width, null, null, radius);
-    this.radius = this.height / 2;
+    super(
+      data,
+      themeObj,
+      context,
+      spacing,
+      height,
+      width,
+      ratioWidth,
+      ratioHeight,
+      null,
+      null,
+      radius
+    );
+    this.radius = radius;
     this.startX = width / 2;
     this.startY = height / 2;
     this.colorList = themeObj;

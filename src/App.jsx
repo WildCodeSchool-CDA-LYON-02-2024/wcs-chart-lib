@@ -6,14 +6,14 @@ function App() {
   //Exemple for config chart
 
   const config = {
-    type: 'bar',
-    height: 1000,
-    width: 1000,
+    type: 'line',
+    height: 100,
+    width: 100,
   };
 
   const dataset = [
     {
-      tag: ['Titre1'],
+      tag: [],
       data: {
         labels: [
           'Janvier',
@@ -35,9 +35,9 @@ function App() {
   ];
 
   return (
-    <>
-      <WCS config={config} dataset={dataset} />
-    </>
+    <div className='app'>
+      <WCS config={config} dataset={dataset} theme={'top'} />
+    </div>
   );
 }
 
