@@ -8,7 +8,7 @@ function App() {
 
   const config = {
     type: 'point',
-    height: 100,
+    height: 50,
     width: 100,
   };
 
@@ -35,9 +35,15 @@ function App() {
     },
   ];
 
+  const theme = {
+    adaptFontSizeY: 5,
+    adaptFontSizeX: 0,
+    adaptFontSizeLabels: 0,
+  };
+
   return (
     <div className='app'>
-      <WCS config={config} dataset={dataset} />
+      <WCS config={config} dataset={dataset} theme={theme} />
     </div>
   );
 }

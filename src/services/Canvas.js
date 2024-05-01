@@ -9,10 +9,10 @@ class CanvasConfig {
     this.canvas = this.ref.current;
     this.context = this.canvas.getContext('2d');
     this.spacing = 100;
-    this.defaultRatioHeight = 101;
-    this.defaultRatioWidth = 101;
-    this.ratioHeight = height / this.defaultRatioHeight;
-    this.ratioWidth = width / this.defaultRatioWidth;
+    this.defaultRatio = 101;
+
+    this.ratioHeight = height / this.defaultRatio;
+    this.ratioWidth = width / this.defaultRatio;
     this.canvas.height = innerHeight * this.ratioHeight;
 
     this.canvas.width = innerWidth * this.ratioWidth;

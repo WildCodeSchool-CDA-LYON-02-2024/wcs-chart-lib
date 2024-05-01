@@ -9,7 +9,6 @@ const initAxies = (canvasCfg, config, themeObj) => {
 
   const width = canvasCfg.canvas.width;
 
-  console.log('canvasCfg :', canvasCfg.canvas.width);
   //affected a new point class
   const twoPoint = new Point();
 

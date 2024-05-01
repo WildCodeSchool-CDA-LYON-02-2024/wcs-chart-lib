@@ -7,6 +7,9 @@ class Theme {
     this.gridColor = theme?.gridColor;
     this.axiesColor = theme?.axiesColor;
     this.font = theme?.font;
+    this.adaptFontSizeY = theme?.adaptFontSizeY;
+    this.adaptFontSizeX = theme?.adaptFontSizeX;
+    this.adaptFontSizeLabels = theme?.adaptFontSizeLabels;
 
     this.themeForChartPie = theme?.themeForChartPie
       ? theme?.themeForChartPie

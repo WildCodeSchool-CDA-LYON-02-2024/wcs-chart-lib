@@ -1,5 +1,10 @@
 import Point from '../Point';
-import { limitMinValue, limitMaxValue, axieYNumber } from '../caclFunction.js';
+import {
+  limitMinValue,
+  limitMaxValue,
+  axieYNumber,
+  responsiveFont,
+} from '../caclFunction.js';
 import { findMinValue, findMaxValue } from '../adaptiveData.js';
 class ChartPoint {
   constructor(
@@ -9,6 +14,8 @@ class ChartPoint {
     spacing,
     height = innerHeight / 2,
     width = innerWidth,
+    ratioWidth,
+    ratioHeight,
     cfgGrid = true,
     cfgToLine = false,
 
@@ -24,6 +31,8 @@ class ChartPoint {
     this.height = this.heightParams;
     this.widthParams = width - this.spacing;
     this.width = this.widthParams;
+    this.ratioWidth = ratioWidth;
+    this.ratioHeight = ratioHeight;
     this.chartType = chartType;
 
     this.margin = 25;
@@ -36,7 +45,10 @@ class ChartPoint {
     this.strokeColor = themeObj?.strokeColor;
     this.lineColor = themeObj?.lineColor;
     this.gridColor = themeObj?.gridColor;
+
     this.font = themeObj?.font;
+    this.adaptFontSizeY = themeObj?.adaptFontSizeY;
+    this.adaptFontSizeX = themeObj?.adaptFontSizeX;
 
     // ----------------- DATA --------------------//
 
@@ -131,7 +143,9 @@ class ChartPoint {
         this.context,
         this.axieYNumberArray[j],
         this.margin,
-        this.height
+        this.height,
+        null,
+        responsiveFont([this.ratioHeight, 'y', this.adaptFontSizeY])
       );
       this.height -= this.ratioH;
     }
@@ -141,6 +155,7 @@ class ChartPoint {
   drawLabels(label = this.labels, chartType = this.chartType) {
     let nexPositionX = this.spacing;
     let labelsWidth = null;
+
     // calcul total labels width
     for (let i = 0; i < label.length; i++) {
       labelsWidth += this.context.measureText(label[i]).width;
@@ -156,7 +171,8 @@ class ChartPoint {
         chartType === 'bar' ? nexPositionX + this.ratioW / 2 : nexPositionX,
 
         this.height + this.margin,
-        this.font
+        this.font,
+        responsiveFont([this.ratioWidth, 'x', this.adaptFontSizeX])
       );
       nexPositionX += this.ratioW;
     }

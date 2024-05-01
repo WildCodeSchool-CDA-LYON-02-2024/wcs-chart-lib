@@ -7,7 +7,6 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
   let chart;
   switch (config.type) {
     case 'point':
-      console.log('canvasCfg select :', canvasCfg);
       chart = new ChartPoint(
         dataset,
         themeObj,
@@ -15,6 +14,8 @@ const selectChart = (config, canvasCfg, dataset, themeObj) => {
         canvasCfg.spacing,
         canvasCfg.canvas.height,
         canvasCfg.canvas.width,
+        canvasCfg.ratioWidth,
+        canvasCfg.ratioHeight,
         config.grid,
         config.toLine,
         config.radius,

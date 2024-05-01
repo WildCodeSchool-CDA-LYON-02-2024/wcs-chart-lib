@@ -130,7 +130,7 @@ class Legend {
       }
     } else {
       startX = canvas.width / 2;
-      console.log('color : ', themeObj?.fillColor);
+
       for (let i = 0; i < this.tag.length; i++) {
         context.fillStyle = themeObj?.fillColor[i];
         context.fillRect(startX, startY, 10, 10);
