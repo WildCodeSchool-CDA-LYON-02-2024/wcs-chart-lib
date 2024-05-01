@@ -1,10 +1,5 @@
 class CanvasConfig {
-  constructor(
-    ref,
-    height = innerHeight / 2,
-    width = innerWidth,
-    backgroundColor = 'white'
-  ) {
+  constructor(ref, height = 100, width = 100, backgroundColor = 'white') {
     this.ref = ref;
     this.canvas = this.ref.current;
     this.context = this.canvas.getContext('2d');

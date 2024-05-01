@@ -9,6 +9,8 @@ class Theme {
     this.font = theme?.font;
     this.adaptFontSizeY = theme?.adaptFontSizeY;
     this.adaptFontSizeX = theme?.adaptFontSizeX;
+
+    // Not functional
     this.adaptFontSizeLabels = theme?.adaptFontSizeLabels;
 
     this.themeForChartPie = theme?.themeForChartPie

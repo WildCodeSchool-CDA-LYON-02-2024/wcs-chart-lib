@@ -120,7 +120,6 @@ class ChartPoint {
 
   // main function
   drawPointArray() {
-    console.log('fillColor :', this.fillColor);
     this.drawGrid();
 
     this.initStartForClmnAndRow();
